@@ -6,10 +6,10 @@
 //  Copyright © 2018 Георгий Зубков. All rights reserved.
 //
 
+
 #import "GameViewController.h"
 
 @interface GameViewController ()
-
 @end
 
 @implementation GameViewController
@@ -22,8 +22,6 @@
     _screenHeight=CGRectGetHeight(screen);
     _cardWidth=_screenWidth/[[Cards sharedInstance]height];
     _cardHeight=_screenHeight/([cards cardDeckNumber]/[cards height]);
-    //[[Cards sharedInstance]cardDeckNumber];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

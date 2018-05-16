@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		865CF5CD20AC53600018A5E2 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865CF5CC20AC53600018A5E2 /* GameViewController.m */; };
 		8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDCD20A9A2690079C347 /* AppDelegate.m */; };
 		8686FDD120A9A2690079C347 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDD020A9A2690079C347 /* ViewController.m */; };
 		8686FDD420A9A2690079C347 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8686FDD220A9A2690079C347 /* Main.storyboard */; };
@@ -18,7 +19,6 @@
 		8686FE1620A9C6570079C347 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1420A9C6570079C347 /* Card.m */; };
 		8686FE1720A9C6570079C347 /* Cards.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1520A9C6570079C347 /* Cards.m */; };
 		8686FE1B20A9C9060079C347 /* CardsUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1A20A9C9060079C347 /* CardsUIButton.m */; };
-		8686FE2020A9D5430079C347 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1F20A9D5430079C347 /* GameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		865CF5CC20AC53600018A5E2 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		8686FDC920A9A2690079C347 /* Cards_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cards_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8686FDCC20A9A2690079C347 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8686FDCD20A9A2690079C347 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		8686FE1920A9C9060079C347 /* CardsUIButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardsUIButton.h; sourceTree = "<group>"; };
 		8686FE1A20A9C9060079C347 /* CardsUIButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardsUIButton.m; sourceTree = "<group>"; };
 		8686FE1E20A9D5430079C347 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		8686FE1F20A9D5430079C347 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,10 +90,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		865CF5CB20AC4F940018A5E2 /* CollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionViewController;
+			sourceTree = "<group>";
+		};
 		8686FDC020A9A2690079C347 = {
 			isa = PBXGroup;
 			children = (
-				8686FE0820A9C4620079C347 /* CardsLib */,
 				8686FDCB20A9A2690079C347 /* Cards_ios */,
 				8686FDE420A9A26A0079C347 /* Cards_iosTests */,
 				8686FDEF20A9A26A0079C347 /* Cards_iosUITests */,
@@ -115,6 +121,8 @@
 		8686FDCB20A9A2690079C347 /* Cards_ios */ = {
 			isa = PBXGroup;
 			children = (
+				865CF5CB20AC4F940018A5E2 /* CollectionViewController */,
+				8686FE0820A9C4620079C347 /* CardsLib */,
 				8686FE1D20A9D5060079C347 /* GameViewController */,
 				8686FE1C20A9D4F60079C347 /* Main */,
 				8686FE1820A9C8C70079C347 /* Buttons */,
@@ -156,7 +164,6 @@
 				8686FE1520A9C6570079C347 /* Cards.m */,
 			);
 			name = CardsLib;
-			path = Cards_ios;
 			sourceTree = "<group>";
 		};
 		8686FE1820A9C8C70079C347 /* Buttons */ = {
@@ -181,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				8686FE1E20A9D5430079C347 /* GameViewController.h */,
-				8686FE1F20A9D5430079C347 /* GameViewController.m */,
+				865CF5CC20AC53600018A5E2 /* GameViewController.m */,
 			);
 			name = GameViewController;
 			sourceTree = "<group>";
@@ -316,9 +323,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865CF5CD20AC53600018A5E2 /* GameViewController.m in Sources */,
 				8686FDD120A9A2690079C347 /* ViewController.m in Sources */,
 				8686FDDC20A9A26A0079C347 /* main.m in Sources */,
-				8686FE2020A9D5430079C347 /* GameViewController.m in Sources */,
 				8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */,
 				8686FE1720A9C6570079C347 /* Cards.m in Sources */,
 				8686FE1620A9C6570079C347 /* Card.m in Sources */,
