@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CardsUIButton.h"
+#import "CustomButton.h"
 #import "Cards.h"
 typedef enum{
     GameModeSwitcherNo,
@@ -24,12 +24,12 @@ static GameModeSwitcher _gameSwitcher;
     Cards *cards;
 }
 
-@property (weak, nonatomic) IBOutlet CardsUIButton *exitButton;
-@property (weak, nonatomic) IBOutlet CardsUIButton *continueButton;
-@property (weak, nonatomic) IBOutlet CardsUIButton *nGameButton;
-@property (weak, nonatomic) IBOutlet UIButton *easyModeButon;
-@property (weak, nonatomic) IBOutlet UIButton *middleModeButton;
-@property (weak, nonatomic) IBOutlet UIButton *hardModeButon;
+@property (weak, nonatomic) IBOutlet CustomButton *exitButton;
+@property (weak, nonatomic) IBOutlet CustomButton *continueButton;
+@property (weak, nonatomic) IBOutlet CustomButton *nGameButton;
+@property (weak, nonatomic) IBOutlet CustomButton *easyModeButon;
+@property (weak, nonatomic) IBOutlet CustomButton *middleModeButton;
+@property (weak, nonatomic) IBOutlet CustomButton *hardModeButon;
 
 @end
 

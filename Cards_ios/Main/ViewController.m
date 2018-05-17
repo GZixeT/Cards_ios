@@ -19,15 +19,12 @@
     CGRect screen=[[UIScreen mainScreen]bounds];
     _screenWidth=CGRectGetWidth(screen);
     _screenHeight=CGRectGetHeight(screen);
-    [[_nGameButton layer]setCornerRadius:CORNER_RADIUS];
-    [[_continueButton layer]setCornerRadius:CORNER_RADIUS];
-    [[_exitButton layer]setCornerRadius:CORNER_RADIUS];
-    [[_easyModeButon layer]setCornerRadius:CORNER_RADIUS];
-    [[_middleModeButton layer]setCornerRadius:CORNER_RADIUS];
-    [[_hardModeButon layer]setCornerRadius:CORNER_RADIUS];
-    [[_nGameButton layer]setPosition:CGPointMake(_screenWidth/2, _screenHeight/2)];
-    [[_continueButton layer]setPosition:CGPointMake(_screenWidth/2, _screenHeight/2 + 50)];
-    [[_exitButton layer]setPosition:CGPointMake(_screenWidth/2, _screenHeight/2 + 100)];
+    [_nGameButton setHorizontalCenterForScreen:_screenWidth];
+    [_continueButton setHorizontalCenterForScreen:_screenWidth];
+    [_exitButton setHorizontalCenterForScreen:_screenWidth];
+    [_easyModeButon setHorizontalCenterForScreen:_screenWidth];
+    [_middleModeButton setHorizontalCenterForScreen:_screenWidth];
+    [_hardModeButon setHorizontalCenterForScreen:_screenWidth];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

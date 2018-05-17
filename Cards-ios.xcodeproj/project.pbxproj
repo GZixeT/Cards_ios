@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8628F64820AD9CE700715B72 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8628F64720AD9CE700715B72 /* CustomButton.m */; };
 		865CF5CD20AC53600018A5E2 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865CF5CC20AC53600018A5E2 /* GameViewController.m */; };
 		8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDCD20A9A2690079C347 /* AppDelegate.m */; };
 		8686FDD120A9A2690079C347 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDD020A9A2690079C347 /* ViewController.m */; };
@@ -18,7 +19,6 @@
 		8686FDF120A9A26A0079C347 /* Cards_iosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDF020A9A26A0079C347 /* Cards_iosUITests.m */; };
 		8686FE1620A9C6570079C347 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1420A9C6570079C347 /* Card.m */; };
 		8686FE1720A9C6570079C347 /* Cards.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1520A9C6570079C347 /* Cards.m */; };
-		8686FE1B20A9C9060079C347 /* CardsUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1A20A9C9060079C347 /* CardsUIButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8628F64620AD9CE700715B72 /* CustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		8628F64720AD9CE700715B72 /* CustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 		865CF5CC20AC53600018A5E2 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		8686FDC920A9A2690079C347 /* Cards_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cards_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8686FDCC20A9A2690079C347 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,8 +62,6 @@
 		8686FE1320A9C6570079C347 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = lib/Card.h; sourceTree = "<group>"; };
 		8686FE1420A9C6570079C347 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = lib/Card.m; sourceTree = "<group>"; };
 		8686FE1520A9C6570079C347 /* Cards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cards.m; path = lib/Cards.m; sourceTree = "<group>"; };
-		8686FE1920A9C9060079C347 /* CardsUIButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardsUIButton.h; sourceTree = "<group>"; };
-		8686FE1A20A9C9060079C347 /* CardsUIButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardsUIButton.m; sourceTree = "<group>"; };
 		8686FE1E20A9D5430079C347 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,8 +169,8 @@
 		8686FE1820A9C8C70079C347 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				8686FE1920A9C9060079C347 /* CardsUIButton.h */,
-				8686FE1A20A9C9060079C347 /* CardsUIButton.m */,
+				8628F64620AD9CE700715B72 /* CustomButton.h */,
+				8628F64720AD9CE700715B72 /* CustomButton.m */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -326,10 +326,10 @@
 				865CF5CD20AC53600018A5E2 /* GameViewController.m in Sources */,
 				8686FDD120A9A2690079C347 /* ViewController.m in Sources */,
 				8686FDDC20A9A26A0079C347 /* main.m in Sources */,
+				8628F64820AD9CE700715B72 /* CustomButton.m in Sources */,
 				8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */,
 				8686FE1720A9C6570079C347 /* Cards.m in Sources */,
 				8686FE1620A9C6570079C347 /* Card.m in Sources */,
-				8686FE1B20A9C9060079C347 /* CardsUIButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
