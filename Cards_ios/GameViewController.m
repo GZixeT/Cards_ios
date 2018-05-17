@@ -22,13 +22,14 @@
     _screenHeight=CGRectGetHeight(screen);
     _cardWidth=_screenWidth/[[Cards sharedInstance]height];
     _cardHeight=_screenHeight/([cards cardDeckNumber]/[cards height]);
+    [_controllerView setCollectionViewToCenterScreen:_screenWidth];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
 

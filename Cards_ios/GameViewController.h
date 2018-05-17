@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Cards.h"
+#import "CustomCollectionView.h"
 //for test branch to merge
 //for commit of tower
 @interface GameViewController : UIViewController{
@@ -16,4 +17,5 @@
     CGFloat _cardWidth;
     CGFloat _cardHeight;
 }
+@property (weak, nonatomic) IBOutlet CustomCollectionView *controllerView;
 @end

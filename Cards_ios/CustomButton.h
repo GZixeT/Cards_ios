@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomButton : UIButton
--(void) setHorizontalCenterForScreen:(CGFloat) width;
+@property CGFloat vPercent;
+- (void) setHorizontalCenterForScreen:(CGFloat) width;
+- (void) setVerticalForScreen:(CGFloat)height;
+- (void) verticalPercent:(CGFloat) height;
 @end

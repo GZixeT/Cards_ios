@@ -19,8 +19,6 @@ typedef enum{
 static GameModeSwitcher _gameSwitcher;
 
 @interface ViewController : UIViewController{
-    CGFloat _screenWidth;
-    CGFloat _screenHeight;
     Cards *cards;
 }
 

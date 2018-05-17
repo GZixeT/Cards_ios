@@ -74,8 +74,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fb9-0h-w6q">
-                                <rect key="frame" x="67" y="134" width="240" height="255"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fb9-0h-w6q" customClass="CustomCollectionView">
+                                <rect key="frame" x="67" y="134" width="240" height="313"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CDC-hW-Ryv">
@@ -108,6 +108,9 @@
                         <color key="backgroundColor" red="0.7807260788" green="1" blue="0.96369924200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="kTW-OM-9JY"/>
                     </view>
+                    <connections>
+                        <outlet property="controllerView" destination="fb9-0h-w6q" id="rFh-Ua-ohl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hI6-Cs-2ER" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

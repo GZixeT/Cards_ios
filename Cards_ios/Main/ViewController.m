@@ -13,22 +13,62 @@
 
 #import "ViewController.h"
 @implementation ViewController
-
+-(void)horizontalCenteForButtons{
+    CGRect screen=[[UIScreen mainScreen]bounds];
+    CGFloat screenWidth=CGRectGetWidth(screen);
+    [_nGameButton setHorizontalCenterForScreen:screenWidth];
+    [_continueButton setHorizontalCenterForScreen:screenWidth];
+    [_exitButton setHorizontalCenterForScreen:screenWidth];
+    [_easyModeButon setHorizontalCenterForScreen:screenWidth];
+    [_middleModeButton setHorizontalCenterForScreen:screenWidth];
+    [_hardModeButon setHorizontalCenterForScreen:screenWidth];
+}
+- (void) getVerticalPercentForButtons{
+    CGRect screen=[[UIScreen mainScreen]bounds];
+    CGFloat screenHeight=CGRectGetHeight(screen);
+    [_nGameButton verticalPercent:screenHeight];
+    [_continueButton verticalPercent:screenHeight];
+    [_exitButton verticalPercent:screenHeight];
+    [_easyModeButon verticalPercent:screenHeight];
+    [_middleModeButton verticalPercent:screenHeight];
+    [_hardModeButon verticalPercent:screenHeight];
+}
+- (void) setNewVerticalPositionForScreen{
+    CGRect screen=[[UIScreen mainScreen]bounds];
+    CGFloat screenHeight=CGRectGetHeight(screen);
+    [_nGameButton setVerticalForScreen:screenHeight];
+    [_continueButton setVerticalForScreen:screenHeight];
+    [_exitButton setVerticalForScreen:screenHeight];
+    [_easyModeButon setVerticalForScreen:screenHeight];
+    [_middleModeButton setVerticalForScreen:screenHeight];
+    [_hardModeButon setVerticalForScreen:screenHeight];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CGRect screen=[[UIScreen mainScreen]bounds];
-    _screenWidth=CGRectGetWidth(screen);
-    _screenHeight=CGRectGetHeight(screen);
-    [_nGameButton setHorizontalCenterForScreen:_screenWidth];
-    [_continueButton setHorizontalCenterForScreen:_screenWidth];
-    [_exitButton setHorizontalCenterForScreen:_screenWidth];
-    [_easyModeButon setHorizontalCenterForScreen:_screenWidth];
-    [_middleModeButton setHorizontalCenterForScreen:_screenWidth];
-    [_hardModeButon setHorizontalCenterForScreen:_screenWidth];
+    [self horizontalCenteForButtons];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    [self getVerticalPercentForButtons];
+    // Code here will execute before the rotation begins.
+    // Equivalent to placing it in the deprecated method -[willRotateToInterfaceOrientation:duration:]
+    
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        
+        // Place code here to perform animations during the rotation.
+        // You can pass nil or leave this block empty if not necessary.
+        
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        [self horizontalCenteForButtons];
+        [self setNewVerticalPositionForScreen];
+        // Code here will execute after the rotation has finished.
+        // Equivalent to placing it in the deprecated method -[didRotateFromInterfaceOrientation:]
+        
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
