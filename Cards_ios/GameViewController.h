@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Cards.h"
-//for test branch
+//for test branch to merge
 //for commit of tower
 @interface GameViewController : UIViewController{
     CGFloat _screenWidth;
