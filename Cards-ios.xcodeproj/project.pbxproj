@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8616B42920AE18F1005D1289 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8616B42820AE18F0005D1289 /* CollectionViewCell.m */; };
 		8628F64820AD9CE700715B72 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8628F64720AD9CE700715B72 /* CustomButton.m */; };
 		8628F65520ADBCA500715B72 /* CustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8628F65420ADBCA500715B72 /* CustomCollectionView.m */; };
 		865CF5CD20AC53600018A5E2 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 865CF5CC20AC53600018A5E2 /* GameViewController.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8616B42720AE18F0005D1289 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		8616B42820AE18F0005D1289 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		8628F64620AD9CE700715B72 /* CustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		8628F64720AD9CE700715B72 /* CustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 		8628F65320ADBCA500715B72 /* CustomCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionView.h; sourceTree = "<group>"; };
@@ -93,6 +96,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8616B42520AE0BDD005D1289 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8686FDCC20A9A2690079C347 /* AppDelegate.h */,
+				8686FDCD20A9A2690079C347 /* AppDelegate.m */,
+				8686FDD520A9A26A0079C347 /* Assets.xcassets */,
+				8686FDD720A9A26A0079C347 /* LaunchScreen.storyboard */,
+				8686FDDA20A9A26A0079C347 /* Info.plist */,
+				8686FDDB20A9A26A0079C347 /* main.m */,
+			);
+			name = SupportFiles;
+			sourceTree = "<group>";
+		};
+		8616B42620AE18C8005D1289 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8616B42720AE18F0005D1289 /* CollectionViewCell.h */,
+				8616B42820AE18F0005D1289 /* CollectionViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		8628F64920ADB7EC00715B72 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +130,7 @@
 		8628F65220ADBC8A00715B72 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				8616B42620AE18C8005D1289 /* Cell */,
 				8628F65320ADBCA500715B72 /* CustomCollectionView.h */,
 				8628F65420ADBCA500715B72 /* CustomCollectionView.m */,
 			);
@@ -135,17 +161,12 @@
 		8686FDCB20A9A2690079C347 /* Cards_ios */ = {
 			isa = PBXGroup;
 			children = (
+				8686FDD220A9A2690079C347 /* Main.storyboard */,
+				8616B42520AE0BDD005D1289 /* SupportFiles */,
 				8628F64920ADB7EC00715B72 /* Custom */,
 				8686FE0820A9C4620079C347 /* CardsLib */,
 				8686FE1D20A9D5060079C347 /* GameViewController */,
 				8686FE1C20A9D4F60079C347 /* Main */,
-				8686FDCC20A9A2690079C347 /* AppDelegate.h */,
-				8686FDCD20A9A2690079C347 /* AppDelegate.m */,
-				8686FDD220A9A2690079C347 /* Main.storyboard */,
-				8686FDD520A9A26A0079C347 /* Assets.xcassets */,
-				8686FDD720A9A26A0079C347 /* LaunchScreen.storyboard */,
-				8686FDDA20A9A26A0079C347 /* Info.plist */,
-				8686FDDB20A9A26A0079C347 /* main.m */,
 			);
 			path = Cards_ios;
 			sourceTree = "<group>";
@@ -340,6 +361,7 @@
 				865CF5CD20AC53600018A5E2 /* GameViewController.m in Sources */,
 				8686FDD120A9A2690079C347 /* ViewController.m in Sources */,
 				8686FDDC20A9A26A0079C347 /* main.m in Sources */,
+				8616B42920AE18F1005D1289 /* CollectionViewCell.m in Sources */,
 				8628F65520ADBCA500715B72 /* CustomCollectionView.m in Sources */,
 				8628F64820AD9CE700715B72 /* CustomButton.m in Sources */,
 				8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */,

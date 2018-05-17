@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Cards.h"
 
 @interface CustomCollectionView : UICollectionView
 - (void) setCollectionViewToCenterScreen:(CGFloat)width;

@@ -11,11 +11,12 @@
 #import "CustomCollectionView.h"
 //for test branch to merge
 //for commit of tower
-@interface GameViewController : UIViewController{
+@interface GameViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+{
     CGFloat _screenWidth;
     CGFloat _screenHeight;
     CGFloat _cardWidth;
     CGFloat _cardHeight;
 }
-@property (weak, nonatomic) IBOutlet CustomCollectionView *controllerView;
+@property (strong, nonatomic) IBOutlet UICollectionView *cView;
 @end
