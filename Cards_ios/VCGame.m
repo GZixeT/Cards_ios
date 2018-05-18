@@ -37,6 +37,7 @@
     
     CVCell *cell = (CVCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     NSInteger index=indexPath.item;
+    [cell.layer setCornerRadius:10];
     [cell setCard:[Cards sharedInstance].map[index]];
     cell.labelValue.text = @"?";
 //    UILabel *label=(UILabel*)[cell viewWithTag:LABEL_IDENTIFIER];
