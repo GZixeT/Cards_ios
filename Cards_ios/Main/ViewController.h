@@ -9,14 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CustomButton.h"
 #import "Cards.h"
-typedef enum{
-    GameModeSwitcherNo,
-    GameModeSwitcherEasy,
-    GameModeSwitcherMiddle,
-    GameModeSwitcherHard
-}GameModeSwitcher;
 
-static GameModeSwitcher _gameSwitcher;
 
 @interface ViewController : UIViewController{
     Cards *cards;

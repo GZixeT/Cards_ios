@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="1137" y="153"/>
         </scene>
-        <!--Легкий режим-->
+        <!--Game View Controller-->
         <scene sceneID="E3q-zG-H5i">
             <objects>
-                <viewController storyboardIdentifier="EasyMode" title="Легкий режим" id="FMn-TX-WpT" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Game" id="FMn-TX-WpT" customClass="GameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6P1-Q2-om4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,17 +91,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARR-Kv-BiQ">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARR-Kv-BiQ">
                                                     <rect key="frame" x="4" y="15" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.0" green="0.45145907599658669" blue="0.74345653553908631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="ARR-Kv-BiQ" firstAttribute="centerY" secondItem="8gn-hn-aHs" secondAttribute="centerY" id="7VA-yW-dGz"/>
+                                            <constraint firstItem="ARR-Kv-BiQ" firstAttribute="centerX" secondItem="8gn-hn-aHs" secondAttribute="centerX" id="Keo-hy-OmZ"/>
+                                        </constraints>
                                         <size key="customSize" width="50" height="50"/>
                                     </collectionViewCell>
                                 </cells>
@@ -145,7 +148,7 @@
                                 </state>
                                 <connections>
                                     <action selector="MiddleModeButtonClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="yAt-j3-Lat"/>
-                                    <segue destination="Kea-yp-mgq" kind="show" id="Clb-ES-aoN"/>
+                                    <segue destination="FMn-TX-WpT" kind="show" id="j4K-vN-h2p"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cee-yJ-QHM" customClass="CustomButton">
@@ -157,7 +160,7 @@
                                 </state>
                                 <connections>
                                     <action selector="HardModeButtonClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="eyc-8E-uNb"/>
-                                    <segue destination="oQc-4d-PHL" kind="show" id="7fd-jE-vHM"/>
+                                    <segue destination="FMn-TX-WpT" kind="show" id="aa7-H5-K5C"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5j6-nr-iXl" customClass="CustomButton">
@@ -186,36 +189,6 @@
             </objects>
             <point key="canvasLocation" x="1905" y="152"/>
         </scene>
-        <!--Тяжелый режим-->
-        <scene sceneID="u6t-X5-Tt6">
-            <objects>
-                <viewController storyboardIdentifier="HardMode" title="Тяжелый режим" id="oQc-4d-PHL" customClass="GameViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="21a-nb-4nf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="4fO-Z8-Yxe"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mkO-If-CKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1905" y="894"/>
-        </scene>
-        <!--Средный режим-->
-        <scene sceneID="SV8-nE-h7f">
-            <objects>
-                <viewController storyboardIdentifier="MiddleMode" title="Средный режим" id="Kea-yp-mgq" customClass="GameViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qUX-XA-v3z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="pBY-NE-a6t"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L8q-2T-K91" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2822" y="894"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="YGV-Xn-F43">
             <objects>
@@ -233,4 +206,7 @@
             <point key="canvasLocation" x="382" y="152"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aa7-H5-K5C"/>
+    </inferredMetricsTieBreakers>
 </document>

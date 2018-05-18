@@ -77,37 +77,18 @@
     exit(0);
 }
 - (IBAction)EasyModeButtonClick:(id)sender {
-    _gameSwitcher=GameModeSwitcherEasy;
     cards=[Cards sharedInstance:HEIGHT_CARDS CardDeckNumber:EASY_MODE_CARD_NUMBER];
 }
 - (IBAction)MiddleModeButtonClick:(id)sender {
-    _gameSwitcher=GameModeSwitcherMiddle;
     cards=[Cards sharedInstance:HEIGHT_CARDS CardDeckNumber:MIDDLE_MODE_CARD_NUMBER];
 }
 - (IBAction)HardModeButtonClick:(id)sender {
-    _gameSwitcher=GameModeSwitcherHard;
     cards=[Cards sharedInstance:HEIGHT_CARDS CardDeckNumber:HARD_MODE_CARD_NUMBER];
 }
 - (IBAction)ContinueButtonClick:(id)sender {
-    NSLog(@"%d",_gameSwitcher);
     UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *continueController;
-    switch(_gameSwitcher){
-        case GameModeSwitcherNo:
-            break;
-        case GameModeSwitcherEasy:
-            continueController=(ViewController*)[storyboard instantiateViewControllerWithIdentifier:@"EasyMode"];
-            break;
-        case GameModeSwitcherMiddle:
-            continueController=(ViewController*)[storyboard instantiateViewControllerWithIdentifier:@"MiddleMode"];
-            break;
-        case GameModeSwitcherHard:
-            continueController=(ViewController*)[storyboard instantiateViewControllerWithIdentifier:@"HardMode"];
-            break;
-            default:
-            NSLog(@"ContinueButtonClick Error!!!");
-            break;
-    }
+     continueController=(ViewController*)[storyboard instantiateViewControllerWithIdentifier:@"Game"];
     if(continueController)
         [self.navigationController pushViewController:continueController animated:YES];
 }

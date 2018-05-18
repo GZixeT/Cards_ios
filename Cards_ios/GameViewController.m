@@ -44,7 +44,7 @@
     UICollectionViewCell *cell = [self.cView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
     UILabel *label=(UILabel*)[cell viewWithTag:LABEL_IDENTIFIER];
-    [label setText:@"HELLO!"];
+    [label setText:@"?"];
     // recipeImageView.image = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
     
     return cell;
