@@ -22,12 +22,11 @@ typedef enum{
 }TableOption;
 
 @interface Cards : NSObject
-@property (readonly) NSMutableArray *map;
+@property NSMutableArray *map;
 @property NSMutableArray *tableOfStates;
 @property NSInteger height;
 @property NSInteger cardDeckNumber;
 + (Cards*) sharedInstance;
-+ (Cards*) sharedInstance:(NSUInteger)height CardDeckNumber:(NSUInteger)number;
 - (id)initWithHeightAndDeckNumber:(NSUInteger)height CardDeckNumber:(NSUInteger)number;
 - (BOOL) makeTaskWithCardAtIndex:(NSInteger)index :(BOOL)isOpen;
 - (GameState) getGameState;

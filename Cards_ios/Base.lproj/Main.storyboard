@@ -13,13 +13,13 @@
         <!--Игра Сards-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainStoryboard" title="Игра Сards" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainStoryboard" title="Игра Сards" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="VCMain" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID9-G2-0kf" customClass="CustomButton">
-                                <rect key="frame" x="142" y="364" width="100" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID9-G2-0kf">
+                                <rect key="frame" x="142.5" y="333" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Продолжить">
@@ -29,19 +29,19 @@
                                     <action selector="ContinueButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cun-4e-sJu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3KH-Dm-LDO" customClass="CustomButton">
-                                <rect key="frame" x="142" y="318" width="100" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3KH-Dm-LDO">
+                                <rect key="frame" x="146.5" y="295" width="81" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Новая игра">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="O3z-t5-FBQ" kind="show" id="pGW-hK-Avf"/>
+                                    <segue destination="O3z-t5-FBQ" kind="show" id="dzr-0T-aaC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eM6-t5-VW6" customClass="CustomButton">
-                                <rect key="frame" x="142" y="408" width="100" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eM6-t5-VW6">
+                                <rect key="frame" x="165" y="371" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Выход">
@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="1137" y="153"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Game-->
         <scene sceneID="E3q-zG-H5i">
             <objects>
-                <viewController storyboardIdentifier="Game" id="FMn-TX-WpT" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Game" id="FMn-TX-WpT" customClass="VCGame" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6P1-Q2-om4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,7 +84,7 @@
                                     <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="center" reuseIdentifier="Cell_ID" id="8gn-hn-aHs">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="center" reuseIdentifier="Cell_ID" id="8gn-hn-aHs" customClass="CVCell">
                                         <rect key="frame" x="5" y="5" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -97,15 +97,28 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44m-z1-GNC">
+                                                    <rect key="frame" x="5" y="5" width="40" height="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                    <color key="textColor" red="0.0" green="0.94733646370000002" blue="0.94733646370000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.0" green="0.45145907599658669" blue="0.74345653553908631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="44m-z1-GNC" secondAttribute="trailing" constant="5" id="2UD-lj-4wG"/>
                                             <constraint firstItem="ARR-Kv-BiQ" firstAttribute="centerY" secondItem="8gn-hn-aHs" secondAttribute="centerY" id="7VA-yW-dGz"/>
+                                            <constraint firstItem="44m-z1-GNC" firstAttribute="leading" secondItem="8gn-hn-aHs" secondAttribute="leading" constant="5" id="9uD-vT-cn7"/>
                                             <constraint firstItem="ARR-Kv-BiQ" firstAttribute="centerX" secondItem="8gn-hn-aHs" secondAttribute="centerX" id="Keo-hy-OmZ"/>
+                                            <constraint firstItem="44m-z1-GNC" firstAttribute="top" secondItem="8gn-hn-aHs" secondAttribute="top" constant="5" id="Sjy-po-STd"/>
                                         </constraints>
                                         <size key="customSize" width="50" height="50"/>
+                                        <connections>
+                                            <outlet property="labelSuit" destination="44m-z1-GNC" id="6Fh-DK-bbj"/>
+                                            <outlet property="labelValue" destination="ARR-Kv-BiQ" id="92O-mk-zh9"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -134,45 +147,45 @@
         <!--Выбор режима-->
         <scene sceneID="hbQ-JB-8Xo">
             <objects>
-                <viewController storyboardIdentifier="NewGameView" title="Выбор режима" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O3z-t5-FBQ" customClass="ViewController" sceneMemberID="viewController">
+                <viewController title="Выбор режима" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O3z-t5-FBQ" customClass="VCMode" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NI1-oP-6Vq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCW-PY-1Nl" customClass="CustomButton">
-                                <rect key="frame" x="112" y="299" width="150" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCW-PY-1Nl">
+                                <rect key="frame" x="129" y="299" width="117" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Средний режим">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="MiddleModeButtonClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="yAt-j3-Lat"/>
-                                    <segue destination="FMn-TX-WpT" kind="show" id="j4K-vN-h2p"/>
+                                    <action selector="MMClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="HO0-WE-KH1"/>
+                                    <segue destination="FMn-TX-WpT" kind="show" id="gBm-7v-Z25"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cee-yJ-QHM" customClass="CustomButton">
-                                <rect key="frame" x="112" y="351" width="150" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cee-yJ-QHM">
+                                <rect key="frame" x="129" y="351" width="117" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Тяжелый режим">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="HardModeButtonClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="eyc-8E-uNb"/>
-                                    <segue destination="FMn-TX-WpT" kind="show" id="aa7-H5-K5C"/>
+                                    <action selector="HMClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="MCq-ud-rI9"/>
+                                    <segue destination="FMn-TX-WpT" kind="show" id="Jsi-OT-64D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5j6-nr-iXl" customClass="CustomButton">
-                                <rect key="frame" x="112" y="245" width="150" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5j6-nr-iXl">
+                                <rect key="frame" x="135" y="245" width="104" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Легкий режим">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="EasyModeButtonClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="HZW-2e-Nwb"/>
-                                    <segue destination="FMn-TX-WpT" kind="show" id="5Br-z6-E5q"/>
+                                    <action selector="EMClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="3wc-jS-GT7"/>
+                                    <segue destination="FMn-TX-WpT" kind="show" id="IfV-3L-s43"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -180,9 +193,9 @@
                         <viewLayoutGuide key="safeArea" id="prl-Ds-NqQ"/>
                     </view>
                     <connections>
-                        <outlet property="easyModeButon" destination="5j6-nr-iXl" id="7Ko-7I-14Q"/>
-                        <outlet property="hardModeButon" destination="cee-yJ-QHM" id="gYf-rY-G5W"/>
-                        <outlet property="middleModeButton" destination="zCW-PY-1Nl" id="UCF-8B-zm9"/>
+                        <outlet property="easyMode" destination="5j6-nr-iXl" id="kqe-yq-cQ0"/>
+                        <outlet property="hardMode" destination="cee-yJ-QHM" id="0DI-hV-GXU"/>
+                        <outlet property="middleMode" destination="zCW-PY-1Nl" id="bye-ER-z2b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eph-9H-E2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -207,6 +220,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aa7-H5-K5C"/>
+        <segue reference="gBm-7v-Z25"/>
     </inferredMetricsTieBreakers>
 </document>

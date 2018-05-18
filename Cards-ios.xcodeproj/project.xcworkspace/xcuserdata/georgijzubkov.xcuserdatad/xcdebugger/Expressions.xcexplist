@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[VCMain ContinueButtonClick:]:VCMain.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[Cards sharedInstance].map">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -28,14 +28,6 @@ static Cards *uniqueInstance=nil;
     }
     return uniqueInstance;
 }
-+ (Cards*) sharedInstance:(NSUInteger)height CardDeckNumber:(NSUInteger)number{
-    @synchronized(self)
-    {
-        if(uniqueInstance==nil)
-            uniqueInstance=[[self alloc]initWithHeightAndDeckNumber:height CardDeckNumber:number];
-    }
-    return uniqueInstance;
-}
 -(id)init{ //private
     if(self=[super init])
     {

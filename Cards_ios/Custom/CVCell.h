@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CollectionViewCell : UICollectionViewCell
-
+#import "Card.h"
+@interface CVCell : UICollectionViewCell
+@property Card *card;
+@property(nonatomic, weak) IBOutlet UILabel *labelValue;
+@property(nonatomic, weak) IBOutlet UILabel *labelSuit;
 @end

@@ -6,24 +6,17 @@
 //  Copyright © 2018 Георгий Зубков. All rights reserved.
 //
 
-#define CVIEW_IDENTIFIER 100
-#define CELL_IDENTIFIER 101
-#define LABEL_IDENTIFIER 102
-#import "GameViewController.h"
+#import "VCGame.h"
+#import "CVCell.h"
+#import "Card.h"
 
-@interface GameViewController ()
+@interface VCGame ()
 @end
 
-@implementation GameViewController
+@implementation VCGame
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Cards *cards=[Cards sharedInstance];
-    CGRect screen=[[UIScreen mainScreen]bounds];
-    _screenWidth=CGRectGetWidth(screen);
-    _screenHeight=CGRectGetHeight(screen);
-    _cardWidth=_screenWidth/[[Cards sharedInstance]height];
-    _cardHeight=_screenHeight/([cards cardDeckNumber]/[cards height]);
     //[self.cView setDataSource:self];
     //[self.cView setDelegate:self];
 }
@@ -33,7 +26,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSInteger count=[[[Cards sharedInstance] map]count];
+    NSInteger count=[Cards sharedInstance].map.count;
     return count;
 }
 
@@ -41,13 +34,23 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifier = @"Cell_ID";
     
-    UICollectionViewCell *cell = [self.cView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
-    UILabel *label=(UILabel*)[cell viewWithTag:LABEL_IDENTIFIER];
-    [label setText:@"?"];
+    CVCell *cell = (CVCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    NSInteger index=indexPath.item;
+    [cell setCard:[Cards sharedInstance].map[index]];
+    cell.labelValue.text = @"?";
+//    UILabel *label=(UILabel*)[cell viewWithTag:LABEL_IDENTIFIER];
+//    [label setText:@"?"];
     // recipeImageView.image = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
     
     return cell;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CVCell *cell = (CVCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.labelSuit.text = [NSString stringWithFormat:@"%d",cell.card.suit];
+    cell.labelValue.text = [NSString stringWithFormat:@"%d",cell.card.value];
+    cell.labelSuit.hidden=NO;
+    
 }
 /*
 #pragma mark - Navigation

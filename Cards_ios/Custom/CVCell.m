@@ -6,8 +6,8 @@
 //  Copyright © 2018 Георгий Зубков. All rights reserved.
 //
 
-#import "CollectionViewCell.h"
+#import "CVCell.h"
 
-@implementation CollectionViewCell
+@implementation CVCell
 
 @end
