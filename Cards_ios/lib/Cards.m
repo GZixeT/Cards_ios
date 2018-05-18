@@ -73,7 +73,7 @@ static Cards *uniqueInstance=nil;
     else NSLog(@"Такой элемент не существует");
     return false;
 }
-- (NSMutableArray *) getTableCellsWithTableOption:(TableOption)tableOption{ //private
+- (NSMutableArray *) getTableCellsWithTableOption:(TableOption)tableOption{
     NSMutableArray *tableCells=[[NSMutableArray alloc]init];
     for(int i=0;i<[tableOfStates count];i++){
         if([tableOfStates[i] intValue]==tableOption)

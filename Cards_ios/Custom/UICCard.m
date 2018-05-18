@@ -13,7 +13,7 @@
     return [UIColor colorWithRed:255/255 green:0 blue:26/255 alpha:1];
 }
 + (UIColor*) Blue{
-    return [UIColor colorWithRed:0 green:101/255 blue:181/255 alpha:1];
+    return [UIColor colorWithRed:0 green:0.4 blue:0.71 alpha:1];
 }
 + (UIColor*) White{
     return [UIColor colorWithRed:255 green:255 blue:255 alpha:1];

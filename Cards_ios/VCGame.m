@@ -10,6 +10,7 @@
 #import "CVCell.h"
 #import "Card.h"
 #import "UICCard.h"
+#import "Cards.h";
 
 @interface VCGame ()
 @end
@@ -46,12 +47,9 @@
     
     return cell;
 }
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    CVCell *cell = (CVCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    cell.labelSuit.hidden=NO;
-    NSString *value,*suit;
-    switch (cell.card.value) {
+- (NSString*) setCardValueForString:(int)CValue{
+    NSString *value;
+    switch (CValue) {
         case CardValueAce:
             value=@"A";
             break;
@@ -65,9 +63,13 @@
             value=@"J";
             break;
         default:
-            value=[NSString stringWithFormat:@"%d",cell.card.value];
+            value=[NSString stringWithFormat:@"%d",CValue];
             break;
     }
+    return value;
+}
+- (NSString*) setCardSuitForString:(CVCell*)cell{
+    NSString *suit;
     switch (cell.card.suit) {
         case CardSuitClubs:
             suit=@"♣️";
@@ -86,10 +88,43 @@
             [cell.labelSuit setTextColor:[UICCard Red]];
             break;
     }
-    cell.labelSuit.text = suit;
-    cell.labelValue.text = value;
-    [cell.labelValue setTextColor:[UICCard Black]];
-    [cell setBackgroundColor:[UICCard White]];
+    return suit;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CVCell *cell = (CVCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    NSInteger index=indexPath.item;
+    NSString *value,*suit;
+    if([[Cards sharedInstance]makeTaskWithCardAtIndex:index :true])
+    {
+        switch([[Cards sharedInstance]getGameState])
+        {
+        case GameStateFalse:
+                cell.labelSuit.hidden=YES;
+                cell.labelValue.text = @"?";
+                [cell.labelValue setTextColor:[UICCard White]];
+                [cell setBackgroundColor:[UICCard Blue]];
+            break;
+        case GameStateEnd:
+            printf("Победа!\n");
+            break;
+        case GameStateError:
+            printf("Error.\n");
+            break;
+        case GameStateTrue:
+                value = [self setCardValueForString:cell.card.value];
+                suit = [self setCardSuitForString:cell];
+                cell.labelSuit.text = suit;
+                cell.labelValue.text = value;
+                cell.labelSuit.hidden=NO;
+                [cell.labelValue setTextColor:[UICCard Black]];
+                [cell setBackgroundColor:[UICCard White]];
+            break;
+        default:
+            printf("Error.\n");
+            break;
+        }
+    }
     
 }
 /*

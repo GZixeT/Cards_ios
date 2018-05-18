@@ -30,6 +30,7 @@ typedef enum{
 - (id)initWithHeightAndDeckNumber:(NSUInteger)height CardDeckNumber:(NSUInteger)number;
 - (BOOL) makeTaskWithCardAtIndex:(NSInteger)index :(BOOL)isOpen;
 - (GameState) getGameState;
+- (NSMutableArray *) getTableCellsWithTableOption:(TableOption)tableOption;
 - (void) initTableOfStates;
 - (void)fillWithRandomCardsWithHeightAndNumber:(NSUInteger)height CardDeckNumber:(NSUInteger)number;
 @end
