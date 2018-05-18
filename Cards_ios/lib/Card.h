@@ -24,7 +24,7 @@ typedef enum {
 }CardValue;
 
 typedef enum{
-    CardSuitDiamonds,   //бубны
+    CardSuitDiamonds = 1,   //бубны
     CardSuitHeards,     //червы
     CardSuitSpades,     //пики
     CardSuitClubs       //трефы

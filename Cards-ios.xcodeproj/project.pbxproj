@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8602F4DE20AECE1F00E5C7AD /* VCMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602F4DD20AECE1F00E5C7AD /* VCMode.m */; };
+		8602F4E220AEFE7200E5C7AD /* UICCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602F4E120AEFE7200E5C7AD /* UICCard.m */; };
 		8616B42920AE18F1005D1289 /* CVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8616B42820AE18F0005D1289 /* CVCell.m */; };
 		8628F64820AD9CE700715B72 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8628F64720AD9CE700715B72 /* CustomButton.m */; };
 		8628F65520ADBCA500715B72 /* CustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8628F65420ADBCA500715B72 /* CustomCollectionView.m */; };
@@ -44,6 +45,8 @@
 /* Begin PBXFileReference section */
 		8602F4DC20AECE1F00E5C7AD /* VCMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCMode.h; sourceTree = "<group>"; };
 		8602F4DD20AECE1F00E5C7AD /* VCMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCMode.m; sourceTree = "<group>"; };
+		8602F4E020AEFE7200E5C7AD /* UICCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICCard.h; sourceTree = "<group>"; };
+		8602F4E120AEFE7200E5C7AD /* UICCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICCard.m; sourceTree = "<group>"; };
 		8616B42720AE18F0005D1289 /* CVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVCell.h; sourceTree = "<group>"; };
 		8616B42820AE18F0005D1289 /* CVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVCell.m; sourceTree = "<group>"; };
 		8628F64620AD9CE700715B72 /* CustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
@@ -99,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8602F4DF20AEFE4400E5C7AD /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				8602F4E020AEFE7200E5C7AD /* UICCard.h */,
+				8602F4E120AEFE7200E5C7AD /* UICCard.m */,
+			);
+			name = Color;
+			sourceTree = "<group>";
+		};
 		8616B42520AE0BDD005D1289 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +136,7 @@
 		8628F64920ADB7EC00715B72 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				8602F4DF20AEFE4400E5C7AD /* Color */,
 				8628F65220ADBC8A00715B72 /* CollectionView */,
 				8686FE1820A9C8C70079C347 /* Buttons */,
 			);
@@ -381,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				865CF5CD20AC53600018A5E2 /* VCGame.m in Sources */,
+				8602F4E220AEFE7200E5C7AD /* UICCard.m in Sources */,
 				8686FDD120A9A2690079C347 /* VCMain.m in Sources */,
 				8686FDDC20A9A26A0079C347 /* main.m in Sources */,
 				8616B42920AE18F1005D1289 /* CVCell.m in Sources */,

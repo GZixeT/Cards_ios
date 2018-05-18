@@ -9,6 +9,7 @@
 #import "VCGame.h"
 #import "CVCell.h"
 #import "Card.h"
+#import "UICCard.h"
 
 @interface VCGame ()
 @end
@@ -47,9 +48,47 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CVCell *cell = (CVCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    cell.labelSuit.text = [NSString stringWithFormat:@"%d",cell.card.suit];
-    cell.labelValue.text = [NSString stringWithFormat:@"%d",cell.card.value];
     cell.labelSuit.hidden=NO;
+    NSString *value,*suit;
+    switch (cell.card.value) {
+        case CardValueAce:
+            value=@"A";
+            break;
+        case CardValueKing:
+            value=@"K";
+            break;
+        case CardValueQueen:
+            value=@"Q";
+            break;
+        case CardValueJack:
+            value=@"J";
+            break;
+        default:
+            value=[NSString stringWithFormat:@"%d",cell.card.value];
+            break;
+    }
+    switch (cell.card.suit) {
+        case CardSuitClubs:
+            suit=@"♣️";
+            [cell.labelSuit setTextColor:[UICCard Black]];
+            break;
+        case CardSuitHeards:
+            suit=@"♥️";
+            [cell.labelSuit setTextColor:[UICCard Red]];
+            break;
+        case CardSuitSpades:
+            suit=@"♠️";
+            [cell.labelSuit setTextColor:[UICCard Black]];
+            break;
+        case CardSuitDiamonds:
+            suit=@"♦️";
+            [cell.labelSuit setTextColor:[UICCard Red]];
+            break;
+    }
+    cell.labelSuit.text = suit;
+    cell.labelValue.text = value;
+    [cell.labelValue setTextColor:[UICCard Black]];
+    [cell setBackgroundColor:[UICCard White]];
     
 }
 /*
