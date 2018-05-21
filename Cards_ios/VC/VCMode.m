@@ -6,9 +6,9 @@
 //  Copyright © 2018 Георгий Зубков. All rights reserved.
 //
 #define HEIGHT_CARDS 4
-#define EASY_MODE_CARD_NUMBER 8
-#define MIDDLE_MODE_CARD_NUMBER 12
-#define HARD_MODE_CARD_NUMBER 24
+#define EASY_MODE_CARD_NUMBER 4
+#define MIDDLE_MODE_CARD_NUMBER 6
+#define HARD_MODE_CARD_NUMBER 12
 #define CORNER_RADIUS 10
 
 #import "Cards.h"

@@ -5,7 +5,7 @@
 //  Created by Георгий Зубков on 19.04.2018.
 //  Copyright © 2018 Георгий Зубков. All rights reserved.
 //
-
+#define RAND_FROM_TO(min, max) (min + arc4random_uniform(max - min + 1))
 #import "Card.h"
 
 @implementation Card
@@ -16,12 +16,12 @@
     Card *card=[[Card alloc]init];
     //CardValue v=(CardValue) (arc4random() % (NSInteger) CardValueAce);
     //CardSuit s=(CardSuit)(arc4random() % (NSInteger) CardSuitClubs);
-    CardValue v=arc4random_uniform(CardValueAce)+CardValueTwo;
-    CardSuit s= arc4random_uniform(CardSuitClubs)+CardSuitDiamonds;
+    //CardValue v = arc4random_uniform(CardValueAce)+CardValueTwo;
+    //CardSuit s = arc4random_uniform(CardSuitClubs)+CardSuitDiamonds;
+    CardValue v = RAND_FROM_TO(CardValueTwo, CardValueAce);
+    CardSuit s = RAND_FROM_TO(CardSuitDiamonds, CardSuitClubs);
     [card setValue:v];
     [card setSuit:s];
-    if(v==14)
-        NSLog(@"Как так то?");
     return card;
 }
 - (id) copy{

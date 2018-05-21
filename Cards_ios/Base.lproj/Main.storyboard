@@ -185,7 +185,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCW-PY-1Nl">
-                                <rect key="frame" x="112.5" y="164" width="150" height="30"/>
+                                <rect key="frame" x="112" y="368.5" width="150" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Sdc-KD-G2X"/>
@@ -199,23 +199,8 @@
                                     <segue destination="FMn-TX-WpT" kind="show" id="gBm-7v-Z25"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cee-yJ-QHM">
-                                <rect key="frame" x="112.5" y="214" width="150" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="SHn-1y-YMO"/>
-                                    <constraint firstAttribute="width" constant="150" id="U9w-vf-E1K"/>
-                                </constraints>
-                                <state key="normal" title="Тяжелый режим">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="HMClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="MCq-ud-rI9"/>
-                                    <segue destination="FMn-TX-WpT" kind="show" id="Jsi-OT-64D"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5j6-nr-iXl">
-                                <rect key="frame" x="112" y="114" width="150" height="30"/>
+                                <rect key="frame" x="112" y="318.5" width="150" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Waq-P6-W7b"/>
@@ -229,15 +214,30 @@
                                     <segue destination="FMn-TX-WpT" kind="show" id="IfV-3L-s43"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cee-yJ-QHM">
+                                <rect key="frame" x="112" y="418.5" width="150" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SHn-1y-YMO"/>
+                                    <constraint firstAttribute="width" constant="150" id="U9w-vf-E1K"/>
+                                </constraints>
+                                <state key="normal" title="Тяжелый режим">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="HMClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="MCq-ud-rI9"/>
+                                    <segue destination="FMn-TX-WpT" kind="show" id="Jsi-OT-64D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zCW-PY-1Nl" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="0D1-ZA-1ng"/>
-                            <constraint firstItem="5j6-nr-iXl" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="16x-OJ-HOM"/>
-                            <constraint firstItem="cee-yJ-QHM" firstAttribute="top" secondItem="zCW-PY-1Nl" secondAttribute="bottom" constant="20" id="JDN-6e-mzh"/>
-                            <constraint firstItem="cee-yJ-QHM" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="Uia-O7-Vtu"/>
-                            <constraint firstItem="zCW-PY-1Nl" firstAttribute="top" secondItem="5j6-nr-iXl" secondAttribute="bottom" constant="20" id="hYz-6M-b7e"/>
-                            <constraint firstItem="5j6-nr-iXl" firstAttribute="top" secondItem="prl-Ds-NqQ" secondAttribute="top" constant="50" id="k0b-a7-gZQ"/>
+                            <constraint firstItem="cee-yJ-QHM" firstAttribute="top" secondItem="zCW-PY-1Nl" secondAttribute="bottom" constant="20" id="4Q8-kJ-m0E"/>
+                            <constraint firstItem="cee-yJ-QHM" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="7pv-Tu-sVp"/>
+                            <constraint firstItem="5j6-nr-iXl" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="fcY-7G-CHl"/>
+                            <constraint firstItem="5j6-nr-iXl" firstAttribute="centerY" secondItem="NI1-oP-6Vq" secondAttribute="centerY" id="lQE-Sm-Dlb"/>
+                            <constraint firstItem="zCW-PY-1Nl" firstAttribute="top" secondItem="5j6-nr-iXl" secondAttribute="bottom" constant="20" id="lga-p8-Yiy"/>
+                            <constraint firstItem="zCW-PY-1Nl" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="v5p-W3-E8Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="prl-Ds-NqQ"/>
                     </view>
