@@ -10,6 +10,8 @@
 		8602F4DE20AECE1F00E5C7AD /* VCMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602F4DD20AECE1F00E5C7AD /* VCMode.m */; };
 		8602F4E220AEFE7200E5C7AD /* UICCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602F4E120AEFE7200E5C7AD /* UICCard.m */; };
 		8616B42920AE18F1005D1289 /* CVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8616B42820AE18F0005D1289 /* CVCell.m */; };
+		861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AEA20B2F64200A62C6F /* GameCard.m */; };
+		861D6AEE20B2F67E00A62C6F /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AED20B2F67E00A62C6F /* Deck.m */; };
 		8628F64820AD9CE700715B72 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8628F64720AD9CE700715B72 /* CustomButton.m */; };
 		8628F65520ADBCA500715B72 /* CustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8628F65420ADBCA500715B72 /* CustomCollectionView.m */; };
 		865CF5CD20AC53600018A5E2 /* VCGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 865CF5CC20AC53600018A5E2 /* VCGame.m */; };
@@ -49,6 +51,10 @@
 		8602F4E120AEFE7200E5C7AD /* UICCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICCard.m; sourceTree = "<group>"; };
 		8616B42720AE18F0005D1289 /* CVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVCell.h; sourceTree = "<group>"; };
 		8616B42820AE18F0005D1289 /* CVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVCell.m; sourceTree = "<group>"; };
+		861D6AE920B2F64200A62C6F /* GameCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameCard.h; sourceTree = "<group>"; };
+		861D6AEA20B2F64200A62C6F /* GameCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameCard.m; sourceTree = "<group>"; };
+		861D6AEC20B2F67E00A62C6F /* Deck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		861D6AED20B2F67E00A62C6F /* Deck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		8628F64620AD9CE700715B72 /* CustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		8628F64720AD9CE700715B72 /* CustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 		8628F65320ADBCA500715B72 /* CustomCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionView.h; sourceTree = "<group>"; };
@@ -211,6 +217,10 @@
 				8686FE1420A9C6570079C347 /* Card.m */,
 				8686FE1220A9C6570079C347 /* Cards.h */,
 				8686FE1520A9C6570079C347 /* Cards.m */,
+				861D6AE920B2F64200A62C6F /* GameCard.h */,
+				861D6AEA20B2F64200A62C6F /* GameCard.m */,
+				861D6AEC20B2F67E00A62C6F /* Deck.h */,
+				861D6AED20B2F67E00A62C6F /* Deck.m */,
 			);
 			name = CardsLib;
 			sourceTree = "<group>";
@@ -393,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861D6AEE20B2F67E00A62C6F /* Deck.m in Sources */,
 				865CF5CD20AC53600018A5E2 /* VCGame.m in Sources */,
 				8602F4E220AEFE7200E5C7AD /* UICCard.m in Sources */,
 				8686FDD120A9A2690079C347 /* VCMain.m in Sources */,
@@ -402,6 +413,7 @@
 				8628F65520ADBCA500715B72 /* CustomCollectionView.m in Sources */,
 				8628F64820AD9CE700715B72 /* CustomButton.m in Sources */,
 				8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */,
+				861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */,
 				8686FE1720A9C6570079C347 /* Cards.m in Sources */,
 				8686FE1620A9C6570079C347 /* Card.m in Sources */,
 			);

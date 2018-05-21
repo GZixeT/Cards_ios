@@ -9,6 +9,10 @@
 #import "VCGame.h"
 #define CORNER_RADIUS 10
 
+@interface VCMain()
+@property Cards *game;
+@end
+
 @implementation VCMain
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,7 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)ExitButtonClick:(id)sender {
-    [[Cards sharedInstance].map removeAllObjects];
     exit(0);
 }
 - (IBAction)ContinueButtonClick:(id)sender {
@@ -47,13 +50,7 @@
     VCGame *continueController = (VCGame*)[storyboard instantiateViewControllerWithIdentifier:@"Game"];
     if(continueController)
     {
-        if([Cards sharedInstance].map.count>0){
-            continueController.cardsManager = [Cards sharedInstance];
-            [self.navigationController pushViewController:continueController animated:YES];
-        }
-        else{
-            
-        }
+        continueController.cardsManager = self.game;
     }
 }
 

@@ -179,7 +179,7 @@
         <!--Выбор режима-->
         <scene sceneID="hbQ-JB-8Xo">
             <objects>
-                <viewController title="Выбор режима" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O3z-t5-FBQ" customClass="VCMode" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Mode" title="Выбор режима" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O3z-t5-FBQ" customClass="VCMode" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NI1-oP-6Vq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

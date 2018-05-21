@@ -25,10 +25,11 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+
     // Dispose of any resources that can be recreated.
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSInteger count=[Cards sharedInstance].map.count;
+    NSInteger count =self.cardsManager.deck.count;
     return count;
 }
 
@@ -40,11 +41,11 @@
     NSInteger index=indexPath.item;
     NSString *value,*suit;
     [cell.layer setCornerRadius:10];
-    [cell setCard:[Cards sharedInstance].map[index]];
-    Card *card=[Cards sharedInstance].map[index];
+    [cell setCard:self.cardsManager.deck[index]];
+    GameCard *card=self.cardsManager.deck[index];
     value = [self setCardValueForString:cell.card.value];
     suit = [self setCardSuitForString:cell];
-    if(card.open){
+    if(card.state==TableOptionEnable){
         cell.labelSuit.text = suit;
         cell.labelValue.text = value;
         cell.labelSuit.hidden=NO;
@@ -57,7 +58,7 @@
         [cell.labelValue setTextColor:[UICCard White]];
         [cell setBackgroundColor:[UICCard Blue]];
     }
-    if([[Cards sharedInstance]getGameState]==GameStateEnd)
+    if([self.cardsManager getGameState]==GameStateEnd)
     {
         [self.EGLabel setText:@"Победа"];
         [self.EGLabel setHidden:NO];
@@ -123,9 +124,9 @@
     cell.labelSuit.hidden=NO;
     [cell.labelValue setTextColor:[UICCard Black]];
     [cell setBackgroundColor:[UICCard White]];
-    if([[Cards sharedInstance]makeTaskWithCardAtIndex:index :true])
+    if([self.cardsManager makeTaskAtIndex:index :TableOptionEnable])
     {
-        switch([[Cards sharedInstance]getGameState])
+        switch([self.cardsManager getGameState])
         {
             case GameStateFalse:
                 self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f  target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES];

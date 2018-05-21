@@ -3,12 +3,23 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[VCMode EMClick:]:VCMode.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.gameController.cardsManager">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[VCMain ContinueButtonClick:]:VCMain.m">
          <PersistentStrings>
             <PersistentString
                value = "[Cards sharedInstance].map">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[Deck createRandomDeck:]:Deck.m">
       </ContextState>
       <ContextState
          contextName = "-[VCGame collectionView:didSelectItemAtIndexPath:]:VCGame.m">

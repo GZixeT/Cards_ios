@@ -33,10 +33,5 @@ typedef enum{
 @interface Card: NSObject
 @property CardValue value;
 @property CardSuit suit;
-@property BOOL open;
-+ (id) createRandomCard;
-- (id) copy;
-- (BOOL) isEqual:(id)object;
-- (BOOL) isContainsInArray:(NSMutableArray*)array;
-- (NSMutableArray*) getRandomArray:(NSInteger)count;
++ (instancetype) createRandomCard;
 @end

@@ -5,7 +5,6 @@
 //  Created by Георгий Зубков on 18.05.2018.
 //  Copyright © 2018 Георгий Зубков. All rights reserved.
 //
-#define HEIGHT_CARDS 4
 #define EASY_MODE_CARD_NUMBER 4
 #define MIDDLE_MODE_CARD_NUMBER 6
 #define HARD_MODE_CARD_NUMBER 12
@@ -13,8 +12,11 @@
 
 #import "Cards.h"
 #import "VCMode.h"
+#import "VCGame.h"
 
 @interface VCMode ()
+@property Cards *game;
+@property VCGame *gameController;
 
 @end
 
@@ -25,6 +27,8 @@
     self.easyMode.layer.cornerRadius=CORNER_RADIUS;
     self.middleMode.layer.cornerRadius=CORNER_RADIUS;
     self.hardMode.layer.cornerRadius=CORNER_RADIUS;
+    UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.gameController = (VCGame*)[self.storyboard instantiateViewControllerWithIdentifier:@"Game"];
     // Do any additional setup after loading the view.
 }
 
@@ -33,22 +37,17 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)EMClick:(id)sender {
-    [[Cards sharedInstance].map removeAllObjects];
-    [[Cards sharedInstance].tableOfStates removeAllObjects];
-    [[Cards sharedInstance]fillWithRandomCardsWithHeightAndNumber:HEIGHT_CARDS CardDeckNumber:EASY_MODE_CARD_NUMBER];
-    [[Cards sharedInstance]initTableOfStates];
+    self.game=[Cards createRandomDeck:EASY_MODE_CARD_NUMBER];
+    self.gameController.game=self.game;
+    
 }
 - (IBAction)MMClick:(id)sender {
-    [[Cards sharedInstance].map removeAllObjects];
-    [[Cards sharedInstance].tableOfStates removeAllObjects];
-    [[Cards sharedInstance]fillWithRandomCardsWithHeightAndNumber:HEIGHT_CARDS CardDeckNumber:MIDDLE_MODE_CARD_NUMBER];
-    [[Cards sharedInstance]initTableOfStates];
+    self.game=[Cards createRandomDeck:MIDDLE_MODE_CARD_NUMBER];
+    self.gameController.game=self.game;
 }
 - (IBAction)HMClick:(id)sender {
-    [[Cards sharedInstance].map removeAllObjects];
-    [[Cards sharedInstance].tableOfStates removeAllObjects];
-    [[Cards sharedInstance]fillWithRandomCardsWithHeightAndNumber:HEIGHT_CARDS CardDeckNumber:HARD_MODE_CARD_NUMBER];
-    [[Cards sharedInstance]initTableOfStates];
+    self.game=[Cards createRandomDeck:HARD_MODE_CARD_NUMBER];
+    self.gameController.game=self.game;
 }
 
 /*
