@@ -20,7 +20,7 @@
     CardSuit s= arc4random_uniform(CardSuitClubs)+CardSuitDiamonds;
     [card setValue:v];
     [card setSuit:s];
-    if(v==0)
+    if(v==14)
         NSLog(@"Как так то?");
     return card;
 }

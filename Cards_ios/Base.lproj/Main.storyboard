@@ -126,17 +126,27 @@
                                     <outlet property="delegate" destination="FMn-TX-WpT" id="dk1-E8-1ai"/>
                                 </connections>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjO-0o-BXd">
+                                <rect key="frame" x="137" y="522" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="A9b-1n-qxO" firstAttribute="top" secondItem="kTW-OM-9JY" secondAttribute="top" constant="9" id="287-d1-Dbj"/>
+                            <constraint firstItem="zjO-0o-BXd" firstAttribute="leading" secondItem="kTW-OM-9JY" secondAttribute="leading" constant="137" id="3jd-H9-JFl"/>
+                            <constraint firstItem="zjO-0o-BXd" firstAttribute="top" secondItem="A9b-1n-qxO" secondAttribute="bottom" constant="5" id="8KI-ha-lp6"/>
                             <constraint firstItem="kTW-OM-9JY" firstAttribute="bottom" secondItem="A9b-1n-qxO" secondAttribute="bottom" constant="150" id="IGz-ZV-8IB"/>
                             <constraint firstItem="kTW-OM-9JY" firstAttribute="trailing" secondItem="A9b-1n-qxO" secondAttribute="trailing" constant="16" id="m7D-fD-YQL"/>
                             <constraint firstItem="A9b-1n-qxO" firstAttribute="leading" secondItem="kTW-OM-9JY" secondAttribute="leading" constant="16" id="pxb-7e-wOE"/>
+                            <constraint firstItem="zjO-0o-BXd" firstAttribute="centerX" secondItem="A9b-1n-qxO" secondAttribute="centerX" id="wOe-0e-WUX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kTW-OM-9JY"/>
                     </view>
                     <connections>
+                        <outlet property="EGLabel" destination="zjO-0o-BXd" id="WGu-vC-aj5"/>
                         <outlet property="cView" destination="A9b-1n-qxO" id="VC1-vm-v91"/>
                     </connections>
                 </viewController>

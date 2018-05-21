@@ -9,8 +9,8 @@
 #import "VCGame.h"
 #import "CVCell.h"
 #import "Card.h"
+#import "Cards.h"
 #import "UICCard.h"
-#import "Cards.h";
 
 @interface VCGame ()
 @end
@@ -38,9 +38,30 @@
     
     CVCell *cell = (CVCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     NSInteger index=indexPath.item;
+    NSString *value,*suit;
     [cell.layer setCornerRadius:10];
     [cell setCard:[Cards sharedInstance].map[index]];
-    cell.labelValue.text = @"?";
+    Card *card=[Cards sharedInstance].map[index];
+    value = [self setCardValueForString:cell.card.value];
+    suit = [self setCardSuitForString:cell];
+    if(card.open){
+        cell.labelSuit.text = suit;
+        cell.labelValue.text = value;
+        cell.labelSuit.hidden=NO;
+        [cell.labelValue setTextColor:[UICCard Black]];
+        [cell setBackgroundColor:[UICCard White]];
+    }
+    else{
+        cell.labelSuit.hidden=YES;
+        cell.labelValue.text = @"?";
+        [cell.labelValue setTextColor:[UICCard White]];
+        [cell setBackgroundColor:[UICCard Blue]];
+    }
+    if([[Cards sharedInstance]getGameState]==GameStateEnd)
+    {
+        [self.EGLabel setText:@"Победа"];
+        [self.EGLabel setHidden:NO];
+    }
 //    UILabel *label=(UILabel*)[cell viewWithTag:LABEL_IDENTIFIER];
 //    [label setText:@"?"];
     // recipeImageView.image = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
@@ -95,38 +116,43 @@
     CVCell *cell = (CVCell*)[collectionView cellForItemAtIndexPath:indexPath];
     NSInteger index=indexPath.item;
     NSString *value,*suit;
+    value = [self setCardValueForString:cell.card.value];
+    suit = [self setCardSuitForString:cell];
+    cell.labelSuit.text = suit;
+    cell.labelValue.text = value;
+    cell.labelSuit.hidden=NO;
+    [cell.labelValue setTextColor:[UICCard Black]];
+    [cell setBackgroundColor:[UICCard White]];
     if([[Cards sharedInstance]makeTaskWithCardAtIndex:index :true])
     {
         switch([[Cards sharedInstance]getGameState])
         {
-        case GameStateFalse:
+            case GameStateFalse:
                 cell.labelSuit.hidden=YES;
                 cell.labelValue.text = @"?";
                 [cell.labelValue setTextColor:[UICCard White]];
                 [cell setBackgroundColor:[UICCard Blue]];
-            break;
-        case GameStateEnd:
-            printf("Победа!\n");
-            break;
-        case GameStateError:
-            printf("Error.\n");
-            break;
-        case GameStateTrue:
-                value = [self setCardValueForString:cell.card.value];
-                suit = [self setCardSuitForString:cell];
-                cell.labelSuit.text = suit;
-                cell.labelValue.text = value;
-                cell.labelSuit.hidden=NO;
-                [cell.labelValue setTextColor:[UICCard Black]];
-                [cell setBackgroundColor:[UICCard White]];
-            break;
-        default:
-            printf("Error.\n");
-            break;
+                //[NSThread sleepForTimeInterval:1.0];
+                [self.cView reloadData];
+                break;
+            case GameStateEnd:
+                [self.EGLabel setText:@"Победа"];
+                [self.EGLabel setHidden:NO];
+                printf("Победа!\n");
+                break;
+            case GameStateError:
+                printf("Error.\n");
+                break;
+            case GameStateTrue:
+                break;
+            default:
+                printf("Error.\n");
+                break;
         }
     }
     
 }
+
 /*
 #pragma mark - Navigation
 
