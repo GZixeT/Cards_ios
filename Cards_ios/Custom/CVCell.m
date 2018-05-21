@@ -9,5 +9,4 @@
 #import "CVCell.h"
 
 @implementation CVCell
-
 @end

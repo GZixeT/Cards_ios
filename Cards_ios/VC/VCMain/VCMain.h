@@ -10,6 +10,10 @@
 #import "CustomButton.h"
 #import "Cards.h"
 
+// убрать синглтон - будет класс игры
+// переделать класс карты, добавить игровую карту (состояние и ИзИквел)
+// добвить колоду
+
 
 @interface VCMain: UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *exitButton;

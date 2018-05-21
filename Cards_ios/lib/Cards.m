@@ -21,11 +21,10 @@ static Cards *uniqueInstance=nil;
 @synthesize cardDeckNumber;
 @synthesize height;
 + (Cards*) sharedInstance{
-    @synchronized(self)
-    {
-        if(uniqueInstance==nil)
-            uniqueInstance=[[self alloc]init];
-    }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        uniqueInstance = [[self alloc] init];
+    });
     return uniqueInstance;
 }
 -(id)init{ //private
