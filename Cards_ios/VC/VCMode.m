@@ -22,6 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.easyMode.layer.cornerRadius=CORNER_RADIUS;
+    self.middleMode.layer.cornerRadius=CORNER_RADIUS;
+    self.hardMode.layer.cornerRadius=CORNER_RADIUS;
     // Do any additional setup after loading the view.
 }
 

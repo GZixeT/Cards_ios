@@ -20,4 +20,5 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *cView;
 @property (weak, nonatomic) IBOutlet UILabel *EGLabel;
 @property(nonatomic) Cards *cardsManager;
+@property NSTimer *timer;
 @end

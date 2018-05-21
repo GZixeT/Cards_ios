@@ -7,10 +7,14 @@
 //
 #import "VCMain.h"
 #import "VCGame.h"
+#define CORNER_RADIUS 10
 
 @implementation VCMain
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.nGameButton.layer.cornerRadius=CORNER_RADIUS;
+    self.continueButton.layer.cornerRadius=CORNER_RADIUS;
+    self.exitButton.layer.cornerRadius=CORNER_RADIUS;
     // Do any additional setup after loading the view, typically from a nib.
 }
 

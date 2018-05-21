@@ -128,12 +128,8 @@
         switch([[Cards sharedInstance]getGameState])
         {
             case GameStateFalse:
-                cell.labelSuit.hidden=YES;
-                cell.labelValue.text = @"?";
-                [cell.labelValue setTextColor:[UICCard White]];
-                [cell setBackgroundColor:[UICCard Blue]];
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f  target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES];
                 //[NSThread sleepForTimeInterval:1.0];
-                [self.cView reloadData];
                 break;
             case GameStateEnd:
                 [self.EGLabel setText:@"Победа"];
@@ -152,7 +148,31 @@
     }
     
 }
-
+- (void) updateTimer:(NSTimer*)timer{
+    id index=timer.userInfo;
+    CVCell *cell = (CVCell*)[self.cView cellForItemAtIndexPath:index];
+    //NSInteger index=indexPath.item;
+    NSString *value,*suit;
+    value = [self setCardValueForString:cell.card.value];
+    suit = [self setCardSuitForString:cell];
+    if(cell.labelSuit.hidden==NO){
+        cell.labelSuit.hidden=YES;
+        cell.labelValue.text = @"?";
+        [cell.labelValue setTextColor:[UICCard White]];
+        [cell setBackgroundColor:[UICCard Blue]];
+        [self.cView reloadData];
+        [timer invalidate];
+    }
+    else{
+        cell.labelSuit.text = suit;
+        cell.labelValue.text = value;
+        cell.labelSuit.hidden=NO;
+        [cell.labelValue setTextColor:[UICCard Black]];
+        [cell setBackgroundColor:[UICCard White]];
+    }
+    float time = timer.timeInterval;
+    NSLog(@"%f",time);
+}
 /*
 #pragma mark - Navigation
 
