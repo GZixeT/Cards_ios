@@ -18,6 +18,13 @@
     [card setState:TableOptionDisable];
     return card;
 }
+- (id) copy{
+    GameCard *card=[[GameCard alloc]init];
+    card.value=self.value;
+    card.suit=self.suit;
+    card.state=self.state;
+    return card;
+}
 - (BOOL) isEqual:(id)object{
     GameCard *card=object;
     if([super isEqual:card] && self.state==card.state)

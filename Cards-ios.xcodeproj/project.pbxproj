@@ -258,8 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				8686FE1C20A9D4F60079C347 /* VCMain */,
-				8686FE1D20A9D5060079C347 /* VCGame */,
 				86B7D9AA20AEC8A4004376A2 /* VCMode */,
+				8686FE1D20A9D5060079C347 /* VCGame */,
 			);
 			path = VC;
 			sourceTree = "<group>";

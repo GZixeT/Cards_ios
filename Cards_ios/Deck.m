@@ -16,14 +16,14 @@
         self.deck=[[NSMutableArray alloc]init];
     return self;
 }
-+ (Deck*) createRandomDeck:(NSInteger)count{
++ (instancetype) createRandomDeck:(NSInteger)count{
     Deck *rDeck= [[Deck alloc]init];
     for(int i=0;i<count;i++){
         [rDeck.deck addObject:[GameCard createRandomCard]];
     }
     return rDeck;
 }
-+ (Deck*) createRandomDoubleDeck:(NSInteger)count
++ (instancetype) createRandomDoubleDeck:(NSInteger)count
 {
     Deck *rDeck= [[Deck alloc]init];
     for (int i = 0; i < count; i++)

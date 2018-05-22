@@ -10,8 +10,8 @@
 #import "GameCard.h"
 @interface Deck : NSObject
 @property NSMutableArray *deck;
-+ (Deck*) createRandomDeck:(NSInteger)count;
-+ (Deck*) createRandomDoubleDeck:(NSInteger)count;
++ (instancetype) createRandomDeck:(NSInteger)count;
++ (instancetype) createRandomDoubleDeck:(NSInteger)count;
 - (BOOL) isContainsInDeck:(id)card;
 - (void) shuffleMapElements;
 - (NSArray*) getCardsWithState:(TableOption)state;

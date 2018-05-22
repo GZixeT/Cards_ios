@@ -7,10 +7,10 @@
 //
 #import "VCMain.h"
 #import "VCGame.h"
+#import "VCMode.h"
 #define CORNER_RADIUS 10
 
 @interface VCMain()
-@property Cards *game;
 @end
 
 @implementation VCMain
@@ -18,7 +18,6 @@
     [super viewDidLoad];
     self.nGameButton.layer.cornerRadius=CORNER_RADIUS;
     self.continueButton.layer.cornerRadius=CORNER_RADIUS;
-    self.exitButton.layer.cornerRadius=CORNER_RADIUS;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -42,17 +41,20 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)ExitButtonClick:(id)sender {
-    exit(0);
+- (void) isGameBegining:(Cards*)game{
+    self.game=game;
 }
-- (IBAction)ContinueButtonClick:(id)sender {
-    UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    VCGame *continueController = (VCGame*)[storyboard instantiateViewControllerWithIdentifier:@"Game"];
-    if(continueController)
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"mode"])
     {
-        continueController.cardsManager = self.game;
+        VCMode *controller = (VCMode *)segue.destinationViewController;
+        controller.delegate=self;
+    }
+    else if([segue.identifier isEqualToString:@"continue"])
+    {
+        VCGame *controller = (VCGame *)segue.destinationViewController;
+        controller.game = self.game;
     }
 }
-
-
 @end

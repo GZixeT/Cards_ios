@@ -7,10 +7,12 @@
 //
 
 #import "VCGame.h"
+#import "VCMode.h"
 #import "CVCell.h"
 #import "Card.h"
 #import "Cards.h"
 #import "UICCard.h"
+
 
 @interface VCGame ()
 @end
@@ -19,6 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //VCMode *gameController = (VCMode*)[storyboard instantiateViewControllerWithIdentifier:@"Mode"];
+    //self.delegate=gameController;
+    //self.game=[self.delegate getGame];
     //[self.cView setDataSource:self];
     //[self.cView setDelegate:self];
 }
@@ -29,7 +36,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSInteger count =self.cardsManager.deck.count;
+    NSInteger count =self.game.deck.count;
     return count;
 }
 
@@ -41,11 +48,11 @@
     NSInteger index=indexPath.item;
     NSString *value,*suit;
     [cell.layer setCornerRadius:10];
-    [cell setCard:self.cardsManager.deck[index]];
-    GameCard *card=self.cardsManager.deck[index];
+    [cell setCard:self.game.deck[index]];
+    GameCard *card=self.game.deck[index];
     value = [self setCardValueForString:cell.card.value];
     suit = [self setCardSuitForString:cell];
-    if(card.state==TableOptionEnable){
+    if(card.state==TableOptionLock){
         cell.labelSuit.text = suit;
         cell.labelValue.text = value;
         cell.labelSuit.hidden=NO;
@@ -58,7 +65,7 @@
         [cell.labelValue setTextColor:[UICCard White]];
         [cell setBackgroundColor:[UICCard Blue]];
     }
-    if([self.cardsManager getGameState]==GameStateEnd)
+    if([self.game getGameState]==GameStateEnd)
     {
         [self.EGLabel setText:@"Победа"];
         [self.EGLabel setHidden:NO];
@@ -124,9 +131,9 @@
     cell.labelSuit.hidden=NO;
     [cell.labelValue setTextColor:[UICCard Black]];
     [cell setBackgroundColor:[UICCard White]];
-    if([self.cardsManager makeTaskAtIndex:index :TableOptionEnable])
+    if([self.game makeTaskAtIndex:index :TableOptionEnable])
     {
-        switch([self.cardsManager getGameState])
+        switch([self.game getGameState])
         {
             case GameStateFalse:
                 self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f  target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES];
@@ -150,6 +157,7 @@
     
 }
 - (void) updateTimer:(NSTimer*)timer{
+    NSLog(@"Timer Begin");
     id index=timer.userInfo;
     CVCell *cell = (CVCell*)[self.cView cellForItemAtIndexPath:index];
     //NSInteger index=indexPath.item;
@@ -163,6 +171,7 @@
         [cell setBackgroundColor:[UICCard Blue]];
         [self.cView reloadData];
         [timer invalidate];
+        NSLog(@"End Timer");
     }
     else{
         cell.labelSuit.text = suit;
@@ -171,17 +180,5 @@
         [cell.labelValue setTextColor:[UICCard Black]];
         [cell setBackgroundColor:[UICCard White]];
     }
-    float time = timer.timeInterval;
-    NSLog(@"%f",time);
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end
