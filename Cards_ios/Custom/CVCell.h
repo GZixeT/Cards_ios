@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Card.h"
 @interface CVCell : UICollectionViewCell
-@property Card *card;
+@property(nonatomic) Card *card;
 @property(nonatomic, weak) IBOutlet UILabel *labelValue;
 @property(nonatomic, weak) IBOutlet UILabel *labelSuit;
+- (void) setValueLabelText;
+- (void) setSuitLabelText;
+- (void) setBackProperties;
+- (void) setForwardProperties;
 @end

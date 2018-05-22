@@ -40,27 +40,11 @@
     static NSString *identifier = @"Cell_ID";
     CVCell *cell = (CVCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     NSInteger index=indexPath.item;
-    NSString *value,*suit;
-    [cell.layer setCornerRadius:10];
     [cell setCard:self.game.deck[index]];
     GameCard *card=self.game.deck[index];
-    value = [self setCardValueForString:cell.card.value];
-    suit = [self setCardSuitForString:cell];
     if(card.state==TableOptionLock)
-    {
-        cell.labelSuit.text = suit;
-        cell.labelValue.text = value;
-        cell.labelSuit.hidden=NO;
-        [cell.labelValue setTextColor:[UICCard Black]];
-        [cell setBackgroundColor:[UICCard White]];
-    }
-    else
-    {
-        cell.labelSuit.hidden=YES;
-        cell.labelValue.text = @"?";
-        [cell.labelValue setTextColor:[UICCard White]];
-        [cell setBackgroundColor:[UICCard Blue]];
-    }
+        [cell setForwardProperties];
+    else [cell setBackProperties];
     if([self.game getGameState]==GameStateEnd)
     {
         [self.EGLabel setText:@"Победа"];
@@ -68,72 +52,18 @@
     }
     return cell;
 }
-- (NSString*) setCardValueForString:(int)CValue
-{
-    NSString *value;
-    switch (CValue)
-    {
-        case CardValueAce:
-            value=@"A";
-            break;
-        case CardValueKing:
-            value=@"K";
-            break;
-        case CardValueQueen:
-            value=@"Q";
-            break;
-        case CardValueJack:
-            value=@"J";
-            break;
-        default:
-            value=[NSString stringWithFormat:@"%d",CValue];
-            break;
-    }
-    return value;
-}
-- (NSString*) setCardSuitForString:(CVCell*)cell
-{
-    NSString *suit;
-    switch (cell.card.suit)
-    {
-        case CardSuitClubs:
-            suit=@"♣️";
-            [cell.labelSuit setTextColor:[UICCard Black]];
-            break;
-        case CardSuitHeards:
-            suit=@"♥️";
-            [cell.labelSuit setTextColor:[UICCard Red]];
-            break;
-        case CardSuitSpades:
-            suit=@"♠️";
-            [cell.labelSuit setTextColor:[UICCard Black]];
-            break;
-        case CardSuitDiamonds:
-            suit=@"♦️";
-            [cell.labelSuit setTextColor:[UICCard Red]];
-            break;
-    }
-    return suit;
-}
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CVCell *cell = (CVCell*)[collectionView cellForItemAtIndexPath:indexPath];
     NSInteger index=indexPath.item;
-    NSString *value,*suit;
-    value = [self setCardValueForString:cell.card.value];
-    suit = [self setCardSuitForString:cell];
-    cell.labelSuit.text = suit;
-    cell.labelValue.text = value;
-    cell.labelSuit.hidden=NO;
-    [cell.labelValue setTextColor:[UICCard Black]];
-    [cell setBackgroundColor:[UICCard White]];
+    [cell setCard:self.game.deck[index]];
+    [cell setForwardProperties];
     if([self.game makeTaskAtIndex:index :TableOptionEnable])
     {
         switch([self.game getGameState])
         {
             case GameStateFalse:
                 self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f  target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES];
-                //[NSThread sleepForTimeInterval:1.0];
                 break;
             case GameStateEnd:
                 [self.EGLabel setText:@"Победа"];
@@ -157,27 +87,13 @@
     NSLog(@"Timer Begin");
     id index=timer.userInfo;
     CVCell *cell = (CVCell*)[self.cView cellForItemAtIndexPath:index];
-    //NSInteger index=indexPath.item;
-    NSString *value,*suit;
-    value = [self setCardValueForString:cell.card.value];
-    suit = [self setCardSuitForString:cell];
     if(cell.labelSuit.hidden==NO)
     {
-        cell.labelSuit.hidden=YES;
-        cell.labelValue.text = @"?";
-        [cell.labelValue setTextColor:[UICCard White]];
-        [cell setBackgroundColor:[UICCard Blue]];
+        [cell setBackProperties];
         [self.cView reloadData];
         [timer invalidate];
         NSLog(@"End Timer");
     }
-    else
-    {
-        cell.labelSuit.text = suit;
-        cell.labelValue.text = value;
-        cell.labelSuit.hidden=NO;
-        [cell.labelValue setTextColor:[UICCard Black]];
-        [cell setBackgroundColor:[UICCard White]];
-    }
+    else [cell setForwardProperties];
 }
 @end

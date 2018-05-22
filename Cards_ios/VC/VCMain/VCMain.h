@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomButton.h"
 #import "VCMode.h"
 #import "Cards.h"
 

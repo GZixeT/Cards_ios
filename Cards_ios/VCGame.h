@@ -11,12 +11,6 @@
 //for test branch to merge
 //for commit of tower
 @interface VCGame: UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-{
-    CGFloat _screenWidth;
-    CGFloat _screenHeight;
-    CGFloat _cardWidth;
-    CGFloat _cardHeight;
-}
 @property (strong, nonatomic) IBOutlet UICollectionView *cView;
 @property (weak, nonatomic) IBOutlet UILabel *EGLabel;
 @property(weak, nonatomic) Cards *game;
