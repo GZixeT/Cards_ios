@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Deck.h"
 #import "GameCard.h"
-typedef enum{
+typedef enum
+{
     GameStateTrue =1,
     GameStateFalse,
     GameStateEnd,

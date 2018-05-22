@@ -14,34 +14,39 @@
 @end
 
 @implementation VCMain
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.nGameButton.layer.cornerRadius=CORNER_RADIUS;
     self.continueButton.layer.cornerRadius=CORNER_RADIUS;
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
+{
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     // Code here will execute before the rotation begins.
     // Equivalent to placing it in the deprecated method -[willRotateToInterfaceOrientation:duration:]
     
-    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context)
+    {
         
         // Place code here to perform animations during the rotation.
         // You can pass nil or leave this block empty if not necessary.
         
-    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+    }completion:^(id<UIViewControllerTransitionCoordinatorContext> context)
+    {
         // Code here will execute after the rotation has finished.
         // Equivalent to placing it in the deprecated method -[didRotateFromInterfaceOrientation:]
         
     }];
 }
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void) isGameBegining:(Cards*)game{
+- (void) isGameBegining:(Cards*)game
+{
     self.game=game;
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -11,7 +11,8 @@
 @implementation Card
 @synthesize value;
 @synthesize suit;
-+(instancetype) createRandomCard{
++(instancetype) createRandomCard
+{
     Card *card=[[Card alloc]init];
     CardValue v = RAND_FROM_TO(CardValueTwo, CardValueAce);
     CardSuit s = RAND_FROM_TO(CardSuitDiamonds, CardSuitClubs);
@@ -19,13 +20,15 @@
     [card setSuit:s];
     return card;
 }
-- (id) copy{
+- (id) copy
+{
     Card *card=[[Card alloc]init];
     [card setValue:value];
     [card setSuit:suit];
     return card;
 }
-- (BOOL) isEqual:(id)object{
+- (BOOL) isEqual:(id)object
+{
     Card *card=object;
     if(card.suit==self.suit && card.value==self.value)
         return YES;

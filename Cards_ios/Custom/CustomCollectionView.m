@@ -11,7 +11,8 @@
 #import "CustomCollectionView.h"
 
 @implementation CustomCollectionView
--(void) setCollectionViewToCenterScreen:(CGFloat)width{
+-(void) setCollectionViewToCenterScreen:(CGFloat)width
+{
     CGPoint currentPossition = [[self layer]position];
     CGPoint nPossition=CGPointMake(width/2, currentPossition.y);
     [[self layer]setPosition:nPossition];

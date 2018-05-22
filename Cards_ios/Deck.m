@@ -11,14 +11,17 @@
 #import "GameCard.h"
 
 @implementation Deck
-- (id) init{
+- (id) init
+{
     if(self= [super init])
         self.deck=[[NSMutableArray alloc]init];
     return self;
 }
-+ (instancetype) createRandomDeck:(NSInteger)count{
++ (instancetype) createRandomDeck:(NSInteger)count
+{
     Deck *rDeck= [[Deck alloc]init];
-    for(int i=0;i<count;i++){
+    for(int i=0;i<count;i++)
+    {
         [rDeck.deck addObject:[GameCard createRandomCard]];
     }
     return rDeck;
@@ -35,15 +38,18 @@
     [rDeck shuffleMapElements];
     return rDeck;
 }
-- (BOOL) isContainsInDeck:(id)card{
-    for(int i=0;i<self.deck.count;i++){
+- (BOOL) isContainsInDeck:(id)card
+{
+    for(int i=0;i<self.deck.count;i++)
+    {
         GameCard *dCard=self.deck[i];
         if([dCard isEqual:card])
             return YES;
     }
     return NO;
 }
-- (void) shuffleMapElements{
+- (void) shuffleMapElements
+{
     int index=0;
     id tmp;
     for(int i=0;i<self.deck.count;i++)
@@ -56,7 +62,8 @@
 }
 - (NSArray*) getCardsWithState:(TableOption)state
 {
-    return [self.deck filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(GameCard *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+    return [self.deck filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(GameCard *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings)
+    {
         return evaluatedObject.state == state;
     }]];
 }

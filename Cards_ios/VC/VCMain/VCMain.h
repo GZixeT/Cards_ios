@@ -11,10 +11,6 @@
 #import "VCMode.h"
 #import "Cards.h"
 
-// убрать синглтон - будет класс игры
-// переделать класс карты, добавить игровую карту (состояние и ИзИквел)
-// добвить колоду
-
 @interface VCMain: UIViewController <VCModeDelegate>
 @property Cards *game;
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;

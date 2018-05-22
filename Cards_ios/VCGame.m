@@ -19,31 +19,25 @@
 
 @implementation VCGame
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
-    //UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    //VCMode *gameController = (VCMode*)[storyboard instantiateViewControllerWithIdentifier:@"Mode"];
-    //self.delegate=gameController;
-    //self.game=[self.delegate getGame];
-    //[self.cView setDataSource:self];
-    //[self.cView setDelegate:self];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-
-    // Dispose of any resources that can be recreated.
 }
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     NSInteger count =self.game.deck.count;
     return count;
 }
 
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *identifier = @"Cell_ID";
-    
     CVCell *cell = (CVCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     NSInteger index=indexPath.item;
     NSString *value,*suit;
@@ -52,14 +46,16 @@
     GameCard *card=self.game.deck[index];
     value = [self setCardValueForString:cell.card.value];
     suit = [self setCardSuitForString:cell];
-    if(card.state==TableOptionLock){
+    if(card.state==TableOptionLock)
+    {
         cell.labelSuit.text = suit;
         cell.labelValue.text = value;
         cell.labelSuit.hidden=NO;
         [cell.labelValue setTextColor:[UICCard Black]];
         [cell setBackgroundColor:[UICCard White]];
     }
-    else{
+    else
+    {
         cell.labelSuit.hidden=YES;
         cell.labelValue.text = @"?";
         [cell.labelValue setTextColor:[UICCard White]];
@@ -70,15 +66,13 @@
         [self.EGLabel setText:@"Победа"];
         [self.EGLabel setHidden:NO];
     }
-//    UILabel *label=(UILabel*)[cell viewWithTag:LABEL_IDENTIFIER];
-//    [label setText:@"?"];
-    // recipeImageView.image = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
-    
     return cell;
 }
-- (NSString*) setCardValueForString:(int)CValue{
+- (NSString*) setCardValueForString:(int)CValue
+{
     NSString *value;
-    switch (CValue) {
+    switch (CValue)
+    {
         case CardValueAce:
             value=@"A";
             break;
@@ -97,9 +91,11 @@
     }
     return value;
 }
-- (NSString*) setCardSuitForString:(CVCell*)cell{
+- (NSString*) setCardSuitForString:(CVCell*)cell
+{
     NSString *suit;
-    switch (cell.card.suit) {
+    switch (cell.card.suit)
+    {
         case CardSuitClubs:
             suit=@"♣️";
             [cell.labelSuit setTextColor:[UICCard Black]];
@@ -156,7 +152,8 @@
     }
     
 }
-- (void) updateTimer:(NSTimer*)timer{
+- (void) updateTimer:(NSTimer*)timer
+{
     NSLog(@"Timer Begin");
     id index=timer.userInfo;
     CVCell *cell = (CVCell*)[self.cView cellForItemAtIndexPath:index];
@@ -164,7 +161,8 @@
     NSString *value,*suit;
     value = [self setCardValueForString:cell.card.value];
     suit = [self setCardSuitForString:cell];
-    if(cell.labelSuit.hidden==NO){
+    if(cell.labelSuit.hidden==NO)
+    {
         cell.labelSuit.hidden=YES;
         cell.labelValue.text = @"?";
         [cell.labelValue setTextColor:[UICCard White]];
@@ -173,7 +171,8 @@
         [timer invalidate];
         NSLog(@"End Timer");
     }
-    else{
+    else
+    {
         cell.labelSuit.text = suit;
         cell.labelValue.text = value;
         cell.labelSuit.hidden=NO;

@@ -8,7 +8,8 @@
 
 #import "Card.h"
 
-typedef enum{
+typedef enum
+{
     TableOptionDisable,
     TableOptionEnable,
     TableOptionLock

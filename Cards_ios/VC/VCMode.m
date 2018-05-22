@@ -20,7 +20,8 @@
 
 @implementation VCMode
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.easyMode.layer.cornerRadius=CORNER_RADIUS;
     self.middleMode.layer.cornerRadius=CORNER_RADIUS;
@@ -30,20 +31,24 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)EMClick:(id)sender {
+- (IBAction)EMClick:(id)sender
+{
     self.game=[Cards createRandomDoubleDeck:EASY_MODE_CARD_NUMBER];
     //gameController.game=self.game;
     
 }
-- (IBAction)MMClick:(id)sender {
+- (IBAction)MMClick:(id)sender
+{
     self.game=[Cards createRandomDoubleDeck:MIDDLE_MODE_CARD_NUMBER];
     //gameController.game=self.game;
 }
-- (IBAction)HMClick:(id)sender {
+- (IBAction)HMClick:(id)sender
+{
     self.game=[Cards createRandomDoubleDeck:HARD_MODE_CARD_NUMBER];
     //gameController.game=self.game;
 }

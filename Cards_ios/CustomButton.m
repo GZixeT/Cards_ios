@@ -10,7 +10,8 @@
 #define CORNER_RADIUS 10
 @implementation CustomButton
 @synthesize vPercent;
--(void) setHorizontalCenterForScreen:(CGFloat) width{
+-(void) setHorizontalCenterForScreen:(CGFloat) width
+{
     CGPoint currentPossition = [[self layer]position];
     CGPoint nPossition=CGPointMake(width/2, currentPossition.y);
     [[self layer]setPosition:nPossition];
@@ -22,7 +23,8 @@
     [[self layer]setPosition:nPossition];
     [[self layer]setCornerRadius:CORNER_RADIUS];
 }
-- (void) verticalPercent:(CGFloat) height{
+- (void) verticalPercent:(CGFloat) height
+{
     CGPoint currentPossition = [[self layer]position];
     self.vPercent=currentPossition.y/height;
 }

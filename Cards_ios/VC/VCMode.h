@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Cards.h"
+
 @protocol VCModeDelegate;
 
 @interface VCMode : UIViewController
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *hardMode;
 @property (weak ,nonatomic) id <VCModeDelegate> delegate;
 @end
+
 @protocol VCModeDelegate <NSObject>
 @optional
 - (void) isGameBegining:(Cards*)game;

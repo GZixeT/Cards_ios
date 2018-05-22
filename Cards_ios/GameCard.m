@@ -9,7 +9,8 @@
 #import "GameCard.h"
 
 @implementation GameCard
-+ (instancetype)createRandomCard{
++ (instancetype)createRandomCard
+{
     GameCard *card=[[GameCard alloc]init];
     CardValue v = RAND_FROM_TO(CardValueTwo, CardValueAce);
     CardSuit s = RAND_FROM_TO(CardSuitDiamonds, CardSuitClubs);
@@ -18,14 +19,16 @@
     [card setState:TableOptionDisable];
     return card;
 }
-- (id) copy{
+- (id) copy
+{
     GameCard *card=[[GameCard alloc]init];
     card.value=self.value;
     card.suit=self.suit;
     card.state=self.state;
     return card;
 }
-- (BOOL) isEqual:(id)object{
+- (BOOL) isEqual:(id)object
+{
     GameCard *card=object;
     if([super isEqual:card] && self.state==card.state)
         return YES;
