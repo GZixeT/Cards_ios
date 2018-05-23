@@ -54,6 +54,8 @@
     switch(enableCards.count)
     {
         case TABLE_NO_ONE_CARD_OPEN:
+            if([self getCardsWithState:TableOptionLock].count==self.deck.count)
+                return GameStateEnd;
             return GameStateTrue;
             break;
         case TABLE_ONE_CARD_OPEN:

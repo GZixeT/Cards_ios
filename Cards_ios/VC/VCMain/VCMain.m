@@ -20,6 +20,12 @@
     self.nGameButton.layer.cornerRadius=CORNER_RADIUS;
     self.continueButton.layer.cornerRadius=CORNER_RADIUS;
 }
+- (void) viewWillAppear:(BOOL)animated
+{
+    if(self.game==nil)
+        self.continueButton.layer.hidden=YES;
+    else self.continueButton.layer.hidden=NO;
+}
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
 {

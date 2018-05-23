@@ -12,6 +12,7 @@
 #import "Card.h"
 #import "Cards.h"
 #import "UICCard.h"
+#import "CVAlert.h"
 
 
 @interface VCGame ()
@@ -47,8 +48,8 @@
     else [cell setBackProperties];
     if([self.game getGameState]==GameStateEnd)
     {
-        [self.EGLabel setText:@"Победа"];
-        [self.EGLabel setHidden:NO];
+        CVAlert *alert=[CVAlert createAlertGameEnd];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     return cell;
 }
@@ -66,9 +67,8 @@
                 self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f  target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES];
                 break;
             case GameStateEnd:
-                [self.EGLabel setText:@"Победа"];
-                [self.EGLabel setHidden:NO];
                 printf("Победа!\n");
+                [self.cView reloadData];
                 break;
             case GameStateError:
                 printf("Error.\n");

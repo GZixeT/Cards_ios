@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3KH-Dm-LDO">
-                                <rect key="frame" x="112" y="318.5" width="150" height="30"/>
+                                <rect key="frame" x="112" y="284" width="150" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Fts-vh-sHr"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID9-G2-0kf">
-                                <rect key="frame" x="112.5" y="368.5" width="150" height="30"/>
+                                <rect key="frame" x="112.5" y="334" width="150" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cA9-8v-7oE"/>
@@ -46,13 +46,22 @@
                                     <segue destination="FMn-TX-WpT" kind="show" identifier="continue" id="xVY-zJ-qht"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cards.png" highlightedImage="cards.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nzw-VY-V5o">
+                                <rect key="frame" x="87" y="84" width="200" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="UJb-MA-3jN"/>
+                                    <constraint firstAttribute="width" constant="200" id="wii-b5-ljH"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="6.2890831401613139e-05" green="0.21142002231870441" blue="0.42284650259067358" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ID9-G2-0kf" firstAttribute="top" secondItem="3KH-Dm-LDO" secondAttribute="bottom" constant="20" id="6G8-Tt-UcM"/>
-                            <constraint firstItem="3KH-Dm-LDO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8NU-f5-3Tr"/>
-                            <constraint firstItem="3KH-Dm-LDO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IGy-bZ-6Of"/>
-                            <constraint firstItem="ID9-G2-0kf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iAI-wX-7Oq"/>
+                            <constraint firstItem="3KH-Dm-LDO" firstAttribute="top" secondItem="Nzw-VY-V5o" secondAttribute="bottom" constant="50" id="0F9-Kk-vvi"/>
+                            <constraint firstItem="ID9-G2-0kf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0nx-oN-tjh"/>
+                            <constraint firstItem="ID9-G2-0kf" firstAttribute="top" secondItem="3KH-Dm-LDO" secondAttribute="bottom" constant="20" id="Lvk-o0-3tp"/>
+                            <constraint firstItem="Nzw-VY-V5o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hKH-Xt-9Ir"/>
+                            <constraint firstItem="Nzw-VY-V5o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="nRL-1q-4Oy"/>
+                            <constraint firstItem="3KH-Dm-LDO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nfj-f5-YmI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -64,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137" y="153"/>
+            <point key="canvasLocation" x="1136.8" y="152.47376311844079"/>
         </scene>
         <!--Game-->
         <scene sceneID="E3q-zG-H5i">
@@ -74,21 +83,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjO-0o-BXd">
-                                <rect key="frame" x="112.5" y="617" width="150" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="44Z-aT-EQ5"/>
-                                    <constraint firstAttribute="width" constant="150" id="wLy-p0-UJf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A9b-1n-qxO">
-                                <rect key="frame" x="12.5" y="69" width="350" height="528"/>
+                                <rect key="frame" x="17.5" y="69" width="340" height="593"/>
                                 <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="350" id="43Q-mB-9Dj"/>
+                                    <constraint firstAttribute="width" constant="340" id="b7W-WC-7Wp"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Man-Ti-mJW">
                                     <size key="itemSize" width="50" height="70"/>
@@ -98,7 +97,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="center" reuseIdentifier="Cell_ID" id="8gn-hn-aHs" customClass="CVCell">
-                                        <rect key="frame" x="5" y="5" width="50" height="70"/>
+                                        <rect key="frame" x="4" y="5" width="50" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
@@ -142,16 +141,13 @@
                         </subviews>
                         <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kTW-OM-9JY" firstAttribute="bottom" secondItem="zjO-0o-BXd" secondAttribute="bottom" constant="20" id="KH2-sC-4Ka"/>
-                            <constraint firstItem="zjO-0o-BXd" firstAttribute="centerX" secondItem="6P1-Q2-om4" secondAttribute="centerX" id="NSm-r8-6m9"/>
-                            <constraint firstItem="zjO-0o-BXd" firstAttribute="top" secondItem="A9b-1n-qxO" secondAttribute="bottom" constant="20" id="OOi-75-rgU"/>
-                            <constraint firstItem="A9b-1n-qxO" firstAttribute="centerX" secondItem="6P1-Q2-om4" secondAttribute="centerX" id="Ygg-Gx-ZjJ"/>
-                            <constraint firstItem="A9b-1n-qxO" firstAttribute="top" secondItem="kTW-OM-9JY" secondAttribute="top" constant="5" id="hJu-8u-occ"/>
+                            <constraint firstItem="A9b-1n-qxO" firstAttribute="centerX" secondItem="6P1-Q2-om4" secondAttribute="centerX" id="VFV-zw-GnW"/>
+                            <constraint firstItem="kTW-OM-9JY" firstAttribute="bottom" secondItem="A9b-1n-qxO" secondAttribute="bottom" constant="5" id="bYY-hB-hRR"/>
+                            <constraint firstItem="A9b-1n-qxO" firstAttribute="top" secondItem="kTW-OM-9JY" secondAttribute="top" constant="5" id="dqy-bM-RZR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kTW-OM-9JY"/>
                     </view>
                     <connections>
-                        <outlet property="EGLabel" destination="zjO-0o-BXd" id="WGu-vC-aj5"/>
                         <outlet property="cView" destination="A9b-1n-qxO" id="VC1-vm-v91"/>
                     </connections>
                 </viewController>
@@ -251,6 +247,9 @@
             <point key="canvasLocation" x="382" y="152"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cards.png" width="486" height="383"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xVY-zJ-qht"/>
     </inferredMetricsTieBreakers>
