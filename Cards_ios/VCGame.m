@@ -85,7 +85,7 @@
 - (void) updateTimer:(NSTimer*)timer
 {
     NSLog(@"Timer Begin");
-    id index=timer.userInfo;
+    NSIndexPath *index=timer.userInfo;
     CVCell *cell = (CVCell*)[self.cView cellForItemAtIndexPath:index];
     if(cell.labelSuit.hidden==NO)
     {
@@ -94,6 +94,9 @@
         [timer invalidate];
         NSLog(@"End Timer");
     }
-    else [cell setForwardProperties];
+    else
+    {
+        [cell setForwardProperties];
+    }
 }
 @end
