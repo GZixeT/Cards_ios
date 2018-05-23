@@ -43,7 +43,7 @@
     NSInteger index=indexPath.item;
     [cell setCard:self.game.deck[index]];
     GameCard *card=self.game.deck[index];
-    if(card.state==TableOptionLock)
+    if(card.state==TableOptionLock || card.state==TableOptionEnable)
         [cell setForwardProperties];
     else [cell setBackProperties];
     if([self.game getGameState]==GameStateEnd)

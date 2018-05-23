@@ -22,7 +22,7 @@
 }
 - (void) viewWillAppear:(BOOL)animated
 {
-    if(self.game==nil)
+    if(self.game==nil || [self.game getGameState]==GameStateEnd)
         self.continueButton.layer.hidden=YES;
     else self.continueButton.layer.hidden=NO;
 }
