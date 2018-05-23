@@ -7,134 +7,68 @@
 //
 
 #import "VCGame.h"
+#import "VCMode.h"
 #import "CVCell.h"
 #import "Card.h"
 #import "Cards.h"
 #import "UICCard.h"
+#import "CVAlert.h"
+
 
 @interface VCGame ()
 @end
 
 @implementation VCGame
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    //[self.cView setDataSource:self];
-    //[self.cView setDelegate:self];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSInteger count=[Cards sharedInstance].map.count;
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    NSInteger count =self.game.deck.count;
     return count;
 }
 
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *identifier = @"Cell_ID";
-    
     CVCell *cell = (CVCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     NSInteger index=indexPath.item;
-    NSString *value,*suit;
-    [cell.layer setCornerRadius:10];
-    [cell setCard:[Cards sharedInstance].map[index]];
-    Card *card=[Cards sharedInstance].map[index];
-    value = [self setCardValueForString:cell.card.value];
-    suit = [self setCardSuitForString:cell];
-    if(card.open){
-        cell.labelSuit.text = suit;
-        cell.labelValue.text = value;
-        cell.labelSuit.hidden=NO;
-        [cell.labelValue setTextColor:[UICCard Black]];
-        [cell setBackgroundColor:[UICCard White]];
-    }
-    else{
-        cell.labelSuit.hidden=YES;
-        cell.labelValue.text = @"?";
-        [cell.labelValue setTextColor:[UICCard White]];
-        [cell setBackgroundColor:[UICCard Blue]];
-    }
-    if([[Cards sharedInstance]getGameState]==GameStateEnd)
+    [cell setCard:self.game.deck[index]];
+    GameCard *card=self.game.deck[index];
+    if(card.state==TableOptionLock)
+        [cell setForwardProperties];
+    else [cell setBackProperties];
+    if([self.game getGameState]==GameStateEnd)
     {
-        [self.EGLabel setText:@"Победа"];
-        [self.EGLabel setHidden:NO];
+        CVAlert *alert=[CVAlert createAlertGameEnd];
+        [self presentViewController:alert animated:YES completion:nil];
     }
-//    UILabel *label=(UILabel*)[cell viewWithTag:LABEL_IDENTIFIER];
-//    [label setText:@"?"];
-    // recipeImageView.image = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
-    
     return cell;
-}
-- (NSString*) setCardValueForString:(int)CValue{
-    NSString *value;
-    switch (CValue) {
-        case CardValueAce:
-            value=@"A";
-            break;
-        case CardValueKing:
-            value=@"K";
-            break;
-        case CardValueQueen:
-            value=@"Q";
-            break;
-        case CardValueJack:
-            value=@"J";
-            break;
-        default:
-            value=[NSString stringWithFormat:@"%d",CValue];
-            break;
-    }
-    return value;
-}
-- (NSString*) setCardSuitForString:(CVCell*)cell{
-    NSString *suit;
-    switch (cell.card.suit) {
-        case CardSuitClubs:
-            suit=@"♣️";
-            [cell.labelSuit setTextColor:[UICCard Black]];
-            break;
-        case CardSuitHeards:
-            suit=@"♥️";
-            [cell.labelSuit setTextColor:[UICCard Red]];
-            break;
-        case CardSuitSpades:
-            suit=@"♠️";
-            [cell.labelSuit setTextColor:[UICCard Black]];
-            break;
-        case CardSuitDiamonds:
-            suit=@"♦️";
-            [cell.labelSuit setTextColor:[UICCard Red]];
-            break;
-    }
-    return suit;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CVCell *cell = (CVCell*)[collectionView cellForItemAtIndexPath:indexPath];
     NSInteger index=indexPath.item;
-    NSString *value,*suit;
-    value = [self setCardValueForString:cell.card.value];
-    suit = [self setCardSuitForString:cell];
-    cell.labelSuit.text = suit;
-    cell.labelValue.text = value;
-    cell.labelSuit.hidden=NO;
-    [cell.labelValue setTextColor:[UICCard Black]];
-    [cell setBackgroundColor:[UICCard White]];
-    if([[Cards sharedInstance]makeTaskWithCardAtIndex:index :true])
+    [cell setCard:self.game.deck[index]];
+    [cell setForwardProperties];
+    if([self.game makeTaskAtIndex:index :TableOptionEnable])
     {
-        switch([[Cards sharedInstance]getGameState])
+        switch([self.game getGameState])
         {
             case GameStateFalse:
                 self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f  target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES];
-                //[NSThread sleepForTimeInterval:1.0];
                 break;
             case GameStateEnd:
-                [self.EGLabel setText:@"Победа"];
-                [self.EGLabel setHidden:NO];
                 printf("Победа!\n");
+                [self.cView reloadData];
                 break;
             case GameStateError:
                 printf("Error.\n");
@@ -148,39 +82,21 @@
     }
     
 }
-- (void) updateTimer:(NSTimer*)timer{
-    id index=timer.userInfo;
+- (void) updateTimer:(NSTimer*)timer
+{
+    NSLog(@"Timer Begin");
+    NSIndexPath *index=timer.userInfo;
     CVCell *cell = (CVCell*)[self.cView cellForItemAtIndexPath:index];
-    //NSInteger index=indexPath.item;
-    NSString *value,*suit;
-    value = [self setCardValueForString:cell.card.value];
-    suit = [self setCardSuitForString:cell];
-    if(cell.labelSuit.hidden==NO){
-        cell.labelSuit.hidden=YES;
-        cell.labelValue.text = @"?";
-        [cell.labelValue setTextColor:[UICCard White]];
-        [cell setBackgroundColor:[UICCard Blue]];
+    if(cell.labelSuit.hidden==NO)
+    {
+        [cell setBackProperties];
         [self.cView reloadData];
         [timer invalidate];
+        NSLog(@"End Timer");
     }
-    else{
-        cell.labelSuit.text = suit;
-        cell.labelValue.text = value;
-        cell.labelSuit.hidden=NO;
-        [cell.labelValue setTextColor:[UICCard Black]];
-        [cell setBackgroundColor:[UICCard White]];
+    else
+    {
+        [cell setForwardProperties];
     }
-    float time = timer.timeInterval;
-    NSLog(@"%f",time);
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
+typedef enum
+{
     CardValueTwo = 2,
     CardValueThree,
     CardValueFour,
@@ -23,7 +24,8 @@ typedef enum {
     CardValueAce      //туз
 }CardValue;
 
-typedef enum{
+typedef enum
+{
     CardSuitDiamonds = 1,   //бубны
     CardSuitHeards,     //червы
     CardSuitSpades,     //пики
@@ -33,10 +35,5 @@ typedef enum{
 @interface Card: NSObject
 @property CardValue value;
 @property CardSuit suit;
-@property BOOL open;
-+ (id) createRandomCard;
-- (id) copy;
-- (BOOL) isEqual:(id)object;
-- (BOOL) isContainsInArray:(NSMutableArray*)array;
-- (NSMutableArray*) getRandomArray:(NSInteger)count;
++ (instancetype) createRandomCard;
 @end

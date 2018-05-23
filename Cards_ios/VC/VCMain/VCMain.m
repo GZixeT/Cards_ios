@@ -7,55 +7,65 @@
 //
 #import "VCMain.h"
 #import "VCGame.h"
+#import "VCMode.h"
 #define CORNER_RADIUS 10
 
+@interface VCMain()
+@end
+
 @implementation VCMain
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.nGameButton.layer.cornerRadius=CORNER_RADIUS;
     self.continueButton.layer.cornerRadius=CORNER_RADIUS;
-    self.exitButton.layer.cornerRadius=CORNER_RADIUS;
-    // Do any additional setup after loading the view, typically from a nib.
+}
+- (void) viewWillAppear:(BOOL)animated
+{
+    if(self.game==nil)
+        self.continueButton.layer.hidden=YES;
+    else self.continueButton.layer.hidden=NO;
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
+{
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     // Code here will execute before the rotation begins.
     // Equivalent to placing it in the deprecated method -[willRotateToInterfaceOrientation:duration:]
     
-    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context)
+    {
         
         // Place code here to perform animations during the rotation.
         // You can pass nil or leave this block empty if not necessary.
         
-    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+    }completion:^(id<UIViewControllerTransitionCoordinatorContext> context)
+    {
         // Code here will execute after the rotation has finished.
         // Equivalent to placing it in the deprecated method -[didRotateFromInterfaceOrientation:]
         
     }];
 }
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)ExitButtonClick:(id)sender {
-    [[Cards sharedInstance].map removeAllObjects];
-    exit(0);
+- (void) isGameBegining:(Cards*)game
+{
+    self.game=game;
 }
-- (IBAction)ContinueButtonClick:(id)sender {
-    UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    VCGame *continueController = (VCGame*)[storyboard instantiateViewControllerWithIdentifier:@"Game"];
-    if(continueController)
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"mode"])
     {
-        if([Cards sharedInstance].map.count>0){
-            continueController.cardsManager = [Cards sharedInstance];
-            [self.navigationController pushViewController:continueController animated:YES];
-        }
-        else{
-            
-        }
+        VCMode *controller = (VCMode *)segue.destinationViewController;
+        controller.delegate=self;
+    }
+    else if([segue.identifier isEqualToString:@"continue"])
+    {
+        VCGame *controller = (VCGame *)segue.destinationViewController;
+        controller.game = self.game;
     }
 }
-
-
 @end

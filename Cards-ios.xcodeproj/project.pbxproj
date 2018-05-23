@@ -10,8 +10,10 @@
 		8602F4DE20AECE1F00E5C7AD /* VCMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602F4DD20AECE1F00E5C7AD /* VCMode.m */; };
 		8602F4E220AEFE7200E5C7AD /* UICCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602F4E120AEFE7200E5C7AD /* UICCard.m */; };
 		8616B42920AE18F1005D1289 /* CVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8616B42820AE18F0005D1289 /* CVCell.m */; };
-		8628F64820AD9CE700715B72 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8628F64720AD9CE700715B72 /* CustomButton.m */; };
-		8628F65520ADBCA500715B72 /* CustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8628F65420ADBCA500715B72 /* CustomCollectionView.m */; };
+		861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AEA20B2F64200A62C6F /* GameCard.m */; };
+		861D6AEE20B2F67E00A62C6F /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AED20B2F67E00A62C6F /* Deck.m */; };
+		8645151720B54913009B6A2C /* cards.png in Resources */ = {isa = PBXBuildFile; fileRef = 8645151620B54913009B6A2C /* cards.png */; };
+		8645151B20B55125009B6A2C /* CVAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645151A20B55125009B6A2C /* CVAlert.m */; };
 		865CF5CD20AC53600018A5E2 /* VCGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 865CF5CC20AC53600018A5E2 /* VCGame.m */; };
 		8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDCD20A9A2690079C347 /* AppDelegate.m */; };
 		8686FDD120A9A2690079C347 /* VCMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDD020A9A2690079C347 /* VCMain.m */; };
@@ -49,10 +51,13 @@
 		8602F4E120AEFE7200E5C7AD /* UICCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICCard.m; sourceTree = "<group>"; };
 		8616B42720AE18F0005D1289 /* CVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVCell.h; sourceTree = "<group>"; };
 		8616B42820AE18F0005D1289 /* CVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVCell.m; sourceTree = "<group>"; };
-		8628F64620AD9CE700715B72 /* CustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
-		8628F64720AD9CE700715B72 /* CustomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
-		8628F65320ADBCA500715B72 /* CustomCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionView.h; sourceTree = "<group>"; };
-		8628F65420ADBCA500715B72 /* CustomCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionView.m; sourceTree = "<group>"; };
+		861D6AE920B2F64200A62C6F /* GameCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameCard.h; sourceTree = "<group>"; };
+		861D6AEA20B2F64200A62C6F /* GameCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameCard.m; sourceTree = "<group>"; };
+		861D6AEC20B2F67E00A62C6F /* Deck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		861D6AED20B2F67E00A62C6F /* Deck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		8645151620B54913009B6A2C /* cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cards.png; sourceTree = "<group>"; };
+		8645151920B55125009B6A2C /* CVAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVAlert.h; sourceTree = "<group>"; };
+		8645151A20B55125009B6A2C /* CVAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVAlert.m; sourceTree = "<group>"; };
 		865CF5CC20AC53600018A5E2 /* VCGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCGame.m; sourceTree = "<group>"; };
 		8686FDC920A9A2690079C347 /* Cards_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cards_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8686FDCC20A9A2690079C347 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -114,6 +119,7 @@
 		8616B42520AE0BDD005D1289 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				8645151520B548B4009B6A2C /* Pictures */,
 				8686FDCC20A9A2690079C347 /* AppDelegate.h */,
 				8686FDCD20A9A2690079C347 /* AppDelegate.m */,
 				8686FDD520A9A26A0079C347 /* Assets.xcassets */,
@@ -136,9 +142,9 @@
 		8628F64920ADB7EC00715B72 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				8645151820B550EC009B6A2C /* Alert */,
 				8602F4DF20AEFE4400E5C7AD /* Color */,
 				8628F65220ADBC8A00715B72 /* CollectionView */,
-				8686FE1820A9C8C70079C347 /* Buttons */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -147,10 +153,25 @@
 			isa = PBXGroup;
 			children = (
 				8616B42620AE18C8005D1289 /* Cell */,
-				8628F65320ADBCA500715B72 /* CustomCollectionView.h */,
-				8628F65420ADBCA500715B72 /* CustomCollectionView.m */,
 			);
 			name = CollectionView;
+			sourceTree = "<group>";
+		};
+		8645151520B548B4009B6A2C /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				8645151620B54913009B6A2C /* cards.png */,
+			);
+			path = Pictures;
+			sourceTree = "<group>";
+		};
+		8645151820B550EC009B6A2C /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				8645151920B55125009B6A2C /* CVAlert.h */,
+				8645151A20B55125009B6A2C /* CVAlert.m */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		8686FDC020A9A2690079C347 = {
@@ -211,18 +232,12 @@
 				8686FE1420A9C6570079C347 /* Card.m */,
 				8686FE1220A9C6570079C347 /* Cards.h */,
 				8686FE1520A9C6570079C347 /* Cards.m */,
+				861D6AE920B2F64200A62C6F /* GameCard.h */,
+				861D6AEA20B2F64200A62C6F /* GameCard.m */,
+				861D6AEC20B2F67E00A62C6F /* Deck.h */,
+				861D6AED20B2F67E00A62C6F /* Deck.m */,
 			);
 			name = CardsLib;
-			sourceTree = "<group>";
-		};
-		8686FE1820A9C8C70079C347 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				8628F64620AD9CE700715B72 /* CustomButton.h */,
-				8628F64720AD9CE700715B72 /* CustomButton.m */,
-			);
-			name = Buttons;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		8686FE1C20A9D4F60079C347 /* VCMain */ = {
@@ -248,8 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				8686FE1C20A9D4F60079C347 /* VCMain */,
-				8686FE1D20A9D5060079C347 /* VCGame */,
 				86B7D9AA20AEC8A4004376A2 /* VCMode */,
+				8686FE1D20A9D5060079C347 /* VCGame */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -367,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8686FDD920A9A26A0079C347 /* LaunchScreen.storyboard in Resources */,
+				8645151720B54913009B6A2C /* cards.png in Resources */,
 				8686FDD620A9A26A0079C347 /* Assets.xcassets in Resources */,
 				8686FDD420A9A2690079C347 /* Main.storyboard in Resources */,
 			);
@@ -393,15 +409,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861D6AEE20B2F67E00A62C6F /* Deck.m in Sources */,
 				865CF5CD20AC53600018A5E2 /* VCGame.m in Sources */,
 				8602F4E220AEFE7200E5C7AD /* UICCard.m in Sources */,
 				8686FDD120A9A2690079C347 /* VCMain.m in Sources */,
 				8686FDDC20A9A26A0079C347 /* main.m in Sources */,
+				8645151B20B55125009B6A2C /* CVAlert.m in Sources */,
 				8616B42920AE18F1005D1289 /* CVCell.m in Sources */,
 				8602F4DE20AECE1F00E5C7AD /* VCMode.m in Sources */,
-				8628F65520ADBCA500715B72 /* CustomCollectionView.m in Sources */,
-				8628F64820AD9CE700715B72 /* CustomButton.m in Sources */,
 				8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */,
+				861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */,
 				8686FE1720A9C6570079C347 /* Cards.m in Sources */,
 				8686FE1620A9C6570079C347 /* Card.m in Sources */,
 			);
