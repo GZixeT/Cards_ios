@@ -12,12 +12,18 @@
 + (CVAlert*) createAlertGameEnd
 {
     CVAlert *alert=[CVAlert alertControllerWithTitle:@"Game" message:@"You won!" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
-    {
-        
-    }];
-    
-    [alert addAction:defaultAction];
     return alert;
+}
+- (void) addButton:(nullable NSString*)title action:(void (^ __nullable) (void))actions
+{
+    UIAlertAction *button = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+    {
+        actions();
+    }];
+    [self addAction:button];
+}
+- (void) show:(BOOL)animated view:(UIViewController*)view
+{
+    [view presentViewController:self animated:animated completion:nil];
 }
 @end

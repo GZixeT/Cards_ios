@@ -10,4 +10,6 @@
 
 @interface CVAlert : UIAlertController
 + (CVAlert*) createAlertGameEnd;
+- (void) addButton:(nullable NSString*)title action:(void (^ __nullable) (void))actions;
+- (void) show:(BOOL)animated view:(UIViewController*)view;
 @end

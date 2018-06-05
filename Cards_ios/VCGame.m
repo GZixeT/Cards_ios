@@ -49,7 +49,13 @@
     if([self.game getGameState]==GameStateEnd)
     {
         CVAlert *alert=[CVAlert createAlertGameEnd];
-        [self presentViewController:alert animated:YES completion:nil];
+        [alert addButton:@"Новая игра" action:^
+        {
+            
+        }];
+        [alert addButton:@"OK" action:^{}]; // воз здесь нужен nil
+        [alert show:YES view:self];
+        //[self presentViewController:alert animated:YES completion:nil];
     }
     return cell;
 }
