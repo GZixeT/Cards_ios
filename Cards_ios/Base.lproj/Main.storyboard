@@ -65,7 +65,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cards" id="713-sp-KzI"/>
+                    <navigationItem key="navigationItem" title="Cards" id="713-sp-KzI" customClass="NIFP"/>
                     <connections>
                         <outlet property="continueButton" destination="ID9-G2-0kf" id="Fve-3g-jf5"/>
                         <outlet property="nGameButton" destination="3KH-Dm-LDO" id="HDY-Df-NKs"/>
@@ -245,15 +245,16 @@
             </objects>
             <point key="canvasLocation" x="2085.5999999999999" y="-320.68965517241384"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--NCFP-->
         <scene sceneID="YGV-Xn-F43">
             <objects>
-                <navigationController id="F1m-4H-r72" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Rk-cj-5KB">
+                <navigationController id="F1m-4H-r72" customClass="NCFP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Rk-cj-5KB" customClass="NBFP">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
+                        <outlet property="navBar" destination="2Rk-cj-5KB" id="Gmc-v2-zUv"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cdG-Hk-iPc"/>
                     </connections>
                 </navigationController>
@@ -261,24 +262,11 @@
             </objects>
             <point key="canvasLocation" x="382" y="152"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="N1E-5X-TeD">
-            <objects>
-                <viewController id="7ki-am-DR5" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xVw-ub-pEU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TUS-8f-7R7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="cards.png" width="486" height="383"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gBm-7v-Z25"/>
+        <segue reference="xVY-zJ-qht"/>
     </inferredMetricsTieBreakers>
 </document>
