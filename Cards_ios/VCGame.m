@@ -53,7 +53,7 @@
         {
             
         }];
-        [alert addButton:@"OK" action:^{}]; // воз здесь нужен nil
+        [alert addButton:@"OK" action:nil]; // воз здесь нужен nil
         [alert show:YES view:self];
         //[self presentViewController:alert animated:YES completion:nil];
     }

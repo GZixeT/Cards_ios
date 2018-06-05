@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1m-4H-r72">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1m-4H-r72">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -163,60 +163,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCW-PY-1Nl">
-                                <rect key="frame" x="112" y="368.5" width="150" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpV-wT-hFh">
+                                <rect key="frame" x="112" y="243.5" width="150" height="180"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cee-yJ-QHM">
+                                        <rect key="frame" x="0.0" y="150" width="150" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="tNB-EJ-DLJ"/>
+                                            <constraint firstAttribute="width" constant="150" id="zrH-Qr-AuO"/>
+                                        </constraints>
+                                        <state key="normal" title="Тяжелый режим">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="HMClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="MCq-ud-rI9"/>
+                                            <segue destination="FMn-TX-WpT" kind="show" id="Jsi-OT-64D"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCW-PY-1Nl">
+                                        <rect key="frame" x="0.0" y="90" width="150" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="F9j-Py-MvU"/>
+                                            <constraint firstAttribute="height" constant="30" id="V3h-AF-sq5"/>
+                                        </constraints>
+                                        <state key="normal" title="Средний режим">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="MMClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="HO0-WE-KH1"/>
+                                            <segue destination="FMn-TX-WpT" kind="show" id="gBm-7v-Z25"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5j6-nr-iXl">
+                                        <rect key="frame" x="0.0" y="30" width="150" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="TcO-j4-H3V"/>
+                                            <constraint firstAttribute="height" constant="30" id="r3d-rE-lNF"/>
+                                        </constraints>
+                                        <state key="normal" title="Легкий режим">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="EMClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="3wc-jS-GT7"/>
+                                            <segue destination="FMn-TX-WpT" kind="show" id="IfV-3L-s43"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="Sdc-KD-G2X"/>
-                                    <constraint firstAttribute="height" constant="30" id="jCR-p5-LJM"/>
+                                    <constraint firstAttribute="trailing" secondItem="5j6-nr-iXl" secondAttribute="trailing" id="3rd-S6-qw9"/>
+                                    <constraint firstItem="zCW-PY-1Nl" firstAttribute="top" secondItem="5j6-nr-iXl" secondAttribute="bottom" constant="30" id="9b4-op-e8Q"/>
+                                    <constraint firstItem="5j6-nr-iXl" firstAttribute="leading" secondItem="xpV-wT-hFh" secondAttribute="leading" id="BWu-6O-JX4"/>
+                                    <constraint firstAttribute="height" constant="180" id="L0z-pR-oek"/>
+                                    <constraint firstItem="cee-yJ-QHM" firstAttribute="leading" secondItem="xpV-wT-hFh" secondAttribute="leading" id="P1m-P3-j6m"/>
+                                    <constraint firstAttribute="trailing" secondItem="cee-yJ-QHM" secondAttribute="trailing" id="SU5-Zc-kFT"/>
+                                    <constraint firstAttribute="trailing" secondItem="zCW-PY-1Nl" secondAttribute="trailing" id="Sem-rw-vT2"/>
+                                    <constraint firstItem="zCW-PY-1Nl" firstAttribute="leading" secondItem="xpV-wT-hFh" secondAttribute="leading" id="ZIo-VL-bGI"/>
+                                    <constraint firstAttribute="width" constant="150" id="eIG-gL-kj5"/>
+                                    <constraint firstItem="5j6-nr-iXl" firstAttribute="top" secondItem="xpV-wT-hFh" secondAttribute="top" constant="30" id="mQr-Av-3oW"/>
+                                    <constraint firstItem="cee-yJ-QHM" firstAttribute="top" secondItem="zCW-PY-1Nl" secondAttribute="bottom" constant="30" id="zy3-3g-epY"/>
                                 </constraints>
-                                <state key="normal" title="Средний режим">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="MMClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="HO0-WE-KH1"/>
-                                    <segue destination="FMn-TX-WpT" kind="show" id="gBm-7v-Z25"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5j6-nr-iXl">
-                                <rect key="frame" x="112" y="318.5" width="150" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Waq-P6-W7b"/>
-                                    <constraint firstAttribute="width" constant="150" id="qWH-0M-Y1S"/>
-                                </constraints>
-                                <state key="normal" title="Легкий режим">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="EMClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="3wc-jS-GT7"/>
-                                    <segue destination="FMn-TX-WpT" kind="show" id="IfV-3L-s43"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cee-yJ-QHM">
-                                <rect key="frame" x="112" y="418.5" width="150" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="SHn-1y-YMO"/>
-                                    <constraint firstAttribute="width" constant="150" id="U9w-vf-E1K"/>
-                                </constraints>
-                                <state key="normal" title="Тяжелый режим">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="HMClick:" destination="O3z-t5-FBQ" eventType="touchUpInside" id="MCq-ud-rI9"/>
-                                    <segue destination="FMn-TX-WpT" kind="show" id="Jsi-OT-64D"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cee-yJ-QHM" firstAttribute="top" secondItem="zCW-PY-1Nl" secondAttribute="bottom" constant="20" id="4Q8-kJ-m0E"/>
-                            <constraint firstItem="cee-yJ-QHM" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="7pv-Tu-sVp"/>
-                            <constraint firstItem="5j6-nr-iXl" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="fcY-7G-CHl"/>
-                            <constraint firstItem="5j6-nr-iXl" firstAttribute="centerY" secondItem="NI1-oP-6Vq" secondAttribute="centerY" id="lQE-Sm-Dlb"/>
-                            <constraint firstItem="zCW-PY-1Nl" firstAttribute="top" secondItem="5j6-nr-iXl" secondAttribute="bottom" constant="20" id="lga-p8-Yiy"/>
-                            <constraint firstItem="zCW-PY-1Nl" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="v5p-W3-E8Z"/>
+                            <constraint firstItem="xpV-wT-hFh" firstAttribute="centerY" secondItem="NI1-oP-6Vq" secondAttribute="centerY" id="Sv6-h5-6GB"/>
+                            <constraint firstItem="xpV-wT-hFh" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="sV6-Ll-EBs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="prl-Ds-NqQ"/>
                     </view>
@@ -228,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eph-9H-E2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2086" y="-320"/>
+            <point key="canvasLocation" x="2085.5999999999999" y="-320.68965517241384"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YGV-Xn-F43">
@@ -246,11 +261,24 @@
             </objects>
             <point key="canvasLocation" x="382" y="152"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="N1E-5X-TeD">
+            <objects>
+                <viewController id="7ki-am-DR5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xVw-ub-pEU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TUS-8f-7R7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="cards.png" width="486" height="383"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xVY-zJ-qht"/>
+        <segue reference="gBm-7v-Z25"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -16,11 +16,20 @@
 }
 - (void) addButton:(nullable NSString*)title action:(void (^ __nullable) (void))actions
 {
-    UIAlertAction *button = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+    UIAlertAction *button;
+    if (actions)
     {
-        actions();
-    }];
-    [self addAction:button];
+        button = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+        {
+            actions();
+        }];
+        [self addAction:button];
+    }
+    else
+    {
+        button = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:nil];
+        [self addAction:button];
+    }
 }
 - (void) show:(BOOL)animated view:(UIViewController*)view
 {
