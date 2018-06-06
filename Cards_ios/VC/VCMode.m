@@ -5,9 +5,7 @@
 //  Created by Георгий Зубков on 18.05.2018.
 //  Copyright © 2018 Георгий Зубков. All rights reserved.
 //
-#define EASY_MODE_CARD_NUMBER 4
-#define MIDDLE_MODE_CARD_NUMBER 6
-#define HARD_MODE_CARD_NUMBER 12
+
 #define CORNER_RADIUS 10
 
 #import "VCMode.h"
@@ -25,7 +23,17 @@
     [super viewDidLoad];
     self.easyMode.layer.cornerRadius=CORNER_RADIUS;
     self.middleMode.layer.cornerRadius=CORNER_RADIUS;
-    self.hardMode.layer.cornerRadius=CORNER_RADIUS;}
+    self.hardMode.layer.cornerRadius=CORNER_RADIUS;
+    if(self.navigationItem)
+    {
+        self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        //self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"BACK" style:UIBarButtonItemStylePlain target:nil action:nil];
+        NSLog(@"NavItem title:%@",self.navigationItem.title);
+        NSLog(@"BackBarItem title:%@",self.navigationItem.backBarButtonItem.title);
+        NSLog(@"LeftB title:%@",self.navigationItem.leftBarButtonItem.title);
+        NSLog(@"RightB title:%@",self.navigationItem.rightBarButtonItem.title);
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -33,15 +41,15 @@
 }
 - (IBAction)EMClick:(id)sender
 {
-    self.game=[Cards createRandomDoubleDeck:EASY_MODE_CARD_NUMBER];
+    self.game=[Cards createRandomDoubleDeck:GameModeEasy];
 }
 - (IBAction)MMClick:(id)sender
 {
-    self.game=[Cards createRandomDoubleDeck:MIDDLE_MODE_CARD_NUMBER];
+    self.game=[Cards createRandomDoubleDeck:GameModeMiddle];
 }
 - (IBAction)HMClick:(id)sender
 {
-    self.game=[Cards createRandomDoubleDeck:HARD_MODE_CARD_NUMBER];
+    self.game=[Cards createRandomDoubleDeck:GameModeHard];
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

@@ -5,9 +5,15 @@
 //  Created by Георгий Зубков on 18.05.2018.
 //  Copyright © 2018 Георгий Зубков. All rights reserved.
 //
-
 #import <UIKit/UIKit.h>
 #import "Cards.h"
+
+typedef enum
+{
+    GameModeEasy = 4,
+    GameModeMiddle = 6,
+    GameModeHard = 12
+}GameMode;
 
 @protocol VCModeDelegate;
 

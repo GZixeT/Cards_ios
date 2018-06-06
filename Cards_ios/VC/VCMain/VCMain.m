@@ -19,6 +19,7 @@
     [super viewDidLoad];
     self.nGameButton.layer.cornerRadius=CORNER_RADIUS;
     self.continueButton.layer.cornerRadius=CORNER_RADIUS;
+    self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 - (void) viewWillAppear:(BOOL)animated
 {

@@ -23,8 +23,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setNavBarTitle];
+    
 }
-
+- (void) setNavBarTitle
+{
+    if(self.game.deck.count==GameModeEasy*2)
+        self.navigationItem.title=@"Easy Mode";
+    else if (self.game.deck.count==GameModeMiddle*2)
+        self.navigationItem.title=@"Middle Mode";
+    else if (self.game.deck.count==GameModeHard*2)
+        self.navigationItem.title=@"Hard Mode";
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

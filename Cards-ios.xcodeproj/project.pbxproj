@@ -25,9 +25,6 @@
 		8686FDF120A9A26A0079C347 /* Cards_iosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDF020A9A26A0079C347 /* Cards_iosUITests.m */; };
 		8686FE1620A9C6570079C347 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1420A9C6570079C347 /* Card.m */; };
 		8686FE1720A9C6570079C347 /* Cards.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1520A9C6570079C347 /* Cards.m */; };
-		86AD563D20C6CD63008C4F61 /* NCFP.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AD563C20C6CD63008C4F61 /* NCFP.m */; };
-		86AD564220C6DB21008C4F61 /* NBFP.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AD564120C6DB21008C4F61 /* NBFP.m */; };
-		86AD564920C6E27C008C4F61 /* NIFP.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AD564820C6E27C008C4F61 /* NIFP.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,12 +80,6 @@
 		8686FE1420A9C6570079C347 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = lib/Card.m; sourceTree = "<group>"; };
 		8686FE1520A9C6570079C347 /* Cards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cards.m; path = lib/Cards.m; sourceTree = "<group>"; };
 		8686FE1E20A9D5430079C347 /* VCGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCGame.h; sourceTree = "<group>"; };
-		86AD563B20C6CD63008C4F61 /* NCFP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCFP.h; sourceTree = "<group>"; };
-		86AD563C20C6CD63008C4F61 /* NCFP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCFP.m; sourceTree = "<group>"; };
-		86AD564020C6DB21008C4F61 /* NBFP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBFP.h; sourceTree = "<group>"; };
-		86AD564120C6DB21008C4F61 /* NBFP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBFP.m; sourceTree = "<group>"; };
-		86AD564720C6E27C008C4F61 /* NIFP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NIFP.h; sourceTree = "<group>"; };
-		86AD564820C6E27C008C4F61 /* NIFP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NIFP.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,47 +259,9 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		86AD563A20C6CC91008C4F61 /* Navigations */ = {
-			isa = PBXGroup;
-			children = (
-				86AD564320C6E172008C4F61 /* NI */,
-				86AD563F20C6DADB008C4F61 /* NB */,
-				86AD563E20C6DACC008C4F61 /* NC */,
-			);
-			path = Navigations;
-			sourceTree = "<group>";
-		};
-		86AD563E20C6DACC008C4F61 /* NC */ = {
-			isa = PBXGroup;
-			children = (
-				86AD563B20C6CD63008C4F61 /* NCFP.h */,
-				86AD563C20C6CD63008C4F61 /* NCFP.m */,
-			);
-			path = NC;
-			sourceTree = "<group>";
-		};
-		86AD563F20C6DADB008C4F61 /* NB */ = {
-			isa = PBXGroup;
-			children = (
-				86AD564020C6DB21008C4F61 /* NBFP.h */,
-				86AD564120C6DB21008C4F61 /* NBFP.m */,
-			);
-			path = NB;
-			sourceTree = "<group>";
-		};
-		86AD564320C6E172008C4F61 /* NI */ = {
-			isa = PBXGroup;
-			children = (
-				86AD564720C6E27C008C4F61 /* NIFP.h */,
-				86AD564820C6E27C008C4F61 /* NIFP.m */,
-			);
-			path = NI;
-			sourceTree = "<group>";
-		};
 		86B42F4C20AEC7FD0036ED60 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				86AD563A20C6CC91008C4F61 /* Navigations */,
 				8686FE1C20A9D4F60079C347 /* VCMain */,
 				86B7D9AA20AEC8A4004376A2 /* VCMode */,
 				8686FE1D20A9D5060079C347 /* VCGame */,
@@ -462,11 +415,8 @@
 				8686FDD120A9A2690079C347 /* VCMain.m in Sources */,
 				8686FDDC20A9A26A0079C347 /* main.m in Sources */,
 				8645151B20B55125009B6A2C /* CVAlert.m in Sources */,
-				86AD563D20C6CD63008C4F61 /* NCFP.m in Sources */,
 				8616B42920AE18F1005D1289 /* CVCell.m in Sources */,
-				86AD564220C6DB21008C4F61 /* NBFP.m in Sources */,
 				8602F4DE20AECE1F00E5C7AD /* VCMode.m in Sources */,
-				86AD564920C6E27C008C4F61 /* NIFP.m in Sources */,
 				8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */,
 				861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */,
 				8686FE1720A9C6570079C347 /* Cards.m in Sources */,

@@ -29,5 +29,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "-[NBFP awakeFromNib]:NBFP.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.items.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>
