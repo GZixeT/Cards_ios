@@ -64,6 +64,8 @@
     NSInteger lines=self.game.deck.count/NUMBER_OF_COLUMS;
     CGFloat width=collectionView.frame.size.width/NUMBER_OF_COLUMS - CELL_SPACING;
     CGFloat height=collectionView.frame.size.height/lines - LINE_SPACING;
+    if(height>width*2)
+        height=width*1.5;
     return CGSizeMake(width, height);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

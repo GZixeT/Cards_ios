@@ -12,7 +12,6 @@
 		8616B42920AE18F1005D1289 /* CVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8616B42820AE18F0005D1289 /* CVCell.m */; };
 		861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AEA20B2F64200A62C6F /* GameCard.m */; };
 		861D6AEE20B2F67E00A62C6F /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AED20B2F67E00A62C6F /* Deck.m */; };
-		862455E420C802C9004E40F4 /* CCV.m in Sources */ = {isa = PBXBuildFile; fileRef = 862455E320C802C9004E40F4 /* CCV.m */; };
 		8645151720B54913009B6A2C /* cards.png in Resources */ = {isa = PBXBuildFile; fileRef = 8645151620B54913009B6A2C /* cards.png */; };
 		8645151B20B55125009B6A2C /* CVAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645151A20B55125009B6A2C /* CVAlert.m */; };
 		865CF5CD20AC53600018A5E2 /* VCGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 865CF5CC20AC53600018A5E2 /* VCGame.m */; };
@@ -56,8 +55,6 @@
 		861D6AEA20B2F64200A62C6F /* GameCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameCard.m; sourceTree = "<group>"; };
 		861D6AEC20B2F67E00A62C6F /* Deck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
 		861D6AED20B2F67E00A62C6F /* Deck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
-		862455E220C802C9004E40F4 /* CCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCV.h; sourceTree = "<group>"; };
-		862455E320C802C9004E40F4 /* CCV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCV.m; sourceTree = "<group>"; };
 		8645151620B54913009B6A2C /* cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cards.png; sourceTree = "<group>"; };
 		8645151920B55125009B6A2C /* CVAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVAlert.h; sourceTree = "<group>"; };
 		8645151A20B55125009B6A2C /* CVAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVAlert.m; sourceTree = "<group>"; };
@@ -142,15 +139,6 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
-		862455E120C802B3004E40F4 /* CCV */ = {
-			isa = PBXGroup;
-			children = (
-				862455E220C802C9004E40F4 /* CCV.h */,
-				862455E320C802C9004E40F4 /* CCV.m */,
-			);
-			name = CCV;
-			sourceTree = "<group>";
-		};
 		8628F64920ADB7EC00715B72 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +152,6 @@
 		8628F65220ADBC8A00715B72 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				862455E120C802B3004E40F4 /* CCV */,
 				8616B42620AE18C8005D1289 /* Cell */,
 			);
 			name = CollectionView;
@@ -432,7 +419,6 @@
 				8602F4DE20AECE1F00E5C7AD /* VCMode.m in Sources */,
 				8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */,
 				861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */,
-				862455E420C802C9004E40F4 /* CCV.m in Sources */,
 				8686FE1720A9C6570079C347 /* Cards.m in Sources */,
 				8686FE1620A9C6570079C347 /* Card.m in Sources */,
 			);
