@@ -7,6 +7,7 @@
 //
 #import <UIKit/UIKit.h>
 #import "Cards.h"
+#import "VCGame.h"
 
 typedef enum
 {
@@ -16,7 +17,7 @@ typedef enum
 }GameMode;
 
 @protocol VCModeDelegate;
-
+@class VCGame;
 @interface VCMode : UIViewController
 @property Cards *game;
 @property (weak, nonatomic) IBOutlet UIButton *easyMode;
@@ -28,4 +29,5 @@ typedef enum
 @protocol VCModeDelegate <NSObject>
 @optional
 - (void) isGameBegining:(Cards*)game;
+- (void) isGameBeginingWithView:(Cards*)game gameView:(VCGame*)view;
 @end

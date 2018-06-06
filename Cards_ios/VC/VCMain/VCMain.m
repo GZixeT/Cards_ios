@@ -56,6 +56,11 @@
 {
     self.game=game;
 }
+- (void) isGameBeginingWithView:(Cards *)game gameView:(VCGame *)view
+{
+    self.game=game;
+    view.delegate=self;
+}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"mode"])

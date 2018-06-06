@@ -19,6 +19,7 @@
 #define CELL_SPACING 5
 
 @interface VCGame ()
+@property GameMode mode;
 @end
 
 @implementation VCGame
@@ -32,11 +33,20 @@
 - (void) setNavBarTitle
 {
     if(self.game.deck.count==GameModeEasy*2)
+    {
         self.navigationItem.title=@"Easy Mode";
+        self.mode=GameModeEasy;
+    }
     else if (self.game.deck.count==GameModeMiddle*2)
+    {
         self.navigationItem.title=@"Middle Mode";
+        self.mode=GameModeMiddle;
+    }
     else if (self.game.deck.count==GameModeHard*2)
+    {
         self.navigationItem.title=@"Hard Mode";
+        self.mode=GameModeHard;
+    }
 }
 - (void)didReceiveMemoryWarning
 {
@@ -46,22 +56,18 @@
 {
     [self.cView.collectionViewLayout invalidateLayout];
 }
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSInteger count =self.game.deck.count;
     return count;
 }
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return LINE_SPACING;
 }
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return CELL_SPACING;
 }
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger lines=self.game.deck.count/NUMBER_OF_COLUMS;
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger lines = self.game.deck.count/NUMBER_OF_COLUMS;
     CGFloat width=collectionView.frame.size.width/NUMBER_OF_COLUMS - CELL_SPACING;
     CGFloat height=collectionView.frame.size.height/lines - LINE_SPACING;
     if(height>width*2)
@@ -81,9 +87,19 @@
     if([self.game getGameState]==GameStateEnd)
     {
         CVAlert *alert=[CVAlert createAlertGameEnd];
+        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
+         {
+             textField.placeholder = @"name";
+             textField.textColor = [UIColor blueColor];
+             textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+             textField.borderStyle = UITextBorderStyleRoundedRect;
+         }];
         [alert addButton:@"Новая игра" action:^
         {
-            
+            self.game=[Cards createRandomDoubleDeck:self.mode];
+            [self.delegate isGameBegining:self.game];
+            [collectionView reloadData];
+            //[collectionView.collectionViewLayout invalidateLayout];
         }];
         [alert addButton:@"OK" action:nil]; // воз здесь нужен nil
         [alert show:YES view:self];

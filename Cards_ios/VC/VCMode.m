@@ -53,8 +53,8 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [self.delegate isGameBegining:self.game];
     VCGame *game = (VCGame *)segue.destinationViewController;
+    [self.delegate isGameBeginingWithView:self.game gameView:game];
     game.game = self.game;
 }
 @end
