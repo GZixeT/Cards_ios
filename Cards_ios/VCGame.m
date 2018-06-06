@@ -14,6 +14,9 @@
 #import "UICCard.h"
 #import "CVAlert.h"
 
+#define NUMBER_OF_COLUMS 4
+#define LINE_SPACING 5
+#define CELL_SPACING 5
 
 @interface VCGame ()
 @end
@@ -39,18 +42,35 @@
 {
     [super didReceiveMemoryWarning];
 }
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
+{
+    [self.cView.collectionViewLayout invalidateLayout];
+}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSInteger count =self.game.deck.count;
     return count;
 }
-
-
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return LINE_SPACING;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return CELL_SPACING;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger lines=self.game.deck.count/NUMBER_OF_COLUMS;
+    CGFloat width=collectionView.frame.size.width/NUMBER_OF_COLUMS - CELL_SPACING;
+    CGFloat height=collectionView.frame.size.height/lines - LINE_SPACING;
+    return CGSizeMake(width, height);
+}
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger index=indexPath.item;
     static NSString *identifier = @"Cell_ID";
     CVCell *cell = (CVCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    NSInteger index=indexPath.item;
     [cell setCard:self.game.deck[index]];
     GameCard *card=self.game.deck[index];
     if(card.state==TableOptionLock || card.state==TableOptionEnable)
@@ -65,7 +85,6 @@
         }];
         [alert addButton:@"OK" action:nil]; // воз здесь нужен nil
         [alert show:YES view:self];
-        //[self presentViewController:alert animated:YES completion:nil];
     }
     return cell;
 }
