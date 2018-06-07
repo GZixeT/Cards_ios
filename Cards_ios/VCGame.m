@@ -99,9 +99,11 @@
             self.game=[Cards createRandomDoubleDeck:self.mode];
             [self.delegate isGameBegining:self.game];
             [collectionView reloadData];
-            //[collectionView.collectionViewLayout invalidateLayout];
         }];
-        [alert addButton:@"OK" action:nil]; // воз здесь нужен nil
+        [alert addButton:@"OK" action:^{
+            UINavigationController *navigationController = self.navigationController;
+            [navigationController popViewControllerAnimated:YES];
+        }];
         [alert show:YES view:self];
     }
     return cell;

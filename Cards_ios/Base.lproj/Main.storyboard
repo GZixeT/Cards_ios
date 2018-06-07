@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3KH-Dm-LDO">
-                                <rect key="frame" x="112" y="284" width="150" height="30"/>
+                                <rect key="frame" x="112.5" y="284" width="150" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Fts-vh-sHr"/>
@@ -47,7 +47,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cards.png" highlightedImage="cards.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nzw-VY-V5o">
-                                <rect key="frame" x="87" y="84" width="200" height="150"/>
+                                <rect key="frame" x="87.5" y="84" width="200" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="UJb-MA-3jN"/>
                                     <constraint firstAttribute="width" constant="200" id="wii-b5-ljH"/>
@@ -161,7 +161,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpV-wT-hFh">
-                                <rect key="frame" x="112" y="243.5" width="150" height="180"/>
+                                <rect key="frame" x="112.5" y="243.5" width="150" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cee-yJ-QHM">
                                         <rect key="frame" x="0.0" y="150" width="150" height="30"/>
@@ -263,6 +263,6 @@
         <image name="cards.png" width="486" height="383"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xVY-zJ-qht"/>
+        <segue reference="IfV-3L-s43"/>
     </inferredMetricsTieBreakers>
 </document>
