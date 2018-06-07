@@ -173,15 +173,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpV-wT-hFh">
-                                <rect key="frame" x="85" y="150" width="150" height="180"/>
+                                <rect key="frame" x="80" y="136" width="160" height="208"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cee-yJ-QHM">
-                                        <rect key="frame" x="0.0" y="150" width="150" height="30"/>
+                                        <rect key="frame" x="0.0" y="152.5" width="160" height="31"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="tNB-EJ-DLJ"/>
-                                            <constraint firstAttribute="width" constant="150" id="zrH-Qr-AuO"/>
-                                        </constraints>
                                         <state key="normal" title="Тяжелый режим">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -191,12 +187,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCW-PY-1Nl">
-                                        <rect key="frame" x="0.0" y="90" width="150" height="30"/>
+                                        <rect key="frame" x="0.0" y="91" width="160" height="31.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="F9j-Py-MvU"/>
-                                            <constraint firstAttribute="height" constant="30" id="V3h-AF-sq5"/>
-                                        </constraints>
                                         <state key="normal" title="Средний режим">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -206,12 +198,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5j6-nr-iXl">
-                                        <rect key="frame" x="0.0" y="30" width="150" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="160" height="31"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="TcO-j4-H3V"/>
-                                            <constraint firstAttribute="height" constant="30" id="r3d-rE-lNF"/>
-                                        </constraints>
                                         <state key="normal" title="Легкий режим">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -223,24 +211,27 @@
                                 </subviews>
                                 <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="5j6-nr-iXl" secondAttribute="trailing" id="3rd-S6-qw9"/>
-                                    <constraint firstItem="zCW-PY-1Nl" firstAttribute="top" secondItem="5j6-nr-iXl" secondAttribute="bottom" constant="30" id="9b4-op-e8Q"/>
-                                    <constraint firstItem="5j6-nr-iXl" firstAttribute="leading" secondItem="xpV-wT-hFh" secondAttribute="leading" id="BWu-6O-JX4"/>
-                                    <constraint firstAttribute="height" constant="180" id="L0z-pR-oek"/>
-                                    <constraint firstItem="cee-yJ-QHM" firstAttribute="leading" secondItem="xpV-wT-hFh" secondAttribute="leading" id="P1m-P3-j6m"/>
-                                    <constraint firstAttribute="trailing" secondItem="cee-yJ-QHM" secondAttribute="trailing" id="SU5-Zc-kFT"/>
-                                    <constraint firstAttribute="trailing" secondItem="zCW-PY-1Nl" secondAttribute="trailing" id="Sem-rw-vT2"/>
-                                    <constraint firstItem="zCW-PY-1Nl" firstAttribute="leading" secondItem="xpV-wT-hFh" secondAttribute="leading" id="ZIo-VL-bGI"/>
-                                    <constraint firstAttribute="width" constant="150" id="eIG-gL-kj5"/>
-                                    <constraint firstItem="5j6-nr-iXl" firstAttribute="top" secondItem="xpV-wT-hFh" secondAttribute="top" constant="30" id="mQr-Av-3oW"/>
-                                    <constraint firstItem="cee-yJ-QHM" firstAttribute="top" secondItem="zCW-PY-1Nl" secondAttribute="bottom" constant="30" id="zy3-3g-epY"/>
+                                    <constraint firstItem="5j6-nr-iXl" firstAttribute="width" secondItem="xpV-wT-hFh" secondAttribute="width" id="1Ak-Gs-FCM"/>
+                                    <constraint firstItem="zCW-PY-1Nl" firstAttribute="height" secondItem="xpV-wT-hFh" secondAttribute="height" multiplier="0.15" id="21j-bj-Lnr"/>
+                                    <constraint firstItem="zCW-PY-1Nl" firstAttribute="top" secondItem="5j6-nr-iXl" secondAttribute="bottom" constant="30" id="Bsn-DM-ZsM"/>
+                                    <constraint firstItem="cee-yJ-QHM" firstAttribute="centerX" secondItem="xpV-wT-hFh" secondAttribute="centerX" id="F15-a8-40s"/>
+                                    <constraint firstItem="zCW-PY-1Nl" firstAttribute="centerX" secondItem="xpV-wT-hFh" secondAttribute="centerX" id="GdG-OL-Ebq"/>
+                                    <constraint firstItem="5j6-nr-iXl" firstAttribute="height" secondItem="xpV-wT-hFh" secondAttribute="height" multiplier="0.15" id="O3z-Dc-ehf"/>
+                                    <constraint firstItem="5j6-nr-iXl" firstAttribute="centerX" secondItem="xpV-wT-hFh" secondAttribute="centerX" id="OjI-CQ-KLX"/>
+                                    <constraint firstItem="5j6-nr-iXl" firstAttribute="top" secondItem="xpV-wT-hFh" secondAttribute="top" constant="30" id="Zr8-E6-KZc"/>
+                                    <constraint firstItem="zCW-PY-1Nl" firstAttribute="width" secondItem="xpV-wT-hFh" secondAttribute="width" id="eqR-vM-iDZ"/>
+                                    <constraint firstItem="cee-yJ-QHM" firstAttribute="width" secondItem="xpV-wT-hFh" secondAttribute="width" id="oLx-pc-Ugg"/>
+                                    <constraint firstItem="cee-yJ-QHM" firstAttribute="top" secondItem="zCW-PY-1Nl" secondAttribute="bottom" constant="30" id="pbg-3w-gXq"/>
+                                    <constraint firstItem="cee-yJ-QHM" firstAttribute="height" secondItem="xpV-wT-hFh" secondAttribute="height" multiplier="0.15" id="vGt-xm-UzW"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xpV-wT-hFh" firstAttribute="centerY" secondItem="NI1-oP-6Vq" secondAttribute="centerY" id="Sv6-h5-6GB"/>
-                            <constraint firstItem="xpV-wT-hFh" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="sV6-Ll-EBs"/>
+                            <constraint firstItem="xpV-wT-hFh" firstAttribute="centerY" secondItem="NI1-oP-6Vq" secondAttribute="centerY" id="2l0-ep-rGy"/>
+                            <constraint firstItem="xpV-wT-hFh" firstAttribute="height" secondItem="prl-Ds-NqQ" secondAttribute="height" multiplier="0.5" id="3J3-2u-boX"/>
+                            <constraint firstItem="xpV-wT-hFh" firstAttribute="centerX" secondItem="NI1-oP-6Vq" secondAttribute="centerX" id="eg6-dd-EQx"/>
+                            <constraint firstItem="xpV-wT-hFh" firstAttribute="width" secondItem="prl-Ds-NqQ" secondAttribute="width" multiplier="0.5" id="xX5-aL-uLc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="prl-Ds-NqQ"/>
                     </view>
@@ -275,6 +266,6 @@
         <image name="cards.png" width="486" height="383"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xVY-zJ-qht"/>
+        <segue reference="IfV-3L-s43"/>
     </inferredMetricsTieBreakers>
 </document>
