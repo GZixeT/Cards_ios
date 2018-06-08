@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8602AD8B20C94D20003E812C /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8602AD8A20C94D20003E812C /* Cell.xib */; };
+		8602AD8F20C950AD003E812C /* BCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602AD8E20C950AD003E812C /* BCVCell.m */; };
 		8602F4DE20AECE1F00E5C7AD /* VCMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602F4DD20AECE1F00E5C7AD /* VCMode.m */; };
 		8602F4E220AEFE7200E5C7AD /* UICCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602F4E120AEFE7200E5C7AD /* UICCard.m */; };
-		8616B42920AE18F1005D1289 /* CVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8616B42820AE18F0005D1289 /* CVCell.m */; };
 		861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AEA20B2F64200A62C6F /* GameCard.m */; };
 		861D6AEE20B2F67E00A62C6F /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AED20B2F67E00A62C6F /* Deck.m */; };
 		8645151720B54913009B6A2C /* cards.png in Resources */ = {isa = PBXBuildFile; fileRef = 8645151620B54913009B6A2C /* cards.png */; };
@@ -45,12 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8602AD8A20C94D20003E812C /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		8602AD8D20C950AD003E812C /* BCVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCVCell.h; sourceTree = "<group>"; };
+		8602AD8E20C950AD003E812C /* BCVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCVCell.m; sourceTree = "<group>"; };
 		8602F4DC20AECE1F00E5C7AD /* VCMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCMode.h; sourceTree = "<group>"; };
 		8602F4DD20AECE1F00E5C7AD /* VCMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCMode.m; sourceTree = "<group>"; };
 		8602F4E020AEFE7200E5C7AD /* UICCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICCard.h; sourceTree = "<group>"; };
 		8602F4E120AEFE7200E5C7AD /* UICCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UICCard.m; sourceTree = "<group>"; };
-		8616B42720AE18F0005D1289 /* CVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVCell.h; sourceTree = "<group>"; };
-		8616B42820AE18F0005D1289 /* CVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVCell.m; sourceTree = "<group>"; };
 		861D6AE920B2F64200A62C6F /* GameCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameCard.h; sourceTree = "<group>"; };
 		861D6AEA20B2F64200A62C6F /* GameCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameCard.m; sourceTree = "<group>"; };
 		861D6AEC20B2F67E00A62C6F /* Deck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
@@ -107,6 +109,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8602AD8C20C94FE4003E812C /* BCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				8602AD8A20C94D20003E812C /* Cell.xib */,
+				8602AD8D20C950AD003E812C /* BCVCell.h */,
+				8602AD8E20C950AD003E812C /* BCVCell.m */,
+			);
+			name = BCVCell;
+			sourceTree = "<group>";
+		};
 		8602F4DF20AEFE4400E5C7AD /* Color */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,8 +145,7 @@
 		8616B42620AE18C8005D1289 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				8616B42720AE18F0005D1289 /* CVCell.h */,
-				8616B42820AE18F0005D1289 /* CVCell.m */,
+				8602AD8C20C94FE4003E812C /* BCVCell */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -382,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8686FDD920A9A26A0079C347 /* LaunchScreen.storyboard in Resources */,
+				8602AD8B20C94D20003E812C /* Cell.xib in Resources */,
 				8645151720B54913009B6A2C /* cards.png in Resources */,
 				8686FDD620A9A26A0079C347 /* Assets.xcassets in Resources */,
 				8686FDD420A9A2690079C347 /* Main.storyboard in Resources */,
@@ -414,8 +426,8 @@
 				8602F4E220AEFE7200E5C7AD /* UICCard.m in Sources */,
 				8686FDD120A9A2690079C347 /* VCMain.m in Sources */,
 				8686FDDC20A9A26A0079C347 /* main.m in Sources */,
+				8602AD8F20C950AD003E812C /* BCVCell.m in Sources */,
 				8645151B20B55125009B6A2C /* CVAlert.m in Sources */,
-				8616B42920AE18F1005D1289 /* CVCell.m in Sources */,
 				8602F4DE20AECE1F00E5C7AD /* VCMode.m in Sources */,
 				8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */,
 				861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */,

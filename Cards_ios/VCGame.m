@@ -8,11 +8,11 @@
 
 #import "VCGame.h"
 #import "VCMode.h"
-#import "CVCell.h"
 #import "Card.h"
 #import "Cards.h"
 #import "UICCard.h"
 #import "CVAlert.h"
+#import "BCVCell.h"
 
 #define NUMBER_OF_COLUMS 4
 #define LINE_SPACING 5
@@ -20,6 +20,7 @@
 
 @interface VCGame ()
 @property GameMode mode;
+@property NSString *cellID;
 @end
 
 @implementation VCGame
@@ -28,6 +29,10 @@
 {
     [super viewDidLoad];
     [self setNavBarTitle];
+    self.cellID=@"BCVCell_ID";
+    UINib *nib = [UINib nibWithNibName:@"Cell" bundle: nil];
+    [self.cView registerNib:nib forCellWithReuseIdentifier:self.cellID];
+    //[self.cView registerClass:[BCVCell class] forCellWithReuseIdentifier:self.cellID];
     
 }
 - (void) setNavBarTitle
@@ -77,8 +82,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger index=indexPath.item;
-    static NSString *identifier = @"Cell_ID";
-    CVCell *cell = (CVCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    //static NSString *identifier = @"Cell_ID";
+    BCVCell *cell = (BCVCell*)[collectionView dequeueReusableCellWithReuseIdentifier:self.cellID forIndexPath:indexPath];
     [cell setCard:self.game.deck[index]];
     GameCard *card=self.game.deck[index];
     if(card.state==TableOptionLock || card.state==TableOptionEnable)
@@ -110,7 +115,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CVCell *cell = (CVCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    BCVCell *cell = (BCVCell*)[collectionView cellForItemAtIndexPath:indexPath];
     NSInteger index=indexPath.item;
     [cell setCard:self.game.deck[index]];
     [cell setForwardProperties];
@@ -141,8 +146,8 @@
 {
     NSLog(@"Timer Begin");
     NSIndexPath *index=timer.userInfo;
-    CVCell *cell = (CVCell*)[self.cView cellForItemAtIndexPath:index];
-    if(cell.labelSuit.hidden==NO)
+    BCVCell *cell = (BCVCell*)[self.cView cellForItemAtIndexPath:index];
+    if(cell.labelFirstSuit.hidden==NO)
     {
         [cell setBackProperties];
         [self.cView reloadData];

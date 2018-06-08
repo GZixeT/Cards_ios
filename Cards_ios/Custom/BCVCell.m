@@ -1,15 +1,15 @@
 //
-//  CollectionViewCell.m
+//  BCVCell.m
 //  Cards_ios
 //
-//  Created by Георгий Зубков on 17/05/2018.
+//  Created by Георгий Зубков on 07/06/2018.
 //  Copyright © 2018 Георгий Зубков. All rights reserved.
 //
 
-#import "CVCell.h"
+#import "BCVCell.h"
 #import "UICCard.h"
 
-@implementation CVCell
+@implementation BCVCell
 @synthesize card=_card;
 - (void) setValueLabelText
 {
@@ -41,22 +41,27 @@
     {
         case CardSuitClubs:
             suit=@"♣️";
-            [self.labelSuit setTextColor:[UICCard Black]];
+            [self.labelFirstSuit setTextColor:[UICCard Black]];
+            [self.labelSecondSuit setTextColor:[UICCard Black]];
             break;
         case CardSuitHeards:
             suit=@"♥️";
-            [self.labelSuit setTextColor:[UICCard Red]];
+            [self.labelFirstSuit setTextColor:[UICCard Red]];
+            [self.labelSecondSuit setTextColor:[UICCard Red]];
             break;
         case CardSuitSpades:
             suit=@"♠️";
-            [self.labelSuit setTextColor:[UICCard Black]];
+            [self.labelFirstSuit setTextColor:[UICCard Black]];
+            [self.labelSecondSuit setTextColor:[UICCard Black]];
             break;
         case CardSuitDiamonds:
             suit=@"♦️";
-            [self.labelSuit setTextColor:[UICCard Red]];
+            [self.labelFirstSuit setTextColor:[UICCard Red]];
+            [self.labelSecondSuit setTextColor:[UICCard Red]];
             break;
     }
-    self.labelSuit.text=suit;
+    self.labelFirstSuit.text=suit;
+    self.labelSecondSuit.text=suit;
 }
 - (void) setCard:(Card *)card
 {
@@ -71,14 +76,16 @@
 }
 - (void) setBackProperties
 {
-    self.labelSuit.hidden=YES;
+    self.labelFirstSuit.hidden=YES;
+    self.labelSecondSuit.hidden=YES;
     self.labelValue.text = @"?";
     [self.labelValue setTextColor:[UICCard White]];
     [self setBackgroundColor:[UICCard Blue]];
 }
 - (void) setForwardProperties
 {
-    self.labelSuit.hidden=NO;
+    self.labelFirstSuit.hidden=NO;
+    self.labelSecondSuit.hidden=NO;
     [self.labelValue setTextColor:[UICCard Black]];
     [self setBackgroundColor:[UICCard White]];
 }
