@@ -25,40 +25,32 @@
 
 @implementation VCGame
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     [self setNavBarTitle];
     self.cellID=@"BCVCell_ID";
     UINib *nib = [UINib nibWithNibName:@"Cell" bundle: nil];
     [self.cView registerNib:nib forCellWithReuseIdentifier:self.cellID];
-    //[self.cView registerClass:[BCVCell class] forCellWithReuseIdentifier:self.cellID];
     
 }
-- (void) setNavBarTitle
-{
-    if(self.game.deck.count==GameModeEasy*2)
-    {
+- (void) setNavBarTitle{
+    if(self.game.deck.count==GameModeEasy*2){
         self.navigationItem.title=@"Easy Mode";
         self.mode=GameModeEasy;
     }
-    else if (self.game.deck.count==GameModeMiddle*2)
-    {
+    else if (self.game.deck.count==GameModeMiddle*2){
         self.navigationItem.title=@"Middle Mode";
         self.mode=GameModeMiddle;
     }
-    else if (self.game.deck.count==GameModeHard*2)
-    {
+    else if (self.game.deck.count==GameModeHard*2){
         self.navigationItem.title=@"Hard Mode";
         self.mode=GameModeHard;
     }
 }
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
-{
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator{
     [self.cView.collectionViewLayout invalidateLayout];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -79,28 +71,23 @@
         height=width*1.5;
     return CGSizeMake(width, height);
 }
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger index=indexPath.item;
-    //static NSString *identifier = @"Cell_ID";
     BCVCell *cell = (BCVCell*)[collectionView dequeueReusableCellWithReuseIdentifier:self.cellID forIndexPath:indexPath];
     [cell setCard:self.game.deck[index]];
     GameCard *card=self.game.deck[index];
     if(card.state==TableOptionLock || card.state==TableOptionEnable)
         [cell setForwardProperties];
     else [cell setBackProperties];
-    if([self.game getGameState]==GameStateEnd)
-    {
+    if([self.game getGameState]==GameStateEnd){
         CVAlert *alert=[CVAlert createAlertGameEnd];
-        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
-         {
+        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField){
              textField.placeholder = @"name";
              textField.textColor = [UIColor blueColor];
              textField.clearButtonMode = UITextFieldViewModeWhileEditing;
              textField.borderStyle = UITextBorderStyleRoundedRect;
          }];
-        [alert addButton:@"Новая игра" action:^
-        {
+        [alert addButton:@"Новая игра" action:^{
             self.game=[Cards createRandomDoubleDeck:self.mode];
             [self.delegate isGameBegining:self.game];
             [collectionView reloadData];
@@ -113,18 +100,15 @@
     }
     return cell;
 }
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     BCVCell *cell = (BCVCell*)[collectionView cellForItemAtIndexPath:indexPath];
     NSInteger index=indexPath.item;
     [cell setCard:self.game.deck[index]];
     [cell setForwardProperties];
-    if([self.game makeTaskAtIndex:index :TableOptionEnable])
-    {
-        switch([self.game getGameState])
-        {
+    if([self.game makeTaskAtIndex:index :TableOptionEnable]){
+        switch([self.game getGameState]){
             case GameStateFalse:
-                self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f  target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES];
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES];
                 break;
             case GameStateEnd:
                 printf("Победа!\n");
@@ -142,20 +126,17 @@
     }
     
 }
-- (void) updateTimer:(NSTimer*)timer
-{
+- (void) updateTimer:(NSTimer*)timer{
     NSLog(@"Timer Begin");
     NSIndexPath *index=timer.userInfo;
     BCVCell *cell = (BCVCell*)[self.cView cellForItemAtIndexPath:index];
-    if(cell.labelFirstSuit.hidden==NO)
-    {
+    if(cell.labelFirstSuit.hidden==NO){
         [cell setBackProperties];
         [self.cView reloadData];
         [timer invalidate];
         NSLog(@"End Timer");
     }
-    else
-    {
+    else{
         [cell setForwardProperties];
     }
 }

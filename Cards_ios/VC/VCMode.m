@@ -18,41 +18,29 @@
 
 @implementation VCMode
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     self.easyMode.layer.cornerRadius=CORNER_RADIUS;
     self.middleMode.layer.cornerRadius=CORNER_RADIUS;
     self.hardMode.layer.cornerRadius=CORNER_RADIUS;
-    if(self.navigationItem)
-    {
+    if(self.navigationItem){
         self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-        //self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"BACK" style:UIBarButtonItemStylePlain target:nil action:nil];
-        NSLog(@"NavItem title:%@",self.navigationItem.title);
-        NSLog(@"BackBarItem title:%@",self.navigationItem.backBarButtonItem.title);
-        NSLog(@"LeftB title:%@",self.navigationItem.leftBarButtonItem.title);
-        NSLog(@"RightB title:%@",self.navigationItem.rightBarButtonItem.title);
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
-- (IBAction)EMClick:(id)sender
-{
+- (IBAction)EMClick:(id)sender{
     self.game=[Cards createRandomDoubleDeck:GameModeEasy];
 }
-- (IBAction)MMClick:(id)sender
-{
+- (IBAction)MMClick:(id)sender{
     self.game=[Cards createRandomDoubleDeck:GameModeMiddle];
 }
-- (IBAction)HMClick:(id)sender
-{
+- (IBAction)HMClick:(id)sender{
     self.game=[Cards createRandomDoubleDeck:GameModeHard];
 }
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     VCGame *game = (VCGame *)segue.destinationViewController;
     [self.delegate isGameBeginingWithView:self.game gameView:game];
     game.game = self.game;

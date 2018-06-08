@@ -9,8 +9,7 @@
 #import "Cards.h"
 #import "VCGame.h"
 
-typedef enum
-{
+typedef enum{
     GameModeEasy = 4,
     GameModeMiddle = 6,
     GameModeHard = 12
