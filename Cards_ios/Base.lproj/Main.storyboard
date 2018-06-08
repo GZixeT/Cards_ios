@@ -22,7 +22,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="YGr-zN-kqN">
                                 <rect key="frame" x="20" y="84" width="280" height="376"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cards.png" highlightedImage="cards.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nzw-VY-V5o">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cards" translatesAutoresizingMaskIntoConstraints="NO" id="Nzw-VY-V5o">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="225.5"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQd-Lf-Tnz">
@@ -94,13 +94,13 @@
             <objects>
                 <viewController storyboardIdentifier="Game" id="FMn-TX-WpT" customClass="VCGame" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6P1-Q2-om4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A9b-1n-qxO">
-                                <rect key="frame" x="5" y="69" width="310" height="406"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Man-Ti-mJW">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Man-Ti-mJW">
                                     <size key="itemSize" width="50" height="70"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -115,13 +115,14 @@
                         </subviews>
                         <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="A9b-1n-qxO" firstAttribute="top" secondItem="kTW-OM-9JY" secondAttribute="top" constant="5" id="4Aa-iy-YF2"/>
-                            <constraint firstItem="A9b-1n-qxO" firstAttribute="leading" secondItem="kTW-OM-9JY" secondAttribute="leading" constant="5" id="Mzw-fd-mzx"/>
-                            <constraint firstItem="kTW-OM-9JY" firstAttribute="trailing" secondItem="A9b-1n-qxO" secondAttribute="trailing" constant="5" id="TcF-r1-eUZ"/>
-                            <constraint firstItem="kTW-OM-9JY" firstAttribute="bottom" secondItem="A9b-1n-qxO" secondAttribute="bottom" constant="5" id="yNG-fg-ngc"/>
+                            <constraint firstItem="A9b-1n-qxO" firstAttribute="trailing" secondItem="6P1-Q2-om4" secondAttribute="trailing" id="DQp-7m-Aro"/>
+                            <constraint firstItem="A9b-1n-qxO" firstAttribute="leading" secondItem="6P1-Q2-om4" secondAttribute="leading" id="Fun-bR-SGb"/>
+                            <constraint firstItem="A9b-1n-qxO" firstAttribute="bottom" secondItem="6P1-Q2-om4" secondAttribute="bottom" id="nu8-Ku-DfL"/>
+                            <constraint firstItem="A9b-1n-qxO" firstAttribute="top" secondItem="6P1-Q2-om4" secondAttribute="top" id="rte-Yv-mYB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kTW-OM-9JY"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="cView" destination="A9b-1n-qxO" id="VC1-vm-v91"/>
                     </connections>
@@ -229,7 +230,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cards.png" width="486" height="383"/>
+        <image name="cards" width="486" height="383"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xVY-zJ-qht"/>

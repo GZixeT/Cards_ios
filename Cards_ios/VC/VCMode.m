@@ -23,24 +23,26 @@
     self.easyMode.layer.cornerRadius=CORNER_RADIUS;
     self.middleMode.layer.cornerRadius=CORNER_RADIUS;
     self.hardMode.layer.cornerRadius=CORNER_RADIUS;
-    if(self.navigationItem){
-        self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    if(self.navigationItem) {
+        //self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        //self.navigationItem.backBarButtonItem.tintColor = [UIColor redColor];
     }
 }
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
-- (IBAction)EMClick:(id)sender{
+- (IBAction)EMClick:(id)sender {
     self.game=[Cards createRandomDoubleDeck:GameModeEasy];
 }
-- (IBAction)MMClick:(id)sender{
+- (IBAction)MMClick:(id)sender {
     self.game=[Cards createRandomDoubleDeck:GameModeMiddle];
 }
-- (IBAction)HMClick:(id)sender{
+- (IBAction)HMClick:(id)sender {
     self.game=[Cards createRandomDoubleDeck:GameModeHard];
 }
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     VCGame *game = (VCGame *)segue.destinationViewController;
     [self.delegate isGameBeginingWithView:self.game gameView:game];
     game.game = self.game;

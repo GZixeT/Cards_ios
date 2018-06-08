@@ -13,7 +13,6 @@
 		8602F4E220AEFE7200E5C7AD /* UICCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602F4E120AEFE7200E5C7AD /* UICCard.m */; };
 		861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AEA20B2F64200A62C6F /* GameCard.m */; };
 		861D6AEE20B2F67E00A62C6F /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AED20B2F67E00A62C6F /* Deck.m */; };
-		8645151720B54913009B6A2C /* cards.png in Resources */ = {isa = PBXBuildFile; fileRef = 8645151620B54913009B6A2C /* cards.png */; };
 		8645151B20B55125009B6A2C /* CVAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645151A20B55125009B6A2C /* CVAlert.m */; };
 		865CF5CD20AC53600018A5E2 /* VCGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 865CF5CC20AC53600018A5E2 /* VCGame.m */; };
 		8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDCD20A9A2690079C347 /* AppDelegate.m */; };
@@ -57,7 +56,6 @@
 		861D6AEA20B2F64200A62C6F /* GameCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameCard.m; sourceTree = "<group>"; };
 		861D6AEC20B2F67E00A62C6F /* Deck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
 		861D6AED20B2F67E00A62C6F /* Deck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
-		8645151620B54913009B6A2C /* cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cards.png; sourceTree = "<group>"; };
 		8645151920B55125009B6A2C /* CVAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVAlert.h; sourceTree = "<group>"; };
 		8645151A20B55125009B6A2C /* CVAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVAlert.m; sourceTree = "<group>"; };
 		865CF5CC20AC53600018A5E2 /* VCGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCGame.m; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 		8616B42520AE0BDD005D1289 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				8645151520B548B4009B6A2C /* Pictures */,
 				8686FDCC20A9A2690079C347 /* AppDelegate.h */,
 				8686FDCD20A9A2690079C347 /* AppDelegate.m */,
 				8686FDD520A9A26A0079C347 /* Assets.xcassets */,
@@ -166,14 +163,6 @@
 				8616B42620AE18C8005D1289 /* Cell */,
 			);
 			name = CollectionView;
-			sourceTree = "<group>";
-		};
-		8645151520B548B4009B6A2C /* Pictures */ = {
-			isa = PBXGroup;
-			children = (
-				8645151620B54913009B6A2C /* cards.png */,
-			);
-			path = Pictures;
 			sourceTree = "<group>";
 		};
 		8645151820B550EC009B6A2C /* Alert */ = {
@@ -394,7 +383,6 @@
 			files = (
 				8686FDD920A9A26A0079C347 /* LaunchScreen.storyboard in Resources */,
 				8602AD8B20C94D20003E812C /* Cell.xib in Resources */,
-				8645151720B54913009B6A2C /* cards.png in Resources */,
 				8686FDD620A9A26A0079C347 /* Assets.xcassets in Resources */,
 				8686FDD420A9A2690079C347 /* Main.storyboard in Resources */,
 			);
@@ -601,15 +589,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92K8N3QBX8;
 				INFOPLIST_FILE = Cards_ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "GZ.Cards-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -618,15 +609,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92K8N3QBX8;
 				INFOPLIST_FILE = Cards_ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "GZ.Cards-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

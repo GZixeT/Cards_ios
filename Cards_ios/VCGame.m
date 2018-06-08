@@ -51,7 +51,20 @@
     [super didReceiveMemoryWarning];
 }
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator{
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    // Code here will execute before the rotation begins.
+    // Equivalent to placing it in the deprecated method -[willRotateToInterfaceOrientation:duration:]
     [self.cView.collectionViewLayout invalidateLayout];
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context){
+        
+        // Place code here to perform animations during the rotation.
+        // You can pass nil or leave this block empty if not necessary.
+        
+    }completion:^(id<UIViewControllerTransitionCoordinatorContext> context){
+        // Code here will execute after the rotation has finished.
+        // Equivalent to placing it in the deprecated method -[didRotateFromInterfaceOrientation:]
+        [self.cView.collectionViewLayout invalidateLayout];
+    }];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSInteger count =self.game.deck.count;
@@ -64,12 +77,16 @@
     return CELL_SPACING;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat width;
+    CGFloat height;
     NSInteger lines = self.game.deck.count/NUMBER_OF_COLUMS;
-    CGFloat width=collectionView.frame.size.width/NUMBER_OF_COLUMS - CELL_SPACING;
-    CGFloat height=collectionView.frame.size.height/lines - LINE_SPACING;
-    if(height>width*2)
-        height=width*1.5;
-    return CGSizeMake(width, height);
+    CGFloat cWSize=collectionView.frame.size.width;
+    CGFloat cHSize=collectionView.frame.size.height;
+    width = ceilf((cWSize- CELL_SPACING*(NUMBER_OF_COLUMS+1))/NUMBER_OF_COLUMS);
+    height = ceilf((cHSize - LINE_SPACING * (lines+1))/lines);
+//    if(height>width*2)
+//        height=width*1.5;
+    return CGSizeMake(width, height); // высота при заходе = 672, после поворотов 692
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger index=indexPath.item;
@@ -133,6 +150,7 @@
     if(cell.labelFirstSuit.hidden==NO){
         [cell setBackProperties];
         [self.cView reloadData];
+        //[self.cView.collectionViewLayout invalidateLayout];
         [timer invalidate];
         NSLog(@"End Timer");
     }
