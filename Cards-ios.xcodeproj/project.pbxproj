@@ -13,6 +13,7 @@
 		8602F4E220AEFE7200E5C7AD /* UICCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602F4E120AEFE7200E5C7AD /* UICCard.m */; };
 		861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AEA20B2F64200A62C6F /* GameCard.m */; };
 		861D6AEE20B2F67E00A62C6F /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AED20B2F67E00A62C6F /* Deck.m */; };
+		86272E7D20CE8DEF005816CB /* CTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 86272E7C20CE8DEF005816CB /* CTimer.m */; };
 		8645151B20B55125009B6A2C /* CVAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645151A20B55125009B6A2C /* CVAlert.m */; };
 		865CF5CD20AC53600018A5E2 /* VCGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 865CF5CC20AC53600018A5E2 /* VCGame.m */; };
 		8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDCD20A9A2690079C347 /* AppDelegate.m */; };
@@ -56,6 +57,8 @@
 		861D6AEA20B2F64200A62C6F /* GameCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameCard.m; sourceTree = "<group>"; };
 		861D6AEC20B2F67E00A62C6F /* Deck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
 		861D6AED20B2F67E00A62C6F /* Deck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		86272E7B20CE8DEF005816CB /* CTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTimer.h; sourceTree = "<group>"; };
+		86272E7C20CE8DEF005816CB /* CTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTimer.m; sourceTree = "<group>"; };
 		8645151920B55125009B6A2C /* CVAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVAlert.h; sourceTree = "<group>"; };
 		8645151A20B55125009B6A2C /* CVAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVAlert.m; sourceTree = "<group>"; };
 		865CF5CC20AC53600018A5E2 /* VCGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCGame.m; sourceTree = "<group>"; };
@@ -147,9 +150,19 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		86272E7A20CE8DC5005816CB /* CTimer */ = {
+			isa = PBXGroup;
+			children = (
+				86272E7B20CE8DEF005816CB /* CTimer.h */,
+				86272E7C20CE8DEF005816CB /* CTimer.m */,
+			);
+			name = CTimer;
+			sourceTree = "<group>";
+		};
 		8628F64920ADB7EC00715B72 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				86272E7A20CE8DC5005816CB /* CTimer */,
 				8645151820B550EC009B6A2C /* Alert */,
 				8602F4DF20AEFE4400E5C7AD /* Color */,
 				8628F65220ADBC8A00715B72 /* CollectionView */,
@@ -413,6 +426,7 @@
 				865CF5CD20AC53600018A5E2 /* VCGame.m in Sources */,
 				8602F4E220AEFE7200E5C7AD /* UICCard.m in Sources */,
 				8686FDD120A9A2690079C347 /* VCMain.m in Sources */,
+				86272E7D20CE8DEF005816CB /* CTimer.m in Sources */,
 				8686FDDC20A9A26A0079C347 /* main.m in Sources */,
 				8602AD8F20C950AD003E812C /* BCVCell.m in Sources */,
 				8645151B20B55125009B6A2C /* CVAlert.m in Sources */,

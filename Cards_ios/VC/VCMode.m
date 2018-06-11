@@ -24,9 +24,7 @@
     self.middleMode.layer.cornerRadius=CORNER_RADIUS;
     self.hardMode.layer.cornerRadius=CORNER_RADIUS;
     if(self.navigationItem) {
-        //self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-        //self.navigationItem.backBarButtonItem.tintColor = [UIColor redColor];
     }
 }
 

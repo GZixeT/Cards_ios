@@ -21,7 +21,6 @@
 @interface VCGame ()
 @property GameMode mode;
 @property NSString *cellID;
-@property BOOL lockedCollectionView;
 @end
 
 @implementation VCGame
@@ -117,17 +116,16 @@
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if(self.lockedCollectionView==NO){
+    if(self.timer.lock==NO){
         BCVCell *cell = (BCVCell*)[collectionView cellForItemAtIndexPath:indexPath];
         NSInteger index=indexPath.item;
         [cell setCard:self.game.deck[index]];
         [cell setForwardProperties];
         if([self.game makeTaskAtIndex:index :TableOptionEnable]){
             switch([self.game getGameState]){
-                case GameStateFalse:
-                    self.lockedCollectionView=YES;
-                    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES];
-                    break;
+                case GameStateFalse:{
+                    self.timer = [CTimer createTimerWithInterval:1.0f target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES lock:YES];
+                    }break;
                 case GameStateEnd:
                     printf("Победа!\n");
                     [self.cView reloadData];
@@ -152,9 +150,8 @@
     if(cell.labelFirstSuit.hidden==NO){
         [cell setBackProperties];
         [self.cView reloadData];
-        //[self.cView.collectionViewLayout invalidateLayout];
         [timer invalidate];
-        self.lockedCollectionView=NO;
+        self.timer.lock=NO;
         NSLog(@"End Timer");
     }
     else{

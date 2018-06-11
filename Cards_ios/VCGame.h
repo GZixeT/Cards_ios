@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "VCMode.h"
 #import "Cards.h"
+#import "CTimer.h"
 //for test branch to merge
 //for commit of tower
 @protocol VCModeDelegate;
@@ -16,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *cView;
 @property(strong, nonatomic) Cards *game; 
 @property (weak ,nonatomic)id <VCModeDelegate> delegate;
-@property NSTimer *timer;
+@property CTimer *timer;
 @end
 
 
