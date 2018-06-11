@@ -84,11 +84,27 @@
                     <connections>
                         <outlet property="continueButton" destination="ID9-G2-0kf" id="Fve-3g-jf5"/>
                         <outlet property="nGameButton" destination="3KH-Dm-LDO" id="HDY-Df-NKs"/>
+                        <segue destination="Sni-XP-YYD" kind="show" identifier="TableOfResult" id="aoB-ad-dcd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1143.75" y="151.25"/>
+        </scene>
+        <!--Table-->
+        <scene sceneID="STv-sA-Lzh">
+            <objects>
+                <viewController title="Table" id="Sni-XP-YYD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rn6-ah-sVH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="lwq-ug-VU2"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Crr-oD-BnR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2175" y="999"/>
         </scene>
         <!--Game-->
         <scene sceneID="E3q-zG-H5i">
@@ -126,6 +142,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="cView" destination="A9b-1n-qxO" id="VC1-vm-v91"/>
+                        <segue destination="Sni-XP-YYD" kind="show" identifier="TableOfResult" id="UQ0-0Y-rbS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hI6-Cs-2ER" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,5 +253,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xVY-zJ-qht"/>
+        <segue reference="aoB-ad-dcd"/>
     </inferredMetricsTieBreakers>
 </document>

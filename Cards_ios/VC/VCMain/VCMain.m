@@ -19,6 +19,11 @@
     self.nGameButton.layer.cornerRadius=CORNER_RADIUS;
     self.continueButton.layer.cornerRadius=CORNER_RADIUS;
     self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Results" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonTap:)];
+}
+- (void) rightButtonTap:(id)sender{
+    [self performSegueWithIdentifier:@"TableOfResult" sender:sender];
 }
 - (void) viewWillAppear:(BOOL)animated{
     if(self.game==nil || [self.game getGameState]==GameStateEnd)

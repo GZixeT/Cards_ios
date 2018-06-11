@@ -47,12 +47,22 @@
         self.mode=GameModeHard;
     }
 }
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if([self.game getGameState]==GameStateEnd){
+        [self showGameEndAlert:self.cView];
+    }
+}
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
 - (void) showGameEndAlert: (UICollectionView*)view{
     CVAlert *alert=[CVAlert createAlertGameEnd];
     [alert addTextField:@"name" textColor:[UIColor blueColor] textFieldMode:UITextFieldViewModeWhileEditing borderStyle:UITextBorderStyleRoundedRect];
+    [alert addButton:@"К таблице результатов" action:^{
+        [self performSegueWithIdentifier:@"TableOfResult" sender:nil];
+        self.navigationItem.leftBarButtonItem=nil;
+    }];
     [alert addButton:@"Новая игра" action:^{
         self.game=[Cards createRandomDoubleDeck:self.mode];
         [self.delegate isGameBegining:self.game];
@@ -156,6 +166,12 @@
     }
     else{
         [cell setForwardProperties];
+    }
+}
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"TableOfResult"]){
+        //VCMode *controller = (VCMode *)segue.destinationViewController;
+       // controller.delegate=self;
     }
 }
 @end
