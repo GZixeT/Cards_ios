@@ -9,9 +9,13 @@
 #import "CVAlert.h"
 
 @implementation CVAlert
-+ (CVAlert*) createAlertGameEnd
-{
++ (CVAlert*) createAlertGameEnd{
     CVAlert *alert=[CVAlert alertControllerWithTitle:@"Game" message:@"You won!" preferredStyle:UIAlertControllerStyleAlert];
+    return alert;
+}
++ (CVAlert*) createAlertError{
+    CVAlert *alert=[CVAlert alertControllerWithTitle:@"Game" message:@"Error!" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addButton:@"OK" action:nil];
     return alert;
 }
 - (void) addButton:(nullable NSString*)title action:(void (^ __nullable) (void))actions
@@ -34,5 +38,13 @@
 - (void) show:(BOOL)animated view:(UIViewController*)view
 {
     [view presentViewController:self animated:animated completion:nil];
+}
+- (void) addTextField:(NSString*) placeholder textColor:(UIColor*)color textFieldMode:(UITextFieldViewMode)mode borderStyle:(UITextBorderStyle)style{
+    [self addTextFieldWithConfigurationHandler:^(UITextField *textField){
+        textField.placeholder = placeholder;
+        textField.textColor = color;
+        textField.clearButtonMode = mode;
+        textField.borderStyle = style;
+    }];
 }
 @end

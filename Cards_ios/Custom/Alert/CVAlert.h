@@ -10,6 +10,8 @@
 
 @interface CVAlert : UIAlertController
 + (CVAlert*) createAlertGameEnd;
++ (CVAlert*) createAlertError;
 - (void) addButton:(nullable NSString*)title action:(void (^ __nullable) (void))actions;
+- (void) addTextField:(NSString*) placeholder textColor:(UIColor*)color textFieldMode:(UITextFieldViewMode)mode borderStyle:(UITextBorderStyle)style;
 - (void) show:(BOOL)animated view:(UIViewController*)view;
 @end

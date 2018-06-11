@@ -21,6 +21,7 @@
 @interface VCGame ()
 @property GameMode mode;
 @property NSString *cellID;
+@property BOOL lockedCollectionView;
 @end
 
 @implementation VCGame
@@ -49,6 +50,20 @@
 }
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
+}
+- (void) showGameEndAlert: (UICollectionView*)view{
+    CVAlert *alert=[CVAlert createAlertGameEnd];
+    [alert addTextField:@"name" textColor:[UIColor blueColor] textFieldMode:UITextFieldViewModeWhileEditing borderStyle:UITextBorderStyleRoundedRect];
+    [alert addButton:@"Новая игра" action:^{
+        self.game=[Cards createRandomDoubleDeck:self.mode];
+        [self.delegate isGameBegining:self.game];
+        [view reloadData];
+    }];
+    [alert addButton:@"OK" action:^{
+        UINavigationController *navigationController = self.navigationController;
+        [navigationController popViewControllerAnimated:YES];
+    }];
+    [alert show:YES view:self];
 }
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator{
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
@@ -84,61 +99,48 @@
     CGFloat cHSize=collectionView.frame.size.height;
     width = ceilf((cWSize- CELL_SPACING*(NUMBER_OF_COLUMS+1))/NUMBER_OF_COLUMS);
     height = ceilf((cHSize - LINE_SPACING * (lines+1))/lines);
-//    if(height>width*2)
-//        height=width*1.5;
-    return CGSizeMake(width, height); // высота при заходе = 672, после поворотов 692
+    if(height>width*2)
+        height=width*1.5;
+    return CGSizeMake(width, height);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger index=indexPath.item;
     BCVCell *cell = (BCVCell*)[collectionView dequeueReusableCellWithReuseIdentifier:self.cellID forIndexPath:indexPath];
     [cell setCard:self.game.deck[index]];
     GameCard *card=self.game.deck[index];
-    if(card.state==TableOptionLock || card.state==TableOptionEnable)
-        [cell setForwardProperties];
+    if(card.state==TableOptionLock ||
+       card.state==TableOptionEnable)[cell setForwardProperties];
     else [cell setBackProperties];
     if([self.game getGameState]==GameStateEnd){
-        CVAlert *alert=[CVAlert createAlertGameEnd];
-        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField){
-             textField.placeholder = @"name";
-             textField.textColor = [UIColor blueColor];
-             textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-             textField.borderStyle = UITextBorderStyleRoundedRect;
-         }];
-        [alert addButton:@"Новая игра" action:^{
-            self.game=[Cards createRandomDoubleDeck:self.mode];
-            [self.delegate isGameBegining:self.game];
-            [collectionView reloadData];
-        }];
-        [alert addButton:@"OK" action:^{
-            UINavigationController *navigationController = self.navigationController;
-            [navigationController popViewControllerAnimated:YES];
-        }];
-        [alert show:YES view:self];
+        [self showGameEndAlert:collectionView];
     }
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    BCVCell *cell = (BCVCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    NSInteger index=indexPath.item;
-    [cell setCard:self.game.deck[index]];
-    [cell setForwardProperties];
-    if([self.game makeTaskAtIndex:index :TableOptionEnable]){
-        switch([self.game getGameState]){
-            case GameStateFalse:
-                self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES];
-                break;
-            case GameStateEnd:
-                printf("Победа!\n");
-                [self.cView reloadData];
-                break;
-            case GameStateError:
-                printf("Error.\n");
-                break;
-            case GameStateTrue:
-                break;
-            default:
-                printf("Error.\n");
-                break;
+    if(self.lockedCollectionView==NO){
+        BCVCell *cell = (BCVCell*)[collectionView cellForItemAtIndexPath:indexPath];
+        NSInteger index=indexPath.item;
+        [cell setCard:self.game.deck[index]];
+        [cell setForwardProperties];
+        if([self.game makeTaskAtIndex:index :TableOptionEnable]){
+            switch([self.game getGameState]){
+                case GameStateFalse:
+                    self.lockedCollectionView=YES;
+                    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES];
+                    break;
+                case GameStateEnd:
+                    printf("Победа!\n");
+                    [self.cView reloadData];
+                    break;
+                case GameStateError:{
+                    [[CVAlert createAlertError]show:YES view:self];
+                }break;
+                case GameStateTrue:
+                    break;
+                default:{
+                    [[CVAlert createAlertError]show:YES view:self];
+                }break;
+            }
         }
     }
     
@@ -152,6 +154,7 @@
         [self.cView reloadData];
         //[self.cView.collectionViewLayout invalidateLayout];
         [timer invalidate];
+        self.lockedCollectionView=NO;
         NSLog(@"End Timer");
     }
     else{
