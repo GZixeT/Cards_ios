@@ -13,6 +13,7 @@
 #import "UICCard.h"
 #import "CVAlert.h"
 #import "BCVCell.h"
+#import "User.h"
 
 #define NUMBER_OF_COLUMS 4
 #define LINE_SPACING 5
@@ -21,6 +22,7 @@
 @interface VCGame ()
 @property GameMode mode;
 @property NSString *cellID;
+@property User *user;
 @end
 
 @implementation VCGame
@@ -31,6 +33,13 @@
     self.cellID=@"BCVCell_ID";
     UINib *nib = [UINib nibWithNibName:@"Cell" bundle: nil];
     [self.cView registerNib:nib forCellWithReuseIdentifier:self.cellID];
+//    NSUserDefaults *userDef=[NSUserDefaults standardUserDefaults];
+//    self.user = [User createUserWithName:@"Hello" score:0 index:0];
+//    NSCoder *coder=[[NSCoder alloc]init];
+//    [coder encodeObject:self.user forKey:@"User"];
+//    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.user];
+//    [userDef setObject:data forKey:@"User"];
+//    [userDef synchronize];
     
 }
 - (void) setNavBarTitle{
@@ -59,10 +68,12 @@
 - (void) showGameEndAlert: (UICollectionView*)view{
     CVAlert *alert=[CVAlert createAlertGameEnd];
     [alert addTextField:@"name" textColor:[UIColor blueColor] textFieldMode:UITextFieldViewModeWhileEditing borderStyle:UITextBorderStyleRoundedRect];
-    [alert addButton:@"К таблице результатов" action:^{
+    //UITextField *name=alert.nameField;
+    void(^action)(void)=^{
         [self performSegueWithIdentifier:@"TableOfResult" sender:nil];
         self.navigationItem.leftBarButtonItem=nil;
-    }];
+    };
+    [alert addButton:@"К таблице результатов" action:action];
     [alert addButton:@"Новая игра" action:^{
         self.game=[Cards createRandomDoubleDeck:self.mode];
         [self.delegate isGameBegining:self.game];

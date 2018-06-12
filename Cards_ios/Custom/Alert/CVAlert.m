@@ -40,11 +40,14 @@
     [view presentViewController:self animated:animated completion:nil];
 }
 - (void) addTextField:(NSString*) placeholder textColor:(UIColor*)color textFieldMode:(UITextFieldViewMode)mode borderStyle:(UITextBorderStyle)style{
-    [self addTextFieldWithConfigurationHandler:^(UITextField *textField){
-        textField.placeholder = placeholder;
-        textField.textColor = color;
-        textField.clearButtonMode = mode;
-        textField.borderStyle = style;
+    UITextField *textField = [[UITextField alloc]init];
+    textField.placeholder = placeholder;
+    textField.textColor = color;
+    textField.clearButtonMode = mode;
+    textField.borderStyle = style;
+    self.nameField=textField;
+    [self addTextFieldWithConfigurationHandler:^(UITextField *text){
+        text=self.nameField;
     }];
 }
 @end

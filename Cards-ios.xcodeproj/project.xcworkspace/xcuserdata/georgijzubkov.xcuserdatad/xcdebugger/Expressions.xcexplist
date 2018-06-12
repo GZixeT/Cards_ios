@@ -3,25 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[VCMain ContinueButtonClick:]:VCMain.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[Cards sharedInstance].map">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[VCGame collectionView:didSelectItemAtIndexPath:]:VCGame.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[Cards sharedInstance]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "+[Deck createRandomDeck:]:Deck.m">
-      </ContextState>
-      <ContextState
          contextName = "-[VCGame collectionView:layout:sizeForItemAtIndexPath:]:VCGame.m">
          <PersistentStrings>
             <PersistentString
@@ -30,10 +11,43 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[CVCell calculateSizeWithIndex:contentSize:numberOfColumns:nuberOfCards:]:CVCell.m">
+         contextName = "__27-[VCGame showGameEndAlert:]_block_invoke.85:VCGame.m">
          <PersistentStrings>
             <PersistentString
-               value = "width*=height/width">
+               value = "name.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "main:main.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[Deck createRandomDeck:]:Deck.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[VCMode EMClick:]:VCMode.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.gameController.cardsManager">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[VCGame showGameEndAlert:]:VCGame.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "name.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[VCTableOfResults numberOfSectionsInTableView:]:VCTableOfResults.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[VCGame collectionView:didSelectItemAtIndexPath:]:VCGame.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[Cards sharedInstance]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -49,10 +63,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[VCMode EMClick:]:VCMode.m">
+         contextName = "-[VCMain ContinueButtonClick:]:VCMain.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.gameController.cardsManager">
+               value = "[Cards sharedInstance].map">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[VCTableOfResults tableView:cellForRowAtIndexPath:]:VCTableOfResults.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CVCell calculateSizeWithIndex:contentSize:numberOfColumns:nuberOfCards:]:CVCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "width*=height/width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CVAlert : UIAlertController
+@property UITextField *nameField;
 + (CVAlert*) createAlertGameEnd;
 + (CVAlert*) createAlertError;
 - (void) addButton:(nullable NSString*)title action:(void (^ __nullable) (void))actions;

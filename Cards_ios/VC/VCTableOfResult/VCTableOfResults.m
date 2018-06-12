@@ -5,6 +5,8 @@
 //  Created by Георгий Зубков on 11/06/2018.
 //  Copyright © 2018 Георгий Зубков. All rights reserved.
 //
+#define NUMBER_OF_SECTIONS 1
+#define NUMBER_OF_TEST_ROWS 10
 
 #import "VCTableOfResults.h"
 #import "TVCell.h"
@@ -12,7 +14,6 @@
 @interface VCTableOfResults ()
 @property NSString *cellID;
 @property NSUserDefaults *defaults;
-@property NSString *key;
 @end
 
 @implementation VCTableOfResults
@@ -21,7 +22,6 @@
     [super viewDidLoad];
     self.cellID = @"TVCell_ID";
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonTap:)];
-    //self.navigationController.navigationItem.rightBarButtonItem=item;
     self.navigationItem.rightBarButtonItem = item;
     UINib *nib = [UINib nibWithNibName:@"TVCell" bundle:nil];
     [self.table registerNib:nib forCellReuseIdentifier:self.cellID];
@@ -29,18 +29,17 @@
 }
 - (void) setUserDefaults{
     self.defaults = [NSUserDefaults standardUserDefaults];
-    self.key=@"name";
-    [self.defaults setObject:@1 forKey:self.key];
-    [self.defaults setObject:@2 forKey:self.key];
-    [self.defaults synchronize];
-    //[defaults objectForKey:key];
+    //NSData *data = [self.defaults objectForKey:@"User"];
+    //[self.defaults setObject:@1 forKey:@"name"];
+    //[self.defaults setObject:@2 forKey:@"name2"];
+    //[self.defaults synchronize];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return NUMBER_OF_SECTIONS;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return NUMBER_OF_TEST_ROWS;
 }
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    return 100;
