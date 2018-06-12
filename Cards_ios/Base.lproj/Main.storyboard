@@ -20,16 +20,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="YGr-zN-kqN">
-                                <rect key="frame" x="20" y="20" width="280" height="376"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="396"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cards" translatesAutoresizingMaskIntoConstraints="NO" id="Nzw-VY-V5o">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="226"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="238"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQd-Lf-Tnz">
-                                        <rect key="frame" x="0.0" y="226" width="280" height="150"/>
+                                        <rect key="frame" x="0.0" y="238" width="320" height="158"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID9-G2-0kf">
-                                                <rect key="frame" x="70" y="75.5" width="140.5" height="45"/>
+                                                <rect key="frame" x="80" y="78" width="160.5" height="47.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Продолжить">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -39,7 +39,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3KH-Dm-LDO">
-                                                <rect key="frame" x="70" y="10" width="140.5" height="45.5"/>
+                                                <rect key="frame" x="80" y="10" width="160.5" height="48"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Новая игра">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,9 +73,9 @@
                         <color key="backgroundColor" red="6.2890831401613139e-05" green="0.21142002231870441" blue="0.42284650259067358" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YGr-zN-kqN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="1dd-VV-5zL"/>
-                            <constraint firstAttribute="trailing" secondItem="YGr-zN-kqN" secondAttribute="trailing" constant="20" id="P8W-T3-9jU"/>
-                            <constraint firstItem="YGr-zN-kqN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="YXx-8t-yDo"/>
-                            <constraint firstAttribute="bottom" secondItem="YGr-zN-kqN" secondAttribute="bottom" constant="20" id="cjE-WS-4Zm"/>
+                            <constraint firstAttribute="trailing" secondItem="YGr-zN-kqN" secondAttribute="trailing" id="P8W-T3-9jU"/>
+                            <constraint firstItem="YGr-zN-kqN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YXx-8t-yDo"/>
+                            <constraint firstAttribute="bottom" secondItem="YGr-zN-kqN" secondAttribute="bottom" id="cjE-WS-4Zm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -94,13 +94,34 @@
         <!--Table-->
         <scene sceneID="STv-sA-Lzh">
             <objects>
-                <viewController title="Table" id="Sni-XP-YYD" sceneMemberID="viewController">
+                <viewController title="Table" id="Sni-XP-YYD" customClass="VCTableOfResults" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rn6-ah-sVH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tQk-nd-tfd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Sni-XP-YYD" id="Ifq-y0-b3R"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tQk-nd-tfd" firstAttribute="width" secondItem="lwq-ug-VU2" secondAttribute="width" id="7NK-3G-Huh"/>
+                            <constraint firstItem="tQk-nd-tfd" firstAttribute="top" secondItem="lwq-ug-VU2" secondAttribute="top" id="Kv7-nb-yvB"/>
+                            <constraint firstItem="lwq-ug-VU2" firstAttribute="trailing" secondItem="tQk-nd-tfd" secondAttribute="trailing" id="LSF-CK-8Ou"/>
+                            <constraint firstItem="lwq-ug-VU2" firstAttribute="bottom" secondItem="tQk-nd-tfd" secondAttribute="bottom" id="RtL-UX-5ci"/>
+                            <constraint firstItem="tQk-nd-tfd" firstAttribute="leading" secondItem="lwq-ug-VU2" secondAttribute="leading" id="RxB-Y8-G8j"/>
+                            <constraint firstItem="tQk-nd-tfd" firstAttribute="height" secondItem="lwq-ug-VU2" secondAttribute="height" id="nv3-Lp-2j2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lwq-ug-VU2"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="table" destination="tQk-nd-tfd" id="6Fh-hv-n8V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Crr-oD-BnR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -253,6 +274,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xVY-zJ-qht"/>
-        <segue reference="aoB-ad-dcd"/>
+        <segue reference="UQ0-0Y-rbS"/>
     </inferredMetricsTieBreakers>
 </document>

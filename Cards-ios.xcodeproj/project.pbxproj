@@ -27,6 +27,8 @@
 		8686FDF120A9A26A0079C347 /* Cards_iosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDF020A9A26A0079C347 /* Cards_iosUITests.m */; };
 		8686FE1620A9C6570079C347 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1420A9C6570079C347 /* Card.m */; };
 		8686FE1720A9C6570079C347 /* Cards.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1520A9C6570079C347 /* Cards.m */; };
+		86BC351A20CFDC960086CB40 /* TVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BC351920CFDC960086CB40 /* TVCell.m */; };
+		86BC351C20CFDCB40086CB40 /* TVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86BC351B20CFDCB40086CB40 /* TVCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,9 @@
 		8686FE1420A9C6570079C347 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = lib/Card.m; sourceTree = "<group>"; };
 		8686FE1520A9C6570079C347 /* Cards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cards.m; path = lib/Cards.m; sourceTree = "<group>"; };
 		8686FE1E20A9D5430079C347 /* VCGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCGame.h; sourceTree = "<group>"; };
+		86BC351820CFDC960086CB40 /* TVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVCell.h; sourceTree = "<group>"; };
+		86BC351920CFDC960086CB40 /* TVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCell.m; sourceTree = "<group>"; };
+		86BC351B20CFDCB40086CB40 /* TVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +179,7 @@
 		8628F64920ADB7EC00715B72 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				86BC351720CFDC640086CB40 /* TableCell */,
 				86272E7A20CE8DC5005816CB /* CTimer */,
 				8645151820B550EC009B6A2C /* Alert */,
 				8602F4DF20AEFE4400E5C7AD /* Color */,
@@ -304,6 +310,16 @@
 			name = VCMode;
 			sourceTree = "<group>";
 		};
+		86BC351720CFDC640086CB40 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				86BC351820CFDC960086CB40 /* TVCell.h */,
+				86BC351920CFDC960086CB40 /* TVCell.m */,
+				86BC351B20CFDCB40086CB40 /* TVCell.xib */,
+			);
+			name = TableCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -407,6 +423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86BC351C20CFDCB40086CB40 /* TVCell.xib in Resources */,
 				8686FDD920A9A26A0079C347 /* LaunchScreen.storyboard in Resources */,
 				8602AD8B20C94D20003E812C /* Cell.xib in Resources */,
 				8686FDD620A9A26A0079C347 /* Assets.xcassets in Resources */,
@@ -443,6 +460,7 @@
 				8686FDDC20A9A26A0079C347 /* main.m in Sources */,
 				8602AD8F20C950AD003E812C /* BCVCell.m in Sources */,
 				86272E8120CEC3F9005816CB /* VCTableOfResults.m in Sources */,
+				86BC351A20CFDC960086CB40 /* TVCell.m in Sources */,
 				8645151B20B55125009B6A2C /* CVAlert.m in Sources */,
 				8602F4DE20AECE1F00E5C7AD /* VCMode.m in Sources */,
 				8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */,

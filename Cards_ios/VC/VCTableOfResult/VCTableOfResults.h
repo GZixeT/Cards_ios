@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VCTableOfResults : UIViewController
-
+@property (weak, nonatomic) IBOutlet UITableView *table;
 @end
