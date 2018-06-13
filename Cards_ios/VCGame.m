@@ -23,6 +23,7 @@
 @property GameMode mode;
 @property NSString *cellID;
 @property User *user;
+@property BOOL gameEnd;
 @end
 
 @implementation VCGame
@@ -33,13 +34,7 @@
     self.cellID=@"BCVCell_ID";
     UINib *nib = [UINib nibWithNibName:@"Cell" bundle: nil];
     [self.cView registerNib:nib forCellWithReuseIdentifier:self.cellID];
-//    NSUserDefaults *userDef=[NSUserDefaults standardUserDefaults];
-//    self.user = [User createUserWithName:@"Hello" score:0 index:0];
-//    NSCoder *coder=[[NSCoder alloc]init];
-//    [coder encodeObject:self.user forKey:@"User"];
-//    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.user];
-//    [userDef setObject:data forKey:@"User"];
-//    [userDef synchronize];
+    self.user = [[User alloc]init];
     
 }
 - (void) setNavBarTitle{
@@ -65,15 +60,22 @@
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
+- (void) buttonOKAction:(NSString*)text{
+    NSUserDefaults *userDef=[NSUserDefaults standardUserDefaults];
+    self.user = [User createUserWithName:text score:0 index:0]; //  поменять
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.user];
+    [userDef setObject:data forKey:@"User"];
+    [userDef synchronize];
+    [self performSegueWithIdentifier:@"TableOfResult" sender:nil];
+    self.navigationItem.leftBarButtonItem=nil;
+}
 - (void) showGameEndAlert: (UICollectionView*)view{
     CVAlert *alert=[CVAlert createAlertGameEnd];
     [alert addTextField:@"name" textColor:[UIColor blueColor] textFieldMode:UITextFieldViewModeWhileEditing borderStyle:UITextBorderStyleRoundedRect];
-    //UITextField *name=alert.nameField;
-    void(^action)(void)=^{
-        [self performSegueWithIdentifier:@"TableOfResult" sender:nil];
-        self.navigationItem.leftBarButtonItem=nil;
-    };
-    [alert addButton:@"К таблице результатов" action:action];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"К таблице результатов" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        [self buttonOKAction:alert.textFields[0].text];
+    }];
+    [alert addAction:action];
     [alert addButton:@"Новая игра" action:^{
         self.game=[Cards createRandomDoubleDeck:self.mode];
         [self.delegate isGameBegining:self.game];
@@ -131,8 +133,9 @@
     if(card.state==TableOptionLock ||
        card.state==TableOptionEnable)[cell setForwardProperties];
     else [cell setBackProperties];
-    if([self.game getGameState]==GameStateEnd){
+    if([self.game getGameState]==GameStateEnd && !self.gameEnd){
         [self showGameEndAlert:collectionView];
+        self.gameEnd = YES;
     }
     return cell;
 }

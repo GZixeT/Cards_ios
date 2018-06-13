@@ -18,22 +18,29 @@
     [alert addButton:@"OK" action:nil];
     return alert;
 }
-- (void) addButton:(nullable NSString*)title action:(void (^ __nullable) (void))actions
-{
++ (CVAlert*) createAlertWithTitle:(NSString*)title message:(NSString*)message{
+    CVAlert *alert=[CVAlert alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    return alert;
+}
+- (void) addButton:(nullable NSString*)title action:(void (^ __nullable) (void))actions{
     UIAlertAction *button;
-    if (actions)
-    {
-        button = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
-        {
+    if (actions){
+        button = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
             actions();
         }];
         [self addAction:button];
     }
-    else
-    {
+    else{
         button = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:nil];
         [self addAction:button];
     }
+}
+- (void) addButton:(NSString *)title selector:(SEL)sel{
+    void(^block)(void) =^{[UIView performSelector:sel];};
+    UIAlertAction *button = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        block();
+    }];
+    [self addAction:button];
 }
 - (void) show:(BOOL)animated view:(UIViewController*)view
 {

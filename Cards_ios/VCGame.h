@@ -16,8 +16,7 @@
 @interface VCGame: UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *cView;
 @property(strong, nonatomic) Cards *game; 
-@property (weak ,nonatomic)id <VCModeDelegate> delegate;
+@property (weak ,nonatomic) id <VCModeDelegate> delegate;
 @property CTimer *timer;
 @end
-
 

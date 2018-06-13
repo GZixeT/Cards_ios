@@ -29,7 +29,6 @@
 		8686FE1720A9C6570079C347 /* Cards.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FE1520A9C6570079C347 /* Cards.m */; };
 		86BC351A20CFDC960086CB40 /* TVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BC351920CFDC960086CB40 /* TVCell.m */; };
 		86BC351C20CFDCB40086CB40 /* TVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86BC351B20CFDCB40086CB40 /* TVCell.xib */; };
-		86BC352020D00D4E0086CB40 /* CUData.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BC351F20D00D4E0086CB40 /* CUData.m */; };
 		86BC352420D018C60086CB40 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BC352320D018C60086CB40 /* User.m */; };
 /* End PBXBuildFile section */
 
@@ -93,8 +92,6 @@
 		86BC351820CFDC960086CB40 /* TVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVCell.h; sourceTree = "<group>"; };
 		86BC351920CFDC960086CB40 /* TVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCell.m; sourceTree = "<group>"; };
 		86BC351B20CFDCB40086CB40 /* TVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVCell.xib; sourceTree = "<group>"; };
-		86BC351E20D00D4E0086CB40 /* CUData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUData.h; sourceTree = "<group>"; };
-		86BC351F20D00D4E0086CB40 /* CUData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUData.m; sourceTree = "<group>"; };
 		86BC352220D018C60086CB40 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		86BC352320D018C60086CB40 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,7 +182,6 @@
 		8628F64920ADB7EC00715B72 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				86BC351D20D00CF60086CB40 /* CUData */,
 				86BC351720CFDC640086CB40 /* TableCell */,
 				86272E7A20CE8DC5005816CB /* CTimer */,
 				8645151820B550EC009B6A2C /* Alert */,
@@ -326,15 +322,6 @@
 				86BC351B20CFDCB40086CB40 /* TVCell.xib */,
 			);
 			name = TableCell;
-			sourceTree = "<group>";
-		};
-		86BC351D20D00CF60086CB40 /* CUData */ = {
-			isa = PBXGroup;
-			children = (
-				86BC351E20D00D4E0086CB40 /* CUData.h */,
-				86BC351F20D00D4E0086CB40 /* CUData.m */,
-			);
-			name = CUData;
 			sourceTree = "<group>";
 		};
 		86BC352120D018950086CB40 /* User */ = {
@@ -484,7 +471,6 @@
 				8686FDD120A9A2690079C347 /* VCMain.m in Sources */,
 				86BC352420D018C60086CB40 /* User.m in Sources */,
 				86272E7D20CE8DEF005816CB /* CTimer.m in Sources */,
-				86BC352020D00D4E0086CB40 /* CUData.m in Sources */,
 				8686FDDC20A9A26A0079C347 /* main.m in Sources */,
 				8602AD8F20C950AD003E812C /* BCVCell.m in Sources */,
 				86272E8120CEC3F9005816CB /* VCTableOfResults.m in Sources */,

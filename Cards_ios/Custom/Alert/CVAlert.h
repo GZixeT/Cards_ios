@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "VCGame.h"
 @interface CVAlert : UIAlertController
 @property UITextField *nameField;
 + (CVAlert*) createAlertGameEnd;
 + (CVAlert*) createAlertError;
++ (CVAlert*) createAlertWithTitle:(NSString*)title message:(NSString*)message;
+- (void) addButton:(NSString *)title selector:(SEL)sel;
 - (void) addButton:(nullable NSString*)title action:(void (^ __nullable) (void))actions;
 - (void) addTextField:(NSString*) placeholder textColor:(UIColor*)color textFieldMode:(UITextFieldViewMode)mode borderStyle:(UITextBorderStyle)style;
 - (void) show:(BOOL)animated view:(UIViewController*)view;
