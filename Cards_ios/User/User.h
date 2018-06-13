@@ -14,5 +14,5 @@
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSInteger score;
 @property (nonatomic) NSInteger index;
-+ (id) createUserWithName:(NSString*)name score:(NSInteger)score index:(NSInteger)index;
++ (id) createUserWithName:(NSString*)name score:(NSInteger)score;
 @end

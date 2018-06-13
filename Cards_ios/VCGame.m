@@ -14,6 +14,7 @@
 #import "CVAlert.h"
 #import "BCVCell.h"
 #import "User.h"
+#import "VCTableOfResults.h"
 
 #define NUMBER_OF_COLUMS 4
 #define LINE_SPACING 5
@@ -62,10 +63,14 @@
 }
 - (void) buttonOKAction:(NSString*)text{
     NSUserDefaults *userDef=[NSUserDefaults standardUserDefaults];
-    self.user = [User createUserWithName:text score:0 index:0]; //  поменять
+    self.user = [User createUserWithName:text score:0]; //  поменять
+    NSArray *old = [userDef objectForKey:USERS_ARR_KEY];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.user];
-    [userDef setObject:data forKey:@"User"];
+    NSMutableArray *nArr = [NSMutableArray arrayWithArray:old];
+    [nArr addObject:data];
+    [userDef setObject:nArr forKey:USERS_ARR_KEY];
     [userDef synchronize];
+    
     [self performSegueWithIdentifier:@"TableOfResult" sender:nil];
     self.navigationItem.leftBarButtonItem=nil;
 }
@@ -75,6 +80,7 @@
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"К таблице результатов" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         [self buttonOKAction:alert.textFields[0].text];
     }];
+    
     [alert addAction:action];
     [alert addButton:@"Новая игра" action:^{
         self.game=[Cards createRandomDoubleDeck:self.mode];
@@ -184,8 +190,7 @@
 }
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"TableOfResult"]){
-        //VCMode *controller = (VCMode *)segue.destinationViewController;
-       // controller.delegate=self;
+       
     }
 }
 @end

@@ -9,11 +9,11 @@
 #import "User.h"
 
 @implementation User
-+ (id) createUserWithName:(NSString*)name score:(NSInteger)score index:(NSInteger)index {
++ (id) createUserWithName:(NSString*)name score:(NSInteger)score{
     User *user = [[User alloc]init];
     user.name = name;
     user.score = score;
-    user.index = index;
+    user.index = 0;
     return user;
 }
 - (id)initWithCoder:(NSCoder *)decoder {

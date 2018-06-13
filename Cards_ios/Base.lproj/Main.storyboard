@@ -99,8 +99,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cTS-WC-79W">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="valueChenged:" destination="Sni-XP-YYD" eventType="valueChanged" id="kBP-6S-4u4"/>
+                                </connections>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tQk-nd-tfd">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="41.5" width="320" height="374.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Sni-XP-YYD" id="Ifq-y0-b3R"/>
@@ -109,23 +119,26 @@
                         </subviews>
                         <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tQk-nd-tfd" firstAttribute="width" secondItem="lwq-ug-VU2" secondAttribute="width" id="7NK-3G-Huh"/>
-                            <constraint firstItem="tQk-nd-tfd" firstAttribute="top" secondItem="lwq-ug-VU2" secondAttribute="top" id="Kv7-nb-yvB"/>
-                            <constraint firstItem="lwq-ug-VU2" firstAttribute="trailing" secondItem="tQk-nd-tfd" secondAttribute="trailing" id="LSF-CK-8Ou"/>
-                            <constraint firstItem="lwq-ug-VU2" firstAttribute="bottom" secondItem="tQk-nd-tfd" secondAttribute="bottom" id="RtL-UX-5ci"/>
-                            <constraint firstItem="tQk-nd-tfd" firstAttribute="leading" secondItem="lwq-ug-VU2" secondAttribute="leading" id="RxB-Y8-G8j"/>
-                            <constraint firstItem="tQk-nd-tfd" firstAttribute="height" secondItem="lwq-ug-VU2" secondAttribute="height" id="nv3-Lp-2j2"/>
+                            <constraint firstItem="cTS-WC-79W" firstAttribute="leading" secondItem="lwq-ug-VU2" secondAttribute="leading" id="0Fq-mN-DGI"/>
+                            <constraint firstItem="tQk-nd-tfd" firstAttribute="bottom" secondItem="lwq-ug-VU2" secondAttribute="bottom" id="GCY-Zk-nPo"/>
+                            <constraint firstItem="tQk-nd-tfd" firstAttribute="leading" secondItem="lwq-ug-VU2" secondAttribute="leading" id="IFH-Ey-8EM"/>
+                            <constraint firstItem="cTS-WC-79W" firstAttribute="top" secondItem="lwq-ug-VU2" secondAttribute="top" id="W1Z-6P-2kt"/>
+                            <constraint firstItem="tQk-nd-tfd" firstAttribute="top" secondItem="cTS-WC-79W" secondAttribute="bottom" id="XeJ-sx-eX5"/>
+                            <constraint firstItem="cTS-WC-79W" firstAttribute="height" secondItem="lwq-ug-VU2" secondAttribute="height" multiplier="0.1" id="bwm-1H-SBu"/>
+                            <constraint firstItem="tQk-nd-tfd" firstAttribute="trailing" secondItem="lwq-ug-VU2" secondAttribute="trailing" id="jtO-Lg-8ja"/>
+                            <constraint firstItem="cTS-WC-79W" firstAttribute="trailing" secondItem="lwq-ug-VU2" secondAttribute="trailing" id="vW8-CS-G2W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lwq-ug-VU2"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="segment" destination="cTS-WC-79W" id="oKP-q1-f1F"/>
                         <outlet property="table" destination="tQk-nd-tfd" id="6Fh-hv-n8V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Crr-oD-BnR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2175" y="999"/>
+            <point key="canvasLocation" x="2175" y="998.75"/>
         </scene>
         <!--Game-->
         <scene sceneID="E3q-zG-H5i">
