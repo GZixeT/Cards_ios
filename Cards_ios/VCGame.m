@@ -63,7 +63,7 @@
 }
 - (void) buttonOKAction:(NSString*)text{
     NSUserDefaults *userDef=[NSUserDefaults standardUserDefaults];
-    self.user = [User createUserWithName:text score:0]; //  поменять
+    self.user = [User createUserWithName:text score:0 mode:self.mode];//добавить счет
     NSArray *old = [userDef objectForKey:USERS_ARR_KEY];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.user];
     NSMutableArray *nArr = [NSMutableArray arrayWithArray:old];

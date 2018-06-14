@@ -8,6 +8,14 @@
 #define NUMBER_OF_SECTIONS 1
 #define NUMBER_OF_TEST_ROWS 10
 
+typedef enum{
+    SegmentValueAll = 0,
+    SegmentValueEasy,
+    SegmentValueMiddle,
+    SegmentValueHard
+}SegmentValue;
+
+
 #import "VCTableOfResults.h"
 #import "TVCell.h"
 #import "User.h"
@@ -18,6 +26,9 @@
 @property NSString *cellID;
 @property NSUserDefaults *defaults;
 @property NSArray *players;
+@property NSArray *hard;
+@property NSArray *middle;
+@property NSArray *easy;
 @end
 
 @implementation VCTableOfResults
@@ -34,22 +45,40 @@
 }
 - (void) setSegmentController{
     self.segment.backgroundColor = [UIColor whiteColor];
-    //[self.segment insertSegmentWithTitle:@"По очкам" atIndex:2 animated:YES];
-    [self.segment setTitle:@"Все" forSegmentAtIndex:0];
-    [self.segment setTitle:@"По режиму" forSegmentAtIndex:1];
+    [self.segment insertSegmentWithTitle:@"Средний" atIndex:SegmentValueMiddle animated:YES];
+    [self.segment insertSegmentWithTitle:@"Тяжелый" atIndex:SegmentValueHard animated:YES];
+    [self.segment setTitle:@"Все" forSegmentAtIndex:SegmentValueAll];
+    [self.segment setTitle:@"Легкий" forSegmentAtIndex:SegmentValueEasy];
 }
-- (void) setUserDefaults{
+- (void) setUserDefaults{ //попробовать nspredicate
     self.defaults = [NSUserDefaults standardUserDefaults];
-    self.players = [self.defaults objectForKey:USERS_ARR_KEY];
+    NSArray *players = [self.defaults objectForKey:USERS_ARR_KEY];
+    NSMutableArray *h = [[NSMutableArray alloc]init];
+    NSMutableArray *m = [[NSMutableArray alloc]init];
+    NSMutableArray *e = [[NSMutableArray alloc]init];
+    NSMutableArray *all = [[NSMutableArray alloc]init];
+    for(int i = 0; i < players.count; i++){
+        User *user = [NSKeyedUnarchiver unarchiveObjectWithData:players[i]];
+        [all addObject:user];
+        switch(user.mode){
+            case GameModeEasy:
+                [e addObject:user];
+                break;
+            case GameModeMiddle:
+                [m addObject:user];
+                break;
+            case GameModeHard:
+                [h addObject:user];
+                break;
+        }
+    }
+    self.players = all;
+    self.hard = h;
+    self.middle = m;
+    self.easy = e;
 }
 - (IBAction)valueChenged:(id)sender {
-    switch (self.segment.selectedSegmentIndex) {
-        case 0:
-            break;
-            
-        default:
-            break;
-    }
+    [self.table reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -57,12 +86,36 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    switch(self.segment.selectedSegmentIndex){
+        case SegmentValueEasy:
+            return self.easy.count;
+            break;
+        case SegmentValueMiddle:
+            return self.middle.count;
+            break;
+        case SegmentValueHard:
+            return self.hard.count;
+            break;
+    }
     return self.players.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger index = indexPath.row;
-    NSData *data = self.players[index];
-    User *user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    User *user;
+    switch(self.segment.selectedSegmentIndex){
+        case SegmentValueEasy:
+            user = self.easy[index];
+            break;
+        case SegmentValueMiddle:
+            user = self.middle[index];
+            break;
+        case SegmentValueHard:
+            user = self.hard[index];
+            break;
+        case SegmentValueAll:
+            user = self.players[index];
+            break;
+    }
     TVCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellID];
     cell.name.text = user.name;
     cell.position.text = [NSString stringWithFormat:@"%ld", index + 1];
