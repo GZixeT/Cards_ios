@@ -15,6 +15,7 @@
 		861D6AEE20B2F67E00A62C6F /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 861D6AED20B2F67E00A62C6F /* Deck.m */; };
 		86272E7D20CE8DEF005816CB /* CTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 86272E7C20CE8DEF005816CB /* CTimer.m */; };
 		86272E8120CEC3F9005816CB /* VCTableOfResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 86272E8020CEC3F9005816CB /* VCTableOfResults.m */; };
+		862E9CAB20D27A29001AB66E /* GameScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 862E9CAA20D27A29001AB66E /* GameScore.m */; };
 		8645151B20B55125009B6A2C /* CVAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645151A20B55125009B6A2C /* CVAlert.m */; };
 		865CF5CD20AC53600018A5E2 /* VCGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 865CF5CC20AC53600018A5E2 /* VCGame.m */; };
 		8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686FDCD20A9A2690079C347 /* AppDelegate.m */; };
@@ -65,6 +66,8 @@
 		86272E7C20CE8DEF005816CB /* CTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTimer.m; sourceTree = "<group>"; };
 		86272E7F20CEC3F9005816CB /* VCTableOfResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCTableOfResults.h; sourceTree = "<group>"; };
 		86272E8020CEC3F9005816CB /* VCTableOfResults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCTableOfResults.m; sourceTree = "<group>"; };
+		862E9CA920D27A29001AB66E /* GameScore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScore.h; sourceTree = "<group>"; };
+		862E9CAA20D27A29001AB66E /* GameScore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScore.m; sourceTree = "<group>"; };
 		8645151920B55125009B6A2C /* CVAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVAlert.h; sourceTree = "<group>"; };
 		8645151A20B55125009B6A2C /* CVAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVAlert.m; sourceTree = "<group>"; };
 		865CF5CC20AC53600018A5E2 /* VCGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCGame.m; sourceTree = "<group>"; };
@@ -199,6 +202,15 @@
 			name = CollectionView;
 			sourceTree = "<group>";
 		};
+		862E9CA820D279F6001AB66E /* GameScore */ = {
+			isa = PBXGroup;
+			children = (
+				862E9CA920D27A29001AB66E /* GameScore.h */,
+				862E9CAA20D27A29001AB66E /* GameScore.m */,
+			);
+			path = GameScore;
+			sourceTree = "<group>";
+		};
 		8645151820B550EC009B6A2C /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				8686FDD220A9A2690079C347 /* Main.storyboard */,
+				862E9CA820D279F6001AB66E /* GameScore */,
 				86BC352120D018950086CB40 /* User */,
 				86B42F4C20AEC7FD0036ED60 /* VC */,
 				8616B42520AE0BDD005D1289 /* SupportFiles */,
@@ -477,6 +490,7 @@
 				86BC351A20CFDC960086CB40 /* TVCell.m in Sources */,
 				8645151B20B55125009B6A2C /* CVAlert.m in Sources */,
 				8602F4DE20AECE1F00E5C7AD /* VCMode.m in Sources */,
+				862E9CAB20D27A29001AB66E /* GameScore.m in Sources */,
 				8686FDCE20A9A2690079C347 /* AppDelegate.m in Sources */,
 				861D6AEB20B2F64200A62C6F /* GameCard.m in Sources */,
 				8686FE1720A9C6570079C347 /* Cards.m in Sources */,

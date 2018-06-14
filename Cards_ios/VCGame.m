@@ -36,7 +36,8 @@
     UINib *nib = [UINib nibWithNibName:@"Cell" bundle: nil];
     [self.cView registerNib:nib forCellWithReuseIdentifier:self.cellID];
     self.user = [[User alloc]init];
-    
+    self.score = [[GameScore alloc]init];
+    [self.score setTimerWithMode:self.mode];
 }
 - (void) setNavBarTitle{
     if(self.game.deck.count==GameModeEasy*2){
@@ -57,13 +58,22 @@
     if([self.game getGameState]==GameStateEnd){
         [self showGameEndAlert:self.cView];
     }
+    else if(self.score.timer)
+            [self.score setTimerContinue];
+    else [self.score setTimerWithMode:self.mode];
+}
+- (void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    if(!self.gameEnd)
+       [self.score setTimerPause];
+    
 }
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
-- (void) buttonOKAction:(NSString*)text{
+- (void) buttonTableAction:(NSString*)text{
     NSUserDefaults *userDef=[NSUserDefaults standardUserDefaults];
-    self.user = [User createUserWithName:text score:0 mode:self.mode];//добавить счет
+    self.user = [User createUserWithName:text score:[self.score getScore] mode:self.mode];
     NSArray *old = [userDef objectForKey:USERS_ARR_KEY];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.user];
     NSMutableArray *nArr = [NSMutableArray arrayWithArray:old];
@@ -78,14 +88,25 @@
     CVAlert *alert=[CVAlert createAlertGameEnd];
     [alert addTextField:@"name" textColor:[UIColor blueColor] textFieldMode:UITextFieldViewModeWhileEditing borderStyle:UITextBorderStyleRoundedRect];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"К таблице результатов" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        [self buttonOKAction:alert.textFields[0].text];
+        if(![alert.textFields[0].text isEqualToString:@""])
+            [self buttonTableAction:alert.textFields[0].text];
+        else{
+            CVAlert *error = [CVAlert createAlertWithTitle:@"Ошибка" message:@"Пустое имя"];
+            [error addButton:@"OK" action:^{
+                [alert show:YES view:self];
+            }];
+            [error show:YES view:self];
+        }
     }];
     
     [alert addAction:action];
     [alert addButton:@"Новая игра" action:^{
         self.game=[Cards createRandomDoubleDeck:self.mode];
         [self.delegate isGameBegining:self.game];
+        self.score = [[GameScore alloc]init];
+        [self.score setTimerWithMode:self.mode];
         [view reloadData];
+        self.gameEnd = NO;
     }];
     [alert addButton:@"OK" action:^{
         UINavigationController *navigationController = self.navigationController;
@@ -147,6 +168,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if(self.timer.lock==NO){
+        self.score.clickCount++;
         BCVCell *cell = (BCVCell*)[collectionView cellForItemAtIndexPath:indexPath];
         NSInteger index=indexPath.item;
         [cell setCard:self.game.deck[index]];
@@ -157,7 +179,7 @@
                     self.timer = [CTimer createTimerWithInterval:1.0f target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES lock:YES];
                     }break;
                 case GameStateEnd:
-                    printf("Победа!\n");
+                    [self.score setTimerPause];
                     [self.cView reloadData];
                     break;
                 case GameStateError:{

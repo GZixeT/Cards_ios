@@ -99,6 +99,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tQk-nd-tfd">
+                                <rect key="frame" x="0.0" y="41" width="320" height="374.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Sni-XP-YYD" id="Ifq-y0-b3R"/>
+                                </connections>
+                            </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cTS-WC-79W">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
                                 <segments>
@@ -109,13 +116,6 @@
                                     <action selector="valueChenged:" destination="Sni-XP-YYD" eventType="valueChanged" id="kBP-6S-4u4"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tQk-nd-tfd">
-                                <rect key="frame" x="0.0" y="41.5" width="320" height="374.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Sni-XP-YYD" id="Ifq-y0-b3R"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="6.2890831399999995e-05" green="0.21142002230000001" blue="0.42284650260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -287,6 +287,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xVY-zJ-qht"/>
-        <segue reference="UQ0-0Y-rbS"/>
+        <segue reference="aoB-ad-dcd"/>
     </inferredMetricsTieBreakers>
 </document>

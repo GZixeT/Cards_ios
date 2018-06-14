@@ -10,13 +10,14 @@
 #import "VCMode.h"
 #import "Cards.h"
 #import "CTimer.h"
-//for test branch to merge
-//for commit of tower
+#import "GameScore.h"
+
 @protocol VCModeDelegate;
 @interface VCGame: UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *cView;
 @property(strong, nonatomic) Cards *game; 
 @property (weak ,nonatomic) id <VCModeDelegate> delegate;
 @property CTimer *timer;
+@property GameScore *score;
 @end
 

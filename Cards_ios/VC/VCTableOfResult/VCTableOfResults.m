@@ -20,7 +20,8 @@ typedef enum{
 #import "TVCell.h"
 #import "User.h"
 #import "CVAlert.h"
-
+#import "VCMain.h"
+#import "VCGame.h"
 
 @interface VCTableOfResults ()
 @property NSString *cellID;
@@ -40,8 +41,16 @@ typedef enum{
     self.navigationItem.rightBarButtonItem = item;
     UINib *nib = [UINib nibWithNibName:@"TVCell" bundle:nil];
     [self.table registerNib:nib forCellReuseIdentifier:self.cellID];
+    self.table.tableFooterView = [[UIView alloc]init];
     [self setUserDefaults];
     [self setSegmentController];
+    //VCMain *main = [self.navigationController.viewControllers objectAtIndex:0];
+    //VCGame *game = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 1];
+    //UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(backAction:)];
+    //UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    //self.navigationItem.leftBarButtonItem = back;
+    //[game.navigationItem setBackBarButtonItem:nil];
+    //[main.navigationItem setBackBarButtonItem:back];
 }
 - (void) setSegmentController{
     self.segment.backgroundColor = [UIColor whiteColor];
@@ -72,15 +81,29 @@ typedef enum{
                 break;
         }
     }
-    self.players = all;
-    self.hard = h;
-    self.middle = m;
-    self.easy = e;
+    self.players = [self sort:all];
+    self.hard = [self sort:h];
+    self.middle = [self sort:m];
+    self.easy = [self sort:e];
+}
+- (NSArray*) sort:(NSArray*)arr{
+    NSMutableArray *mut = [[NSMutableArray alloc]initWithArray:arr];
+    for(int i=0;i<mut.count;i++){
+        for(int j = 0;j<mut.count;j++){
+            User *m1 = mut[i];
+            User *m2 = mut[j];
+            if(m1.score>m2.score){
+                id tmp = mut[j];
+                mut[j] = mut[i];
+                mut[i] = tmp;
+            }
+        }
+    }
+    return mut;
 }
 - (IBAction)valueChenged:(id)sender {
     [self.table reloadData];
 }
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return NUMBER_OF_SECTIONS;
 }
@@ -117,10 +140,10 @@ typedef enum{
             break;
     }
     TVCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellID];
-    cell.name.text = user.name;
+    cell.name.text = [user.name capitalizedString];
     cell.position.text = [NSString stringWithFormat:@"%ld", index + 1];
     cell.score.text = [NSString stringWithFormat:@"%ld", user.score];
-    tableView.rowHeight = UITableViewAutomaticDimension;
+    tableView.rowHeight = 44;
     switch(index){
         case 0:
             [cell setSystemBoldFontWithSize:22];
@@ -159,12 +182,24 @@ typedef enum{
     CVAlert *alert = [CVAlert createAlertWithTitle:@"Меню" message:@"Выберите действие"];
     [alert addButton:@"Отчистить таблицу" action:^{
         [self deleteUserDefaults];
+        self.easy = nil;
+        self.middle = nil;
+        self.hard = nil;
+        self.players = nil;
+        [self.table reloadData];
     }];
     [alert addButton:@"Лог талицы" action:^{
         [self logOfTable];
     }];
     [alert addButton:@"OK" action:nil];
     [alert show:YES view:self];
+    //[self performSegueWithIdentifier:@"Main" sender:sender];
+}
+- (void) backAction:(id)sender{
+    NSString * storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+    VCMain * vc = [storyboard instantiateViewControllerWithIdentifier:@"Main"];
+    [self presentViewController:vc animated:YES completion:nil];
     //[self performSegueWithIdentifier:@"Main" sender:sender];
 }
 - (void)didReceiveMemoryWarning {

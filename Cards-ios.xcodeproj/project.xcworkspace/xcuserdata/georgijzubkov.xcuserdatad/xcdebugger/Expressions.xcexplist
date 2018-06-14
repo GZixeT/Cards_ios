@@ -3,6 +3,9 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[VCGame buttonOKAction:]:VCGame.m">
+      </ContextState>
+      <ContextState
          contextName = "-[VCGame collectionView:layout:sizeForItemAtIndexPath:]:VCGame.m">
          <PersistentStrings>
             <PersistentString
@@ -11,13 +14,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[VCGame buttonOKAction:]:VCGame.m">
-      </ContextState>
-      <ContextState
          contextName = "__27-[VCGame showGameEndAlert:]_block_invoke.85:VCGame.m">
          <PersistentStrings>
             <PersistentString
                value = "name.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GameScore getScore]:GameScore.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.mode ">
+            </PersistentString>
+            <PersistentString
+               value = "self.clickCount">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -47,13 +58,24 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[User archive]:User.m">
+      </ContextState>
+      <ContextState
          contextName = "-[User unarchive:]:User.m">
       </ContextState>
       <ContextState
          contextName = "-[VCTableOfResults numberOfSectionsInTableView:]:VCTableOfResults.m">
       </ContextState>
       <ContextState
-         contextName = "-[User archive]:User.m">
+         contextName = "-[VCTableOfResults sort:]:VCTableOfResults.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "mut[j]">
+            </PersistentString>
+            <PersistentString
+               value = "mut[i]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[VCGame collectionView:didSelectItemAtIndexPath:]:VCGame.m">
