@@ -38,6 +38,8 @@
     self.user = [[User alloc]init];
     self.score = [[GameScore alloc]init];
     [self.score setTimerWithMode:self.mode];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.backBarButtonItem = back;
 }
 - (void) setNavBarTitle{
     if(self.game.deck.count==GameModeEasy*2){

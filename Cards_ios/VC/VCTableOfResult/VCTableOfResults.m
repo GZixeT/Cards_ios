@@ -44,13 +44,17 @@ typedef enum{
     self.table.tableFooterView = [[UIView alloc]init];
     [self setUserDefaults];
     [self setSegmentController];
-    //VCMain *main = [self.navigationController.viewControllers objectAtIndex:0];
-    //VCGame *game = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 1];
-    //UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(backAction:)];
-    //UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
-    //self.navigationItem.leftBarButtonItem = back;
-    //[game.navigationItem setBackBarButtonItem:nil];
-    //[main.navigationItem setBackBarButtonItem:back];
+    [self perform];
+}
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+-(void)perform {
+    VCMain *main = [self.navigationController.viewControllers objectAtIndex:0];
+    UINavigationController *navigationController = main.navigationController;
+    // Pop to root view controller (not animated) before pushing
+    [navigationController popToRootViewControllerAnimated:NO];
+    [navigationController pushViewController:self animated:NO];
 }
 - (void) setSegmentController{
     self.segment.backgroundColor = [UIColor whiteColor];
@@ -141,8 +145,8 @@ typedef enum{
     }
     TVCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellID];
     cell.name.text = [user.name capitalizedString];
-    cell.position.text = [NSString stringWithFormat:@"%ld", index + 1];
-    cell.score.text = [NSString stringWithFormat:@"%ld", user.score];
+    cell.position.text = [NSString stringWithFormat:@"%ld", (index + 1)];
+    cell.score.text = [NSString stringWithFormat:@"%ld", (user.score)];
     tableView.rowHeight = 44;
     switch(index){
         case 0:
@@ -158,6 +162,7 @@ typedef enum{
             cell.view.backgroundColor = [UIColor greenColor];
             break;
             default:
+            [cell setSystemBoldFontWithSize:16];
             cell.view.backgroundColor = [UIColor grayColor];
             break;
     }
@@ -193,14 +198,6 @@ typedef enum{
     }];
     [alert addButton:@"OK" action:nil];
     [alert show:YES view:self];
-    //[self performSegueWithIdentifier:@"Main" sender:sender];
-}
-- (void) backAction:(id)sender{
-    NSString * storyboardName = @"Main";
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-    VCMain * vc = [storyboard instantiateViewControllerWithIdentifier:@"Main"];
-    [self presentViewController:vc animated:YES completion:nil];
-    //[self performSegueWithIdentifier:@"Main" sender:sender];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
