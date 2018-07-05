@@ -171,45 +171,63 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if(self.timer.lock==NO){
         self.score.clickCount++;
-        BCVCell *cell = (BCVCell*)[collectionView cellForItemAtIndexPath:indexPath];
         NSInteger index=indexPath.item;
-        [cell setCard:self.game.deck[index]];
-        [cell setForwardProperties];
-        if([self.game makeTaskAtIndex:index :TableOptionEnable]){
-            switch([self.game getGameState]){
-                case GameStateFalse:{
-                    self.timer = [CTimer createTimerWithInterval:1.0f target:self selector:@selector(updateTimer:) userInfo:indexPath repeats:YES lock:YES];
+        BCVCell *cell = (BCVCell*)[collectionView cellForItemAtIndexPath:indexPath];
+        [UIView transitionWithView:cell.content duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+            [cell setCard:self.game.deck[index]];
+            [cell setForwardProperties];
+        } completion:^(BOOL finished) {
+            if([self.game makeTaskAtIndex:index :TableOptionEnable]){ //до того как их закроет getGameState
+                NSInteger same = [self.game getFirstSameStateCardNumberWithNotEqualNumber:index];
+                NSArray *info = @[[NSNumber numberWithInteger:indexPath.item], [NSNumber numberWithInteger:same]];
+                switch([self.game getGameState]){
+                    case GameStateFalse:{
+                        self.timer = [CTimer createTimerWithInterval:1.0f target:self selector:@selector(updateTimer:) userInfo:info repeats:YES lock:YES];
                     }break;
-                case GameStateEnd:
-                    [self.score setTimerPause];
-                    [self.cView reloadData];
-                    break;
-                case GameStateError:{
-                    [[CVAlert createAlertError]show:YES view:self];
-                }break;
-                case GameStateTrue:
-                    break;
-                default:{
-                    [[CVAlert createAlertError]show:YES view:self];
-                }break;
+                    case GameStateEnd:
+                        [self.score setTimerPause];
+                        [self.cView reloadData];
+                        break;
+                    case GameStateError:{
+                        [[CVAlert createAlertError]show:YES view:self];
+                    }break;
+                    case GameStateTrue:
+                        break;
+                    default:{
+                        [[CVAlert createAlertError]show:YES view:self];
+                    }break;
+                }
             }
-        }
+        }];
     }
-    
 }
 - (void) updateTimer:(NSTimer*)timer{
     NSLog(@"Timer Begin");
-    NSIndexPath *index=timer.userInfo;
+    NSNumber *first = timer.userInfo[0];
+    NSNumber *second = timer.userInfo[1];
+    NSIndexPath *index= [NSIndexPath indexPathForItem:[first integerValue] inSection:0];
+    NSIndexPath *sameIndex = [NSIndexPath indexPathForItem:[second integerValue] inSection:0];
     BCVCell *cell = (BCVCell*)[self.cView cellForItemAtIndexPath:index];
+    BCVCell *sameCell = (BCVCell*)[self.cView cellForItemAtIndexPath:sameIndex];
     if(cell.labelFirstSuit.hidden==NO){
-        [cell setBackProperties];
-        [self.cView reloadData];
-        [timer invalidate];
-        self.timer.lock=NO;
-        NSLog(@"End Timer");
+        [UIView transitionWithView:cell.content duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+            [cell setBackProperties];
+        } completion:^(BOOL finished) {
+            [UIView transitionWithView:sameCell.content duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+                [sameCell setBackProperties];
+            } completion:^(BOOL finished) {
+                //[self.cView reloadData];
+                [timer invalidate];
+                self.timer.lock=NO;
+                NSLog(@"End Timer");
+            }];
+        }];
     }
     else{
-        [cell setForwardProperties];
+        [UIView transitionWithView:cell.content duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+            [cell setForwardProperties];
+        } completion:^(BOOL finished) {
+        }];
     }
 }
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

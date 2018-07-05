@@ -21,7 +21,6 @@
     [self.name setFont:[UIFont boldSystemFontOfSize:size]];
     [self.position setFont:[UIFont boldSystemFontOfSize:size]];
     [self.score setFont:[UIFont boldSystemFontOfSize:size]];
-    
 }
 
 @end

@@ -19,5 +19,6 @@ typedef enum
 
 @interface Cards : Deck
 - (BOOL) makeTaskAtIndex:(NSInteger)index :(TableOption)option;
+- (int) getFirstSameStateCardNumberWithNotEqualNumber:(NSInteger)noEqual;
 - (GameState) getGameState;
 @end

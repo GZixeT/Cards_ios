@@ -14,6 +14,7 @@
 #define TABLE_ONE_CARD_OPEN 1
 #define TABLE_TWO_CARDS_OPEN 2
 
+#define ERROR_SEACHING -10
 
 @implementation Cards
 + (instancetype) createRandomDeck:(NSInteger)count
@@ -82,5 +83,15 @@
         }break;
     }
     return GameStateError;
+}
+- (int) getFirstSameStateCardNumberWithNotEqualNumber:(NSInteger)noEqual {
+    GameCard *equal = self.deck[noEqual];
+    for(int i = 0; i <self.deck.count; i++) {
+        GameCard *card = self.deck[i];
+        if(card.state == equal.state){
+            if(i != noEqual) return i;
+        }
+    }
+    return ERROR_SEACHING;
 }
 @end
